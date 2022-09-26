@@ -9,11 +9,28 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var learningButton: UIButton!
+    @IBOutlet weak var trainingButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "learning":
+            if let learningVC = segue.destination as? LearningViewController {
+                
+            }
+        case "repetition":
+            if let trainingVC = segue.destination as? TrainingViewController {
+                
+            }
+        default:
+            break
+        }
+    }
 }
+
+
 

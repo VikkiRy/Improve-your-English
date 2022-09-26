@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Topic" representedClassName="Topic" syncable="YES" codeGenerationType="class">
-        <attribute name="isUser" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
+    <entity name="Topic1" representedClassName="Topic1" syncable="YES">
+        <attribute name="title" attributeType="String"/>
         <attribute name="words" optional="YES" attributeType="String"/>
+        <relationship name="topicToWord" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Word" inverseName="wordToTopic" inverseEntity="Word"/>
+    </entity>
+    <entity name="Word" representedClassName="Word" syncable="YES">
+        <attribute name="title" attributeType="String"/>
+        <relationship name="wordToTopic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic1" inverseName="topicToWord" inverseEntity="Topic1"/>
     </entity>
     <elements>
-        <element name="Topic" positionX="-45" positionY="0" width="128" height="74"/>
+        <element name="Topic1" positionX="-45" positionY="0" width="128" height="88"/>
+        <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="73"/>
     </elements>
 </model>

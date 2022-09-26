@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Learn-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,14 +30,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqC-ey-jfm">
-                                <rect key="frame" x="20" y="254" width="335" height="95"/>
+                                <rect key="frame" x="20" y="247" width="335" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="5r1-eY-J7v"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="medium" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="large" titleAlignment="center">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Изучение">
+                                        <fragment content="Learning">
                                             <attributes>
                                                 <font key="NSFont" size="36" name="AmericanTypewriter-Bold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -47,17 +47,17 @@
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="Dis-Bb-ILM" kind="show" id="Yrh-ua-dK5"/>
+                                    <segue destination="Dis-Bb-ILM" kind="show" identifier="learning" id="Yrh-ua-dK5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-6k-pHw">
-                                <rect key="frame" x="20" y="384" width="335" height="44"/>
+                                <rect key="frame" x="20" y="377" width="335" height="58.333333333333314"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="medium" titleAlignment="center">
+                                <buttonConfiguration key="configuration" style="tinted" cornerStyle="large" titleAlignment="center">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Повторение изученного">
+                                        <fragment content="Training">
                                             <attributes>
-                                                <font key="NSFont" size="24" name="AmericanTypewriter-Bold"/>
+                                                <font key="NSFont" size="36" name="AmericanTypewriter-Bold"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
@@ -65,7 +65,7 @@
                                     <color key="baseBackgroundColor" systemColor="tintColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="qDd-Ri-Ham" kind="show" id="1Ub-uN-atE"/>
+                                    <segue destination="qDd-Ri-Ham" kind="show" identifier="repetition" id="1Ub-uN-atE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,7 +89,12 @@
                             <constraint firstItem="ynH-Wn-uxP" firstAttribute="top" secondItem="0GK-7a-M07" secondAttribute="bottom" id="uvz-jg-1UZ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Learn" image="graduationcap" catalog="system" id="QBc-l2-oaI"/>
                     <navigationItem key="navigationItem" id="2Vw-ob-xas"/>
+                    <connections>
+                        <outlet property="learningButton" destination="qqC-ey-jfm" id="31F-a8-AFg"/>
+                        <outlet property="trainingButton" destination="cgb-6k-pHw" id="nWC-76-V8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -137,10 +142,10 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="385.71428571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--Learning View Controller-->
         <scene sceneID="JNC-Wi-0cT">
             <objects>
-                <viewController id="Dis-Bb-ILM" sceneMemberID="viewController">
+                <viewController id="Dis-Bb-ILM" customClass="LearningViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ALF-Og-YRx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,10 +237,10 @@
             </objects>
             <point key="canvasLocation" x="-191" y="1159"/>
         </scene>
-        <!--View Controller-->
+        <!--Training View Controller-->
         <scene sceneID="4Er-y8-LZG">
             <objects>
-                <viewController id="qDd-Ri-Ham" sceneMemberID="viewController">
+                <viewController id="qDd-Ri-Ham" customClass="TrainingViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ls8-fz-uH4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -440,7 +445,7 @@
         <!--Settings-->
         <scene sceneID="Jfh-mS-ctQ">
             <objects>
-                <viewController id="afW-OZ-rjw" sceneMemberID="viewController">
+                <viewController id="afW-OZ-rjw" customClass="SettingsViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5h4-7T-NPE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,11 +456,33 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Add custom topic"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-0M-Fft">
+                                <rect key="frame" x="15" y="44" width="360" height="216"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current topic" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-tc-0BS">
+                                        <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="216"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yt-Sz-wE8">
+                                        <rect key="frame" x="95.333333333333343" y="0.0" width="264.66666666666663" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X65-uR-fbV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gXd-0M-Fft" firstAttribute="top" secondItem="X65-uR-fbV" secondAttribute="top" id="6CU-vO-wIs"/>
+                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="gXd-0M-Fft" secondAttribute="trailing" id="qmg-6Z-ylB"/>
+                            <constraint firstItem="gXd-0M-Fft" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="15" id="tqO-v1-A33"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Osi-0b-lRg"/>
+                    <connections>
+                        <outlet property="topicsPicker" destination="7yt-Sz-wE8" id="MDc-i3-hko"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4W-Jh-kOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -491,9 +518,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="6s3-kG-Tnp" kind="relationship" relationship="viewControllers" id="8mK-gH-0FC"/>
-                        <segue destination="afW-OZ-rjw" kind="relationship" relationship="viewControllers" id="nne-Os-Wwr"/>
-                        <segue destination="mSK-CT-Itx" kind="relationship" relationship="viewControllers" id="u1j-jE-aeg"/>
+                        <segue destination="6s3-kG-Tnp" kind="relationship" relationship="viewControllers" id="rdn-y0-Epa"/>
+                        <segue destination="mSK-CT-Itx" kind="relationship" relationship="viewControllers" id="fzn-0O-igw"/>
+                        <segue destination="afW-OZ-rjw" kind="relationship" relationship="viewControllers" id="ag3-BG-BRG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiX-sr-97i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -502,7 +529,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="313" height="313"/>
+        <image name="Logo" width="208.66667175292969" height="208.66667175292969"/>
         <image name="chart.line.uptrend.xyaxis.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
