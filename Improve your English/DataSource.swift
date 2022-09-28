@@ -8,23 +8,88 @@
 import Foundation
 import CoreData
 
-//var topics: [NSManagedObject] = []
+class TopicsContext {
+    var context: NSManagedObjectContext
+    
+    init(context: () -> NSManagedObjectContext) {
+        self.context = context()
+        defaultTopics()
+    }
+    
+    func defaultTopics() {
+        let hobbys = [
+            "fishing",
+            "hunting",
+            "blogging",
+            "billiards",
+            "darts",
+            "hiking",
+            "body art",
+            "gardening",
+            "singing",
+            "golf"
+        ]
+        
+        let foods = [
+            "sandwich",
+            "cake",
+            "cheese",
+            "sausages",
+            "salad",
+            "soup",
+            "potato",
+            "tomato",
+            "butter",
+            "ice-cream"
+        ]
+        
+        let sports = [
+            "swimming",
+            "cycling",
+            "tennis",
+            "boxing",
+            "gymnastics",
+            "golf",
+            "basketball",
+            "football",
+            "volleyball",
+            "baseball"
+        ]
+        
+        let topics = [
+            "Hobbys": hobbys,
+            "Foods": foods,
+            "Sports": sports
+        ]
+        
+        topics.forEach { topic in
+            let newTopic = Topic(context: context)
+            newTopic.title = topic.key;
+            let topicWords = topic.value;
+            topicWords.forEach({ word in
+                let newWord = Word(context: context)
+                newWord.title = word
+                newWord.topic = newTopic
+            })
+        }
 
-let hobbyList = [
-    Word(title: "fishing"),
-    Word(title: "hunting"),
-    Word(title: "blogging"),
-    Word(title: "billiards"),
-    Word(title: "darts"),
-    Word(title: "hiking"),
-    Word(title: "body art"),
-    Word(title: "gardening"),
-    Word(title: "singing"),
-    Word(title: "golf")
-]
+        do {
+            try self.context.save()
+            let con = try context.fetch(Topic.fetchRequest())
+            con.forEach { topic in
+                print(topic.words)
+            }
+        } catch {
+            print(error)
+        }
+    }
+}
 
-let hobbys = Topic(title: "Hobby", words: hobbyList)
 
+
+
+
+/*
 let hobbysDescr = [
     "fishing": "the activity of catching fish, either for food or as a sport",
     "hunting": "the activity of hunting wild animals or game",
@@ -37,21 +102,6 @@ let hobbysDescr = [
     "singing": "the activity of performing songs or tunes by making musical sounds with the voice",
     "golf": "a game played on a large open-air course, in which a small hard ball is struck with a club into a series of small holes in the ground, the object being to use the fewest possible strokes to complete the course"
 ]
-
-let foodList = [
-    Word(title: "sandwich"),
-    Word(title: "cake"),
-    Word(title: "cheese"),
-    Word(title: "sausages"),
-    Word(title: "salad"),
-    Word(title: "soup"),
-    Word(title: "potato"),
-    Word(title: "tomato"),
-    Word(title: "butter"),
-    Word(title: "ice-cream")
-]
-
-let foods = Topic(title: "Food", words: foodList)
 
 let foodsDescr = [
     "sandwich": "an item of food consisting of two pieces of bread with a filling between them, eaten as a light meal",
@@ -66,19 +116,6 @@ let foodsDescr = [
     "ice-cream": "a soft, sweet frozen food made with milk and cream and typically flavoured with vanilla, fruit, or other ingredients"
 ]
 
-let sportList = [
-    Word(title: "swimming"),
-    Word(title: "cycling"),
-    Word(title: "tennis"),
-    Word(title: "boxing"),
-    Word(title: "gymnastics"),
-    Word(title: "golf"),
-    Word(title: "basketball"),
-    Word(title: "football"),
-    Word(title: "volleyball"),
-    Word(title: "baseball")
-]
-
 let sportsDescr = [
     "swimming": "the sport or activity of propelling oneself through water using the limbs",
     "cycling": "the sport or activity of riding a bicycle",
@@ -91,8 +128,4 @@ let sportsDescr = [
     "volleyball": "a game for two teams, usually of six players, in which a large ball is hit by hand over a high net, the aim being to score points by making the ball reach the ground on the opponent's side of the court",
     "baseball": "a ball game played between two teams of nine on a diamond-shaped circuit of four bases. It is played chiefly as a warm-weather sport in the US and Canada"
 ]
-
-
-let sports = Topic(title: "Job", words: sportList)
-
-var topics = [hobbys, foods, sports]
+*/

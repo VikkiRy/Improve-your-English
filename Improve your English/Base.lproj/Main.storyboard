@@ -450,38 +450,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oC-bX-DrI">
-                                <rect key="frame" x="120" y="419" width="138" height="27"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oC-bX-DrI">
+                                <rect key="frame" x="118.66666666666667" y="390.66666666666669" width="137.66666666666663" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Add custom topic"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-0M-Fft">
-                                <rect key="frame" x="15" y="44" width="360" height="216"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZ2-qP-G0r" userLabel="Words Stack View">
+                                <rect key="frame" x="0.0" y="44" width="375" height="32"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current topic" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jut-tc-0BS">
-                                        <rect key="frame" x="0.0" y="0.0" width="95.333333333333329" height="216"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of words:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Tk-Wom">
+                                        <rect key="frame" x="0.0" y="0.33333333333333393" width="181.33333333333334" height="31.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yt-Sz-wE8">
-                                        <rect key="frame" x="95.333333333333343" y="0.0" width="264.66666666666663" height="216"/>
-                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqm-xW-m4W">
+                                        <rect key="frame" x="217.33333333333334" y="0.33333333333333748" width="28" height="31.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-7h-8tE">
+                                        <rect key="frame" x="281" y="0.0" width="94" height="32"/>
+                                    </stepper>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="hbm-Mr-Mbz"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="anX-si-jnp" userLabel="Topics Stack View">
+                                <rect key="frame" x="0.0" y="76" width="375" height="304.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topics:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq0-1s-gTX">
+                                        <rect key="frame" x="0.0" y="136.66666666666666" width="80" height="31.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-i5-eHc">
+                                        <rect key="frame" x="80" y="0.0" width="295" height="304.66666666666669"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Egw-Kx-1ic">
+                                                <rect key="frame" x="0.0" y="44.666666030883789" width="295" height="43.666667938232422"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Egw-Kx-1ic" id="80n-my-WeO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="295" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3cL-i5-eHc" secondAttribute="bottom" id="4pu-zr-AE5"/>
+                                    <constraint firstItem="3cL-i5-eHc" firstAttribute="top" secondItem="anX-si-jnp" secondAttribute="top" id="gr2-M8-smy"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X65-uR-fbV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gXd-0M-Fft" firstAttribute="top" secondItem="X65-uR-fbV" secondAttribute="top" id="6CU-vO-wIs"/>
-                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="gXd-0M-Fft" secondAttribute="trailing" id="qmg-6Z-ylB"/>
-                            <constraint firstItem="gXd-0M-Fft" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="15" id="tqO-v1-A33"/>
+                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="anX-si-jnp" secondAttribute="trailing" id="3Nt-eG-bMK"/>
+                            <constraint firstItem="0oC-bX-DrI" firstAttribute="top" secondItem="anX-si-jnp" secondAttribute="bottom" constant="10" id="3UV-c0-DAb"/>
+                            <constraint firstItem="anX-si-jnp" firstAttribute="top" secondItem="cZ2-qP-G0r" secondAttribute="bottom" id="6lR-fi-D6r"/>
+                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="cZ2-qP-G0r" secondAttribute="trailing" id="9NB-k0-Qek"/>
+                            <constraint firstItem="0oC-bX-DrI" firstAttribute="centerX" secondItem="5h4-7T-NPE" secondAttribute="centerX" id="FTi-jr-yT8"/>
+                            <constraint firstItem="anX-si-jnp" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" id="Oef-BV-eCN"/>
+                            <constraint firstItem="cZ2-qP-G0r" firstAttribute="top" secondItem="X65-uR-fbV" secondAttribute="top" id="bAx-9Q-Mma"/>
+                            <constraint firstItem="0oC-bX-DrI" firstAttribute="centerY" secondItem="5h4-7T-NPE" secondAttribute="centerY" id="bFd-jO-FO8"/>
+                            <constraint firstItem="cZ2-qP-G0r" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" id="ckk-7w-e6G"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Osi-0b-lRg"/>
                     <connections>
-                        <outlet property="topicsPicker" destination="7yt-Sz-wE8" id="MDc-i3-hko"/>
+                        <outlet property="tableView" destination="3cL-i5-eHc" id="EYX-YE-imE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4W-Jh-kOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
