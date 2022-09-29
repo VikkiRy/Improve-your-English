@@ -24,6 +24,7 @@
 		619B562528DB496600C22044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619B562328DB496600C22044 /* LaunchScreen.storyboard */; };
 		619B562D28DB4AF400C22044 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B562C28DB4AF400C22044 /* DataSource.swift */; };
 		61DCD83228E1C952004D1FD3 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCD83128E1C952004D1FD3 /* LearningViewController.swift */; };
+		61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E794F428E47FB20022B9ED /* DefaultValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		619B562628DB496600C22044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619B562C28DB4AF400C22044 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		61DCD83128E1C952004D1FD3 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
+		61E794F428E47FB20022B9ED /* DefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +99,7 @@
 				6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */,
 				612C2E9E28E44E3700D3757B /* Custom Cell */,
 				619B561928DB496400C22044 /* MainViewController.swift */,
-				619B562C28DB4AF400C22044 /* DataSource.swift */,
+				61F47C6D28E5A3EF00F81DA6 /* DefaultTopics */,
 				617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */,
 				61DCD83128E1C952004D1FD3 /* LearningViewController.swift */,
 				619B562128DB496600C22044 /* Assets.xcassets */,
@@ -106,6 +108,15 @@
 				619B561E28DB496400C22044 /* Improve_your_English.xcdatamodeld */,
 			);
 			path = "Improve your English";
+			sourceTree = "<group>";
+		};
+		61F47C6D28E5A3EF00F81DA6 /* DefaultTopics */ = {
+			isa = PBXGroup;
+			children = (
+				619B562C28DB4AF400C22044 /* DataSource.swift */,
+				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
+			);
+			path = DefaultTopics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +200,7 @@
 				619B562028DB496400C22044 /* Improve_your_English.xcdatamodeld in Sources */,
 				619B562D28DB4AF400C22044 /* DataSource.swift in Sources */,
 				612C2EA628E45E2A00D3757B /* Topic+CoreDataProperties.swift in Sources */,
+				61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */,
 				617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */,
 				619B561828DB496400C22044 /* SceneDelegate.swift in Sources */,
 				6187A61D28DDEE4E00ED9C93 /* SettingsViewController.swift in Sources */,

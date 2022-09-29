@@ -20,11 +20,10 @@ class SettingsViewController: UIViewController {
     }
 }
 
-/*extension SettingsViewController: UITableViewDataSource {
+/*
+ extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         <#code#>
     }
-    
-    
 }
  */

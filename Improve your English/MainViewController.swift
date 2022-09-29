@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var learningButton: UIButton!
     @IBOutlet weak var trainingButton: UIButton!
     
-    var context = TopicsContext {
+    let defaultTopics = DefaultTopics {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         return context
@@ -21,7 +21,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        defaultTopics.createDefaultTopics()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
