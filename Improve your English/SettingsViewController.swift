@@ -30,21 +30,16 @@ class SettingsViewController: UIViewController {
     }
     
     private func updateUI() {
-        let nibCell = UINib(nibName: "CustomTableViewCell", bundle: nil)
-        tableView.register(nibCell, forCellReuseIdentifier: "topicCell")
-        
         tableView.dataSource = self
     }
-    /*
+    
     @IBAction func stepperPressed(_ sender: UIStepper) {
         wordsCountLabel.text = String(Int(sender.value))
     }
-     */
 }
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(topics.count)
         return topics.count
     }
     
@@ -55,14 +50,4 @@ extension SettingsViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    /*
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! CustomTableViewCell
-         
-         cell.topicTitleLabel.text = topics[indexPath.row].title
-         
-         return cell
-     }
-     */
 }

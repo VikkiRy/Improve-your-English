@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		612C2E9C28E44DE300D3757B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */; };
-		612C2E9D28E44DE300D3757B /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612C2E9B28E44DE300D3757B /* CustomTableViewCell.xib */; };
 		617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */; };
 		6187A61D28DDEE4E00ED9C93 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */; };
 		619B561628DB496400C22044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B561528DB496400C22044 /* AppDelegate.swift */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		612C2E9B28E44DE300D3757B /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		619B561228DB496400C22044 /* Improve your English.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Improve your English.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,15 +63,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		612C2E9E28E44E3700D3757B /* Custom Topic Cell */ = {
-			isa = PBXGroup;
-			children = (
-				612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */,
-				612C2E9B28E44DE300D3757B /* CustomTableViewCell.xib */,
-			);
-			path = "Custom Topic Cell";
-			sourceTree = "<group>";
-		};
 		619B560928DB496400C22044 = {
 			isa = PBXGroup;
 			children = (
@@ -100,9 +89,9 @@
 				619B561528DB496400C22044 /* AppDelegate.swift */,
 				619B561728DB496400C22044 /* SceneDelegate.swift */,
 				619B561B28DB496400C22044 /* Main.storyboard */,
-				61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */,
 				6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */,
-				612C2E9E28E44E3700D3757B /* Custom Topic Cell */,
+				61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */,
+				612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */,
 				619B561928DB496400C22044 /* MainViewController.swift */,
 				61F47C6D28E5A3EF00F81DA6 /* DefaultTopics */,
 				61F47C6E28E5CBFD00F81DA6 /* TopicRepository.swift */,
@@ -185,7 +174,6 @@
 			files = (
 				619B562528DB496600C22044 /* LaunchScreen.storyboard in Resources */,
 				619B562228DB496600C22044 /* Assets.xcassets in Resources */,
-				612C2E9D28E44DE300D3757B /* CustomTableViewCell.xib in Resources */,
 				619B561D28DB496400C22044 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
