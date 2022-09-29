@@ -9,6 +9,8 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var topicTitleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

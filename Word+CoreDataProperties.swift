@@ -2,7 +2,7 @@
 //  Word+CoreDataProperties.swift
 //  Improve your English
 //
-//  Created by Viktoria Misiulia on 28/09/2022.
+//  Created by Viktoria Misiulia on 29/09/2022.
 //
 //
 

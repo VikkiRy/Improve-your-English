@@ -16,7 +16,11 @@ struct DefaultTopics {
     }
     
     func createDefaultTopics() {
-        let topicsTitle = fetchTopicsTitle()
+        let topics = TopicRepository.topics(context: context)
+        
+        let topicsTitle = topics.map { topic in
+            return topic.title!
+        }
         
         for topic in defaultTopics {
             
@@ -33,38 +37,7 @@ struct DefaultTopics {
                 newWord.topic = newTopic
             }
             
-            do {
-                try self.context.save()
-            } catch {
-                print(error)
-            }
+            TopicRepository.save(context: context)
         }
-    }
-    
-    private func fetchTopicsTitle() -> [String] {
-        let topics = coreDataTopics()
-        
-        guard !topics.isEmpty else {
-            return []
-        }
-        
-        var topicsTitle: [String] = []
-        
-        topics.forEach { topic in
-            if let topicTitle = topic.title {
-                topicsTitle.append(topicTitle)
-            }
-        }
-        return topicsTitle
-    }
-    
-    private func coreDataTopics() -> [Topic] {
-        do {
-            let topics = try context.fetch(Topic.fetchRequest())
-            return topics
-        } catch {
-            print(error)
-        }
-        return []
     }
 }
