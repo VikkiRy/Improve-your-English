@@ -442,14 +442,13 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="mXr-Y3-HG9" secondAttribute="trailing" constant="50" id="G5o-fU-2ge"/>
-                                                <constraint firstItem="mXr-Y3-HG9" firstAttribute="centerY" secondItem="axU-Fw-VKG" secondAttribute="centerY" id="rk3-5L-wD9"/>
-                                                <constraint firstItem="mXr-Y3-HG9" firstAttribute="leading" secondItem="axU-Fw-VKG" secondAttribute="leading" constant="20" id="uB3-Ec-CZb"/>
+                                                <constraint firstAttribute="trailing" secondItem="mXr-Y3-HG9" secondAttribute="trailing" constant="50" id="DZH-bz-yKw"/>
+                                                <constraint firstItem="mXr-Y3-HG9" firstAttribute="leading" secondItem="axU-Fw-VKG" secondAttribute="leading" constant="20" id="IyL-2p-tGu"/>
+                                                <constraint firstItem="mXr-Y3-HG9" firstAttribute="centerY" secondItem="axU-Fw-VKG" secondAttribute="centerY" id="Le9-qN-IgT"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="wordLabel" destination="mXr-Y3-HG9" id="4Au-xk-xEk"/>
-                                            <outlet property="wordLabelLeadingLayoutConstraint" destination="uB3-Ec-CZb" id="f2j-fB-8Vm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -485,6 +484,9 @@
                                 <rect key="frame" x="118.66666666666667" y="390.66666666666669" width="137.66666666666663" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Add custom topic"/>
+                                <connections>
+                                    <action selector="addTopicButtonPressed:" destination="afW-OZ-rjw" eventType="touchUpInside" id="vP0-T8-xHr"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZ2-qP-G0r" userLabel="Words Stack View">
                                 <rect key="frame" x="10" y="88" width="355" height="32"/>
@@ -576,6 +578,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9IR-ny-eow"/>
                     <connections>
+                        <outlet property="addTopicButton" destination="0oC-bX-DrI" id="p2g-Uh-oYO"/>
                         <outlet property="stepper" destination="mCx-7h-8tE" id="GMp-Iv-Ngv"/>
                         <outlet property="tableView" destination="3cL-i5-eHc" id="FKI-dt-qA5"/>
                         <outlet property="wordsCountLabel" destination="Nqm-xW-m4W" id="Fcu-00-LoZ"/>

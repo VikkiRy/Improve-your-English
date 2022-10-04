@@ -13,7 +13,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordsCountLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var addTopicButton: UIButton!
     
+    var container = CoreDataManager()
     var topics = TopicRepository.topics
     var selectedTopic: Topic?
     
@@ -25,6 +27,26 @@ class SettingsViewController: UIViewController {
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         wordsCountLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction func addTopicButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: nil, message: "Enter topic name", preferredStyle: .alert)
+        
+        alert.addTextField()
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let doneAction = UIAlertAction(title: "Done", style: .default) { action in
+            let newTpoic = Topic(context: self.container.context)
+            newTpoic.title = alert.textFields?.first?.text
+            
+            self.container.save()
+            self.reloadData()
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(doneAction)
+        self.present(alert, animated: true)
+        
     }
     
     private func updateUI() {
@@ -41,6 +63,16 @@ class SettingsViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    private func reloadData() {
+        do {
+            topics = try container.context.fetch(Topic.fetchRequest())
+        } catch {
+            print(error)
+        }
+        
+        tableView.reloadData()
     }
 }
 
