@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		612C2E9C28E44DE300D3757B /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */; };
+		612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */; };
+		612C878E28EACB82004DBE5F /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C878D28EACB82004DBE5F /* WordTableViewCell.swift */; };
 		617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */; };
 		6187A61D28DDEE4E00ED9C93 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */; };
 		619B561628DB496400C22044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B561528DB496400C22044 /* AppDelegate.swift */; };
@@ -18,9 +19,10 @@
 		619B562228DB496600C22044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619B562128DB496600C22044 /* Assets.xcassets */; };
 		619B562528DB496600C22044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619B562328DB496600C22044 /* LaunchScreen.storyboard */; };
 		619B562D28DB4AF400C22044 /* DefaultTopics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619B562C28DB4AF400C22044 /* DefaultTopics.swift */; };
+		61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633328EAE639004BC096 /* CoreDataManager.swift */; };
 		61DCD83228E1C952004D1FD3 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCD83128E1C952004D1FD3 /* LearningViewController.swift */; };
 		61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E794F428E47FB20022B9ED /* DefaultValue.swift */; };
-		61F47C6F28E5CBFD00F81DA6 /* TopicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C6E28E5CBFD00F81DA6 /* TopicRepository.swift */; };
+		61F47C6F28E5CBFD00F81DA6 /* TopicsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */; };
 		61F47C7428E5CEE100F81DA6 /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C7028E5CEE100F81DA6 /* Topic+CoreDataClass.swift */; };
 		61F47C7528E5CEE100F81DA6 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C7128E5CEE100F81DA6 /* Topic+CoreDataProperties.swift */; };
 		61F47C7628E5CEE100F81DA6 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C7228E5CEE100F81DA6 /* Word+CoreDataClass.swift */; };
@@ -29,7 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
+		612C878D28EACB82004DBE5F /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 		617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		619B561228DB496400C22044 /* Improve your English.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Improve your English.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,9 +45,10 @@
 		619B562428DB496600C22044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619B562628DB496600C22044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619B562C28DB4AF400C22044 /* DefaultTopics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTopics.swift; sourceTree = "<group>"; };
+		61B0633328EAE639004BC096 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		61DCD83128E1C952004D1FD3 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		61E794F428E47FB20022B9ED /* DefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValue.swift; sourceTree = "<group>"; };
-		61F47C6E28E5CBFD00F81DA6 /* TopicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicRepository.swift; sourceTree = "<group>"; };
+		61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsRepository.swift; sourceTree = "<group>"; };
 		61F47C7028E5CEE100F81DA6 /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		61F47C7128E5CEE100F81DA6 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61F47C7228E5CEE100F81DA6 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -89,12 +93,12 @@
 				619B561528DB496400C22044 /* AppDelegate.swift */,
 				619B561728DB496400C22044 /* SceneDelegate.swift */,
 				619B561B28DB496400C22044 /* Main.storyboard */,
-				6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */,
-				61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */,
-				612C2E9A28E44DE300D3757B /* CustomTableViewCell.swift */,
-				619B561928DB496400C22044 /* MainViewController.swift */,
+				61B0633228EACE3A004BC096 /* WordsVC */,
+				61B0633128EACE29004BC096 /* SettingsVC */,
 				61F47C6D28E5A3EF00F81DA6 /* DefaultTopics */,
-				61F47C6E28E5CBFD00F81DA6 /* TopicRepository.swift */,
+				61B0633328EAE639004BC096 /* CoreDataManager.swift */,
+				61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */,
+				619B561928DB496400C22044 /* MainViewController.swift */,
 				617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */,
 				61DCD83128E1C952004D1FD3 /* LearningViewController.swift */,
 				619B562128DB496600C22044 /* Assets.xcassets */,
@@ -103,6 +107,24 @@
 				619B561E28DB496400C22044 /* Improve_your_English.xcdatamodeld */,
 			);
 			path = "Improve your English";
+			sourceTree = "<group>";
+		};
+		61B0633128EACE29004BC096 /* SettingsVC */ = {
+			isa = PBXGroup;
+			children = (
+				6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */,
+				612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */,
+			);
+			path = SettingsVC;
+			sourceTree = "<group>";
+		};
+		61B0633228EACE3A004BC096 /* WordsVC */ = {
+			isa = PBXGroup;
+			children = (
+				61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */,
+				612C878D28EACB82004DBE5F /* WordTableViewCell.swift */,
+			);
+			path = WordsVC;
 			sourceTree = "<group>";
 		};
 		61F47C6D28E5A3EF00F81DA6 /* DefaultTopics */ = {
@@ -191,16 +213,18 @@
 				619B561628DB496400C22044 /* AppDelegate.swift in Sources */,
 				61F47C7628E5CEE100F81DA6 /* Word+CoreDataClass.swift in Sources */,
 				61F47C7428E5CEE100F81DA6 /* Topic+CoreDataClass.swift in Sources */,
+				61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */,
 				619B562028DB496400C22044 /* Improve_your_English.xcdatamodeld in Sources */,
 				619B562D28DB4AF400C22044 /* DefaultTopics.swift in Sources */,
 				61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */,
 				61F47C7728E5CEE100F81DA6 /* Word+CoreDataProperties.swift in Sources */,
 				617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */,
 				61F47C7528E5CEE100F81DA6 /* Topic+CoreDataProperties.swift in Sources */,
+				612C878E28EACB82004DBE5F /* WordTableViewCell.swift in Sources */,
 				619B561828DB496400C22044 /* SceneDelegate.swift in Sources */,
 				6187A61D28DDEE4E00ED9C93 /* SettingsViewController.swift in Sources */,
-				612C2E9C28E44DE300D3757B /* CustomTableViewCell.swift in Sources */,
-				61F47C6F28E5CBFD00F81DA6 /* TopicRepository.swift in Sources */,
+				612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */,
+				61F47C6F28E5CBFD00F81DA6 /* TopicsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

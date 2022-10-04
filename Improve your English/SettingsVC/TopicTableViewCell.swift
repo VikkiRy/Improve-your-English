@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class TopicTableViewCell: UITableViewCell {
 
     @IBOutlet weak var topicTitleLabel: UILabel!
     
