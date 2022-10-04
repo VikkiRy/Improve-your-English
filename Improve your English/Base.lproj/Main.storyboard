@@ -463,9 +463,16 @@
                             <constraint firstItem="KDL-nM-Mqa" firstAttribute="leading" secondItem="ANd-e2-15P" secondAttribute="leading" id="qtw-3k-mfW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="foo-bw-TtO"/>
+                    <navigationItem key="navigationItem" id="foo-bw-TtO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fki-4j-QJQ">
+                            <connections>
+                                <action selector="addWordButtonPressed:" destination="fby-yK-SuC" id="WVS-Jx-8jd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="tabelView" destination="KDL-nM-Mqa" id="YVP-vD-NWB"/>
+                        <outlet property="addWordButton" destination="fki-4j-QJQ" id="e9W-Xg-eG0"/>
+                        <outlet property="tableView" destination="KDL-nM-Mqa" id="YVP-vD-NWB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-A5-Ibr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

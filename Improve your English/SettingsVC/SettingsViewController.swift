@@ -15,14 +15,14 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var addTopicButton: UIButton!
     
-    var container = CoreDataManager()
-    var topics = TopicRepository.topics
+    var topics: [Topic]!
     var selectedTopic: Topic?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI()
+        reloadData()
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
@@ -36,11 +36,10 @@ class SettingsViewController: UIViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let doneAction = UIAlertAction(title: "Done", style: .default) { action in
-            let newTpoic = Topic(context: self.container.context)
-            newTpoic.title = alert.textFields?.first?.text
-            
-            self.container.save()
-            self.reloadData()
+            if let text = alert.textFields?.first?.text {
+                let _ = TopicRepository.shared.createTopic(topicTitle: text)
+                self.reloadData()
+            }
         }
         
         alert.addAction(cancelAction)
@@ -59,19 +58,13 @@ class SettingsViewController: UIViewController {
             if let wordsVC = segue.destination as? WordsViewController {
                 if let topic = selectedTopic {
                     wordsVC.topic = topic
-                    wordsVC.topicWords = TopicRepository.words(for: topic)
                 }
             }
         }
     }
     
     private func reloadData() {
-        do {
-            topics = try container.context.fetch(Topic.fetchRequest())
-        } catch {
-            print(error)
-        }
-        
+        topics = TopicRepository.shared.topics()
         tableView.reloadData()
     }
 }

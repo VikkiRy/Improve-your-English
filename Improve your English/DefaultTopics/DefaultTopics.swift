@@ -9,27 +9,18 @@ import Foundation
 import CoreData
 
 struct DefaultTopics {
-    var container = CoreDataManager()
     
-    init() {
-        let topics = TopicRepository.topics
+    static func createDefaultTopics() {
+        let topics = TopicRepository.shared.topics()
         
         if topics.isEmpty {
-            createDefaultTopics()
-        }
-    }
-    
-    func createDefaultTopics() {
-        for topic in defaultTopics {
-            let newTopic = Topic(context: container.context)
-            newTopic.title = topic.key
+            defaultTopics.forEach { topic in
+                let newTopic = TopicRepository.shared.createTopic(topicTitle: topic.key, isUserTopic: false)
                 
-            topic.value.forEach { word in
-                let newWord = Word(context: container.context)
-                newWord.title = word
-                newWord.topic = newTopic
+                topic.value.forEach { word in
+                    TopicRepository.shared.createWord(wordTitle: word, for: newTopic)
+                }
             }
-            container.save()
         }
     }
 }

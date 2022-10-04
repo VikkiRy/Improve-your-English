@@ -10,7 +10,9 @@ import CoreData
 
 class WordsViewController: UIViewController {
     
-    @IBOutlet weak var tabelView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addWordButton: UIBarButtonItem!
+    
     var topic: Topic!
     var topicWords: [Word]!
 
@@ -18,10 +20,42 @@ class WordsViewController: UIViewController {
         super.viewDidLoad()
         
         updateUI()
+        reloadData()
+    }
+    
+    @IBAction func addWordButtonPressed(_ sender: UIBarButtonItem) {
+        if topic.isUserTopic == false {
+            let alert = UIAlertController(title: nil, message: "Sorry, you can add words only to your own topics", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: nil, message: "Enter new word", preferredStyle: .alert)
+            
+            alert.addTextField()
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            let doneAction = UIAlertAction(title: "Done", style: .default) { action in
+                if let word = alert.textFields?.first?.text {
+                    TopicRepository.shared.createWord(wordTitle: word, for: self.topic)
+                    self.reloadData()
+                }
+            }
+            
+            alert.addAction(cancelAction)
+            alert.addAction(doneAction)
+            self.present(alert, animated: true)
+        }
     }
     
     private func updateUI() {
-        tabelView.dataSource = self
+        tableView.dataSource = self
+    }
+    
+    private func reloadData() {
+        topicWords = TopicRepository.shared.words(for: topic)
+        tableView.reloadData()
     }
 }
 

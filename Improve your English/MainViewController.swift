@@ -13,12 +13,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var learningButton: UIButton!
     @IBOutlet weak var trainingButton: UIButton!
     
-    let defaultTopics = DefaultTopics()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        DefaultTopics.createDefaultTopics()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

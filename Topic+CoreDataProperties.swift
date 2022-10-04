@@ -2,7 +2,7 @@
 //  Topic+CoreDataProperties.swift
 //  Improve your English
 //
-//  Created by Viktoria Misiulia on 29/09/2022.
+//  Created by Viktoria Misiulia on 04/10/2022.
 //
 //
 
@@ -17,6 +17,7 @@ extension Topic {
     }
 
     @NSManaged public var title: String?
+    @NSManaged public var isUserTopic: Bool
     @NSManaged public var words: NSSet?
 
 }

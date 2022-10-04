@@ -8,22 +8,44 @@
 import Foundation
 
 class TopicRepository {
-    static var container = CoreDataManager()
+    static let shared = TopicRepository()
     
-    static var topics: [Topic] = {
+    private let dataManager = CoreDataManager.shared
+    
+    private init() {}
+    
+    func topics() -> [Topic] {
         var topics: [Topic] = []
         do {
-            topics = try container.context.fetch(Topic.fetchRequest())
+            topics = try CoreDataManager.shared.context.fetch(Topic.fetchRequest())
         } catch {
             print(error)
         }
         return topics
-    }()
+    }
     
-    static func words(for topic: Topic) -> [Word]? {
+    func words(for topic: Topic) -> [Word]? {
         if let words = topic.words {
             return words.allObjects as? [Word]
         }
         return nil
+    }
+    
+    func createTopic(topicTitle: String, isUserTopic: Bool = true) -> Topic {
+        let newTpoic = Topic(context: dataManager.context)
+        newTpoic.title = topicTitle
+        newTpoic.isUserTopic = true
+        
+        dataManager.save()
+        
+        return newTpoic
+    }
+    
+    func createWord(wordTitle: String, for topic: Topic) {
+        let newWord = Word(context: dataManager.context)
+        newWord.title = wordTitle
+        newWord.topic = topic
+        
+        dataManager.save()
     }
 }
