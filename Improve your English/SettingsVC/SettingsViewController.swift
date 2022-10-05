@@ -91,4 +91,8 @@ extension SettingsViewController: UITableViewDelegate {
         selectedTopic = topics[indexPath.row]
         return indexPath
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "wordsVC", sender: tableView)
+    }
 }

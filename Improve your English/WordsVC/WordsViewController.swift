@@ -60,6 +60,7 @@ class WordsViewController: UIViewController {
         topicWords = TopicRepository.shared.words(for: topic)
         tableView.reloadData()
     }
+    
 }
 
 extension WordsViewController: UITableViewDataSource {
@@ -70,7 +71,6 @@ extension WordsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as! WordTableViewCell
-        
         cell.wordLabel.text = topicWords[indexPath.row].title
         
         return cell

@@ -12,11 +12,11 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wordCell" id="KGk-i7-Jjw" customClass="WordTableViewCell" customModule="Improve_your_English" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM" customClass="WordTableViewCell" customModule="Improve_your_English" customModuleProvider="target">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-mK-Asz">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwT-Ke-ckv">
                         <rect key="frame" x="20" y="7.5" width="65.5" height="29"/>
                         <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
                         <nil key="textColor"/>
@@ -24,14 +24,14 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ugC-mK-Asz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="C0c-ot-SHQ"/>
-                    <constraint firstItem="ugC-mK-Asz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I9R-HZ-XlJ"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ugC-mK-Asz" secondAttribute="trailing" constant="50" id="fnW-sI-QIF"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FwT-Ke-ckv" secondAttribute="trailing" constant="50" id="9od-K1-Uje"/>
+                    <constraint firstItem="FwT-Ke-ckv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="d81-Wh-jU4"/>
+                    <constraint firstItem="FwT-Ke-ckv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nHq-TL-LdA"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="wordLabel" destination="ugC-mK-Asz" id="UkN-JD-awn"/>
+                <outlet property="wordLabel" destination="FwT-Ke-ckv" id="Vu4-bc-gDf"/>
             </connections>
             <point key="canvasLocation" x="139" y="86"/>
         </tableViewCell>

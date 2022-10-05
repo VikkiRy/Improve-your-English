@@ -9,8 +9,7 @@ import UIKit
 
 class TopicTableViewCell: UITableViewCell {
 
-
-    @IBOutlet var topicTitleLabel: UILabel!
+    @IBOutlet weak var topicTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

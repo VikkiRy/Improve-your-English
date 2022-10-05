@@ -9,14 +9,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicCell" id="KGk-i7-Jjw" customClass="TopicTableViewCell" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="topicCell" id="KGk-i7-Jjw" customClass="TopicTableViewCell" customModule="Improve_your_English" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="295.5" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-mK-Asz">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzC-MP-NVl">
                         <rect key="frame" x="20" y="6.5" width="64" height="31.5"/>
                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                         <nil key="textColor"/>
@@ -24,15 +24,14 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ugC-mK-Asz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="C0c-ot-SHQ"/>
-                    <constraint firstItem="ugC-mK-Asz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I9R-HZ-XlJ"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ugC-mK-Asz" secondAttribute="trailing" constant="50" id="fnW-sI-QIF"/>
+                    <constraint firstItem="wzC-MP-NVl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="EzX-GQ-cyU"/>
+                    <constraint firstItem="wzC-MP-NVl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pW8-Js-1jz"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wzC-MP-NVl" secondAttribute="trailing" constant="50" id="v7l-1k-uAC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="topicTitleLabel" destination="ugC-mK-Asz" id="twy-Rv-gzK"/>
-                <outlet property="wordLabel" destination="ugC-mK-Asz" id="UkN-JD-awn"/>
+                <outlet property="topicTitleLabel" destination="wzC-MP-NVl" id="uCM-cc-cRF"/>
             </connections>
             <point key="canvasLocation" x="139" y="86"/>
         </tableViewCell>
