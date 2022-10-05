@@ -24,6 +24,7 @@
 		61B0633A28EC6F0D004BC096 /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633628EC6F0D004BC096 /* Topic+CoreDataProperties.swift */; };
 		61B0633B28EC6F0D004BC096 /* Word+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633728EC6F0D004BC096 /* Word+CoreDataClass.swift */; };
 		61B0633C28EC6F0D004BC096 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633828EC6F0D004BC096 /* Word+CoreDataProperties.swift */; };
+		61B0634028ED6E32004BC096 /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B0633E28ED6E32004BC096 /* WordTableViewCell.xib */; };
 		61DCD83228E1C952004D1FD3 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCD83128E1C952004D1FD3 /* LearningViewController.swift */; };
 		61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E794F428E47FB20022B9ED /* DefaultValue.swift */; };
 		61F47C6F28E5CBFD00F81DA6 /* TopicsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */; };
@@ -50,6 +51,8 @@
 		61B0633628EC6F0D004BC096 /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61B0633728EC6F0D004BC096 /* Word+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataClass.swift"; sourceTree = "<group>"; };
 		61B0633828EC6F0D004BC096 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		61B0633E28ED6E32004BC096 /* WordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
+		61B0634128ED715A004BC096 /* TopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicTableViewCell.xib; sourceTree = "<group>"; };
 		61DCD83128E1C952004D1FD3 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		61E794F428E47FB20022B9ED /* DefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValue.swift; sourceTree = "<group>"; };
 		61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsRepository.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 			children = (
 				6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */,
 				612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */,
+				61B0634128ED715A004BC096 /* TopicTableViewCell.xib */,
 			);
 			path = SettingsVC;
 			sourceTree = "<group>";
@@ -123,6 +127,7 @@
 			children = (
 				61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */,
 				612C878D28EACB82004DBE5F /* WordTableViewCell.swift */,
+				61B0633E28ED6E32004BC096 /* WordTableViewCell.xib */,
 			);
 			path = WordsVC;
 			sourceTree = "<group>";
@@ -194,6 +199,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61B0634028ED6E32004BC096 /* WordTableViewCell.xib in Resources */,
 				619B562528DB496600C22044 /* LaunchScreen.storyboard in Resources */,
 				619B562228DB496600C22044 /* Assets.xcassets in Resources */,
 				619B561D28DB496400C22044 /* Main.storyboard in Resources */,

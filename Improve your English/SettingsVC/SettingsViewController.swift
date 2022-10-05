@@ -49,6 +49,9 @@ class SettingsViewController: UIViewController {
     }
     
     private func updateUI() {
+        let nibCell = UINib(nibName: "TopicTableViewCell", bundle: nil)
+        tableView.register(nibCell, forCellReuseIdentifier: "topicCell")
+        
         tableView.dataSource = self
         tableView.delegate = self
     }

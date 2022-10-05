@@ -50,6 +50,9 @@ class WordsViewController: UIViewController {
     }
     
     private func updateUI() {
+        let nibCell = UINib(nibName: "WordTableViewCell", bundle: nil)
+        tableView.register(nibCell, forCellReuseIdentifier: "wordCell")
+        
         tableView.dataSource = self
     }
     

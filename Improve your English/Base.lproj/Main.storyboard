@@ -424,34 +424,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-nM-Mqa">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="wordCell" id="z3r-4j-Wmz" customClass="WordTableViewCell" customModule="Improve_your_English" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.666666030883789" width="375" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3r-4j-Wmz" id="axU-Fw-VKG" customClass="WordTableViewCell" customModule="Improve_your_English" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXr-Y3-HG9">
-                                                    <rect key="frame" x="20" y="7.3333333333333321" width="305" height="28.999999999999996"/>
-                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="mXr-Y3-HG9" secondAttribute="trailing" constant="50" id="DZH-bz-yKw"/>
-                                                <constraint firstItem="mXr-Y3-HG9" firstAttribute="leading" secondItem="axU-Fw-VKG" secondAttribute="leading" constant="20" id="IyL-2p-tGu"/>
-                                                <constraint firstItem="mXr-Y3-HG9" firstAttribute="centerY" secondItem="axU-Fw-VKG" secondAttribute="centerY" id="Le9-qN-IgT"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="wordLabel" destination="mXr-Y3-HG9" id="4Au-xk-xEk"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ANd-e2-15P"/>
@@ -534,33 +508,6 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-i5-eHc">
                                         <rect key="frame" x="84" y="0.0" width="271" height="250.66666666666666"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="topicCell" id="2nD-de-5o9" customClass="TopicTableViewCell" customModule="Improve_your_English" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.666666030883789" width="271" height="43.666667938232422"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2nD-de-5o9" id="GrO-wm-UKL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="43.666667938232422"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ch-Ko-CGA">
-                                                            <rect key="frame" x="36" y="6.3333333333333339" width="169" height="31.333333333333329"/>
-                                                            <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="1ch-Ko-CGA" firstAttribute="centerY" secondItem="GrO-wm-UKL" secondAttribute="centerY" id="64H-VK-BWA"/>
-                                                        <constraint firstItem="1ch-Ko-CGA" firstAttribute="leading" secondItem="GrO-wm-UKL" secondAttribute="leadingMargin" constant="20" id="QRe-oN-m0g"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="1ch-Ko-CGA" secondAttribute="trailing" constant="50" id="hod-GV-tkb"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <connections>
-                                                    <outlet property="topicTitleLabel" destination="1ch-Ko-CGA" id="THl-0v-T1g"/>
-                                                    <segue destination="fby-yK-SuC" kind="show" identifier="wordsVC" id="ZYt-Yc-6Eb"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
                                     </tableView>
                                 </subviews>
                                 <constraints>
