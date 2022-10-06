@@ -25,9 +25,9 @@
 		61B0633C28EC6F0D004BC096 /* Word+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633828EC6F0D004BC096 /* Word+CoreDataProperties.swift */; };
 		61B0634528ED742E004BC096 /* TopicTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B0634328ED742E004BC096 /* TopicTableViewCell.xib */; };
 		61B0634928ED8CB1004BC096 /* WordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61B0634728ED8CB0004BC096 /* WordTableViewCell.xib */; };
-		61C6E17528EEE42300C1EFEB /* FirstSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6E17428EEE42300C1EFEB /* FirstSettingsViewController.swift */; };
-		61C6E17828EEE51D00C1EFEB /* FirstSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6E17628EEE51D00C1EFEB /* FirstSettingsTableViewCell.swift */; };
-		61C6E17928EEE51D00C1EFEB /* FirstSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C6E17728EEE51D00C1EFEB /* FirstSettingsTableViewCell.xib */; };
+		61C6E17528EEE42300C1EFEB /* UserDefaultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6E17428EEE42300C1EFEB /* UserDefaultsViewController.swift */; };
+		61C6E17828EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C6E17628EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift */; };
+		61C6E17928EEE51D00C1EFEB /* UserDefaultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61C6E17728EEE51D00C1EFEB /* UserDefaultsTableViewCell.xib */; };
 		61DCD83228E1C952004D1FD3 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCD83128E1C952004D1FD3 /* LearningViewController.swift */; };
 		61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E794F428E47FB20022B9ED /* DefaultValue.swift */; };
 		61F47C6F28E5CBFD00F81DA6 /* TopicsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */; };
@@ -55,9 +55,9 @@
 		61B0633828EC6F0D004BC096 /* Word+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Word+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61B0634328ED742E004BC096 /* TopicTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopicTableViewCell.xib; sourceTree = "<group>"; };
 		61B0634728ED8CB0004BC096 /* WordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordTableViewCell.xib; sourceTree = "<group>"; };
-		61C6E17428EEE42300C1EFEB /* FirstSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSettingsViewController.swift; sourceTree = "<group>"; };
-		61C6E17628EEE51D00C1EFEB /* FirstSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSettingsTableViewCell.swift; sourceTree = "<group>"; };
-		61C6E17728EEE51D00C1EFEB /* FirstSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		61C6E17428EEE42300C1EFEB /* UserDefaultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsViewController.swift; sourceTree = "<group>"; };
+		61C6E17628EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsTableViewCell.swift; sourceTree = "<group>"; };
+		61C6E17728EEE51D00C1EFEB /* UserDefaultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDefaultsTableViewCell.xib; sourceTree = "<group>"; };
 		61DCD83128E1C952004D1FD3 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
 		61E794F428E47FB20022B9ED /* DefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValue.swift; sourceTree = "<group>"; };
 		61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsRepository.swift; sourceTree = "<group>"; };
@@ -140,9 +140,9 @@
 		61C6E17A28EEE5FA00C1EFEB /* FirstSettingsVC */ = {
 			isa = PBXGroup;
 			children = (
-				61C6E17428EEE42300C1EFEB /* FirstSettingsViewController.swift */,
-				61C6E17628EEE51D00C1EFEB /* FirstSettingsTableViewCell.swift */,
-				61C6E17728EEE51D00C1EFEB /* FirstSettingsTableViewCell.xib */,
+				61C6E17428EEE42300C1EFEB /* UserDefaultsViewController.swift */,
+				61C6E17628EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift */,
+				61C6E17728EEE51D00C1EFEB /* UserDefaultsTableViewCell.xib */,
 			);
 			path = FirstSettingsVC;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61B0634528ED742E004BC096 /* TopicTableViewCell.xib in Resources */,
-				61C6E17928EEE51D00C1EFEB /* FirstSettingsTableViewCell.xib in Resources */,
+				61C6E17928EEE51D00C1EFEB /* UserDefaultsTableViewCell.xib in Resources */,
 				61B0634928ED8CB1004BC096 /* WordTableViewCell.xib in Resources */,
 				619B562528DB496600C22044 /* LaunchScreen.storyboard in Resources */,
 				619B562228DB496600C22044 /* Assets.xcassets in Resources */,
@@ -238,8 +238,8 @@
 				61B0633B28EC6F0D004BC096 /* Word+CoreDataClass.swift in Sources */,
 				61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */,
 				619B562028DB496400C22044 /* Improve_your_English.xcdatamodeld in Sources */,
-				61C6E17528EEE42300C1EFEB /* FirstSettingsViewController.swift in Sources */,
-				61C6E17828EEE51D00C1EFEB /* FirstSettingsTableViewCell.swift in Sources */,
+				61C6E17528EEE42300C1EFEB /* UserDefaultsViewController.swift in Sources */,
+				61C6E17828EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift in Sources */,
 				61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */,
 				617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */,
 				61B0633C28EC6F0D004BC096 /* Word+CoreDataProperties.swift in Sources */,

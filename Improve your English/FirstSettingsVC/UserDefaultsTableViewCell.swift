@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstSettingsTableViewCell: UITableViewCell {
+class UserDefaultsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var topicTitleLabel: UILabel!
     

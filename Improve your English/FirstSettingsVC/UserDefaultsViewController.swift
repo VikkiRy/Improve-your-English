@@ -7,11 +7,12 @@
 
 import UIKit
 
-class FirstSettingsViewController: UIViewController {
+class UserDefaultsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordCountLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var doneButton: UIButton!
     
     let topics = TopicRepository.shared.topics()
     
@@ -26,22 +27,25 @@ class FirstSettingsViewController: UIViewController {
         wordCountLabel.text = String(Int(sender.value))
     }
     
+    @IBAction func doneButtonPressed(_ sender: UIButton) {
+    }
+    
     private func updateUI() {
-        let nib = UINib(nibName: "FirstSettingsTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "firstSettingsCell")
+        let nib = UINib(nibName: "UserDefaultsTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "userDefaults")
         
         tableView.dataSource = self
     }
 }
 
-extension FirstSettingsViewController: UITableViewDataSource {
+extension UserDefaultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topics.count
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "firstSettingsCell", for: indexPath) as! FirstSettingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userDefaults", for: indexPath) as! UserDefaultsTableViewCell
         
         cell.topicTitleLabel.text = topics[indexPath.row].title
         

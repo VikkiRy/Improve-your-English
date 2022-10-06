@@ -13,10 +13,10 @@ class TopicRepository {
     private let dataManager = CoreDataManager.shared
     
     private init() {
-        addDegaultTopics()
+        addDefaultTopics()
     }
     
-    private func addDegaultTopics() {
+    private func addDefaultTopics() {
         let topics = topics()
         
         if topics.isEmpty {
