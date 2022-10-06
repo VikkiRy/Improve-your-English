@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-6k-pHw">
-                                <rect key="frame" x="20" y="377" width="335" height="58.333333333333314"/>
+                                <rect key="frame" x="20" y="377" width="335" height="58"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" cornerStyle="large" titleAlignment="center">
                                     <attributedString key="attributedTitle">
@@ -91,6 +91,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Learn" image="graduationcap" catalog="system" id="QBc-l2-oaI"/>
                     <navigationItem key="navigationItem" id="2Vw-ob-xas"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="learningButton" destination="qqC-ey-jfm" id="31F-a8-AFg"/>
                         <outlet property="trainingButton" destination="cgb-6k-pHw" id="nWC-76-V8f"/>
@@ -98,7 +99,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-498" y="1108"/>
+            <point key="canvasLocation" x="-498" y="1944"/>
+        </scene>
+        <!--First Settings View Controller-->
+        <scene sceneID="u3D-li-UbK">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="OlN-c6-6Pa" customClass="FirstSettingsViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XeO-pW-mEb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTN-2X-fg3" userLabel="Welcome">
+                                <rect key="frame" x="0.0" y="88" width="375" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Improve Your English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFS-lC-aoW">
+                                <rect key="frame" x="0.0" y="136" width="375" height="48"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, choose the topics you want to study:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exE-kM-HWG">
+                                <rect key="frame" x="20" y="229" width="335" height="58"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="W5p-uE-J4g">
+                                <rect key="frame" x="20" y="322" width="335" height="135"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="135" id="xvg-d2-jzs"/>
+                                </constraints>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wsf-Tx-q9C">
+                                <rect key="frame" x="20" y="477" width="355" height="180"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select the number of words to study per day:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BtJ-RK-VxR">
+                                        <rect key="frame" x="0.0" y="18" width="118.33333333333333" height="144.33333333333334"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNh-uw-jj0">
+                                        <rect key="frame" x="118.33333333333334" y="74.333333333333371" width="118.33333333333334" height="31.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="5" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-7h-8tE">
+                                        <rect key="frame" x="236.66666666666671" y="74" width="118.33333333333334" height="32"/>
+                                        <connections>
+                                            <action selector="stepperPressed:" destination="afW-OZ-rjw" eventType="valueChanged" id="IzQ-4E-qpf"/>
+                                            <action selector="stepperPressed:" destination="OlN-c6-6Pa" eventType="valueChanged" id="Xel-Oo-CJ1"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="pcN-9O-X6L"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LLg-Pf-z8V"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="sTN-2X-fg3" firstAttribute="trailing" secondItem="LLg-Pf-z8V" secondAttribute="trailing" id="2I7-9B-UQw"/>
+                            <constraint firstItem="exE-kM-HWG" firstAttribute="leading" secondItem="LLg-Pf-z8V" secondAttribute="leading" constant="20" id="5Mh-y5-Axn"/>
+                            <constraint firstItem="sTN-2X-fg3" firstAttribute="top" secondItem="LLg-Pf-z8V" secondAttribute="top" id="AZi-6v-75D"/>
+                            <constraint firstAttribute="trailing" secondItem="QFS-lC-aoW" secondAttribute="trailing" id="Dpf-W1-vj9"/>
+                            <constraint firstItem="LLg-Pf-z8V" firstAttribute="trailing" secondItem="W5p-uE-J4g" secondAttribute="trailing" constant="20" id="EE7-Dg-3AU"/>
+                            <constraint firstItem="sTN-2X-fg3" firstAttribute="leading" secondItem="LLg-Pf-z8V" secondAttribute="leading" id="EPx-Mi-Who"/>
+                            <constraint firstItem="exE-kM-HWG" firstAttribute="top" secondItem="QFS-lC-aoW" secondAttribute="bottom" constant="45" id="JSP-3f-oOl"/>
+                            <constraint firstItem="QFS-lC-aoW" firstAttribute="top" secondItem="sTN-2X-fg3" secondAttribute="bottom" id="NHB-QS-6b1"/>
+                            <constraint firstItem="Wsf-Tx-q9C" firstAttribute="leading" secondItem="LLg-Pf-z8V" secondAttribute="leading" constant="20" id="TqK-TM-n7i"/>
+                            <constraint firstItem="Wsf-Tx-q9C" firstAttribute="top" secondItem="W5p-uE-J4g" secondAttribute="bottom" constant="20" id="VcC-7G-Xwu"/>
+                            <constraint firstItem="LLg-Pf-z8V" firstAttribute="trailing" secondItem="Wsf-Tx-q9C" secondAttribute="trailing" id="b3x-dI-4aA"/>
+                            <constraint firstItem="LLg-Pf-z8V" firstAttribute="trailing" secondItem="exE-kM-HWG" secondAttribute="trailing" constant="20" id="qF1-pI-TNU"/>
+                            <constraint firstItem="QFS-lC-aoW" firstAttribute="leading" secondItem="LLg-Pf-z8V" secondAttribute="leading" id="rrc-hh-yFf"/>
+                            <constraint firstItem="W5p-uE-J4g" firstAttribute="leading" secondItem="LLg-Pf-z8V" secondAttribute="leading" constant="20" id="vGn-uV-yTs"/>
+                            <constraint firstItem="W5p-uE-J4g" firstAttribute="top" secondItem="exE-kM-HWG" secondAttribute="bottom" constant="35" id="xos-yI-dDg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gJa-8l-A7F">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Yhr-ID-dir">
+                            <connections>
+                                <action selector="addWordButtonPressed:" destination="fby-yK-SuC" id="MXM-Db-URJ"/>
+                                <segue destination="BYZ-38-t0r" kind="show" id="WmB-Zg-ese"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="stepper" destination="mCx-7h-8tE" id="Q8m-hu-K6r"/>
+                        <outlet property="tableView" destination="W5p-uE-J4g" id="A5U-us-J8M"/>
+                        <outlet property="wordCountLabel" destination="sNh-uw-jj0" id="Awn-9q-kpK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v6v-re-KiI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-498" y="1184"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="WNe-rf-ELC">
@@ -109,7 +209,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXc-wM-sJz">
-                                <rect key="frame" x="0.0" y="489.33333333333331" width="375" height="39.666666666666686"/>
+                                <rect key="frame" x="0.0" y="489.66666666666669" width="375" height="39.333333333333314"/>
                                 <menu key="menu" id="BBp-Yd-wWp">
                                     <children>
                                         <command title="Item 1" id="DUu-2b-I7g"/>
@@ -140,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5PP-Mk-b36" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="406"/>
+            <point key="canvasLocation" x="1338" y="1943"/>
         </scene>
         <!--Learning View Controller-->
         <scene sceneID="JNC-Wi-0cT">
@@ -151,13 +251,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PNj-vn-aDB">
-                                <rect key="frame" x="20" y="328" width="335" height="61.333333333333314"/>
+                                <rect key="frame" x="20" y="328" width="335" height="61.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WordTranslation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2s-5t-abO">
-                                <rect key="frame" x="28.333333333333343" y="424.33333333333331" width="318.33333333333326" height="45.666666666666686"/>
+                                <rect key="frame" x="28.666666666666657" y="424.66666666666669" width="318" height="46"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Light" family="American Typewriter" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pR-D9-4Kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-498" y="2078"/>
+            <point key="canvasLocation" x="-847" y="2682"/>
         </scene>
         <!--Training View Controller-->
         <scene sceneID="4Er-y8-LZG">
@@ -375,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5M-jm-qOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="295" y="2078"/>
+            <point key="canvasLocation" x="-98" y="2682"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="PN7-Zf-HAP">
@@ -386,13 +486,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9D-lD-LI7">
-                                <rect key="frame" x="20" y="79" width="335" height="61.333333333333343"/>
+                                <rect key="frame" x="20" y="79" width="335" height="61.666666666666657"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to enter word" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ate-DS-Qhd">
-                                <rect key="frame" x="20" y="175.33333333333334" width="335" height="38"/>
+                                <rect key="frame" x="20" y="175.66666666666666" width="335" height="38"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -413,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTy-Gz-mJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1137" y="2078"/>
+            <point key="canvasLocation" x="703" y="2682"/>
         </scene>
         <!--Words View Controller-->
         <scene sceneID="OFI-zN-P9v">
@@ -451,7 +551,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-A5-Ibr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2351" y="1813"/>
+            <point key="canvasLocation" x="-1898" y="2682"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Jfh-mS-ctQ">
@@ -484,10 +584,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-7h-8tE">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ci3-Ux-sL9">
                                         <rect key="frame" x="261" y="0.0" width="94" height="32"/>
                                         <connections>
-                                            <action selector="stepperPressed:" destination="afW-OZ-rjw" eventType="valueChanged" id="IzQ-4E-qpf"/>
+                                            <action selector="stepperPressed:" destination="afW-OZ-rjw" eventType="valueChanged" id="6pR-fo-tFc"/>
                                         </connections>
                                     </stepper>
                                 </subviews>
@@ -541,7 +641,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4W-Jh-kOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2351" y="1108"/>
+            <point key="canvasLocation" x="-1898" y="1943"/>
         </scene>
         <!--Learn-->
         <scene sceneID="Jum-ks-0zb">
@@ -555,7 +655,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="S4p-VK-uce"/>
+                        <segue destination="OlN-c6-6Pa" kind="relationship" relationship="rootViewController" id="l6k-vq-xF6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3E-5i-kla" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -599,7 +699,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rJR-3W-Y59" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2350" y="406"/>
+            <point key="canvasLocation" x="-1929" y="406"/>
         </scene>
     </scenes>
     <resources>

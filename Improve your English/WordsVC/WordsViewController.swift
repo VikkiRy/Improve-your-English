@@ -38,7 +38,7 @@ class WordsViewController: UIViewController {
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             let doneAction = UIAlertAction(title: "Done", style: .default) { action in
                 if let word = alert.textFields?.first?.text {
-                    TopicRepository.shared.createWord(wordTitle: word, for: self.topic)
+                    TopicRepository.shared.addWord(wordTitle: word, for: self.topic)
                     self.reloadData()
                 }
             }
@@ -60,7 +60,6 @@ class WordsViewController: UIViewController {
         topicWords = TopicRepository.shared.words(for: topic)
         tableView.reloadData()
     }
-    
 }
 
 extension WordsViewController: UITableViewDataSource {

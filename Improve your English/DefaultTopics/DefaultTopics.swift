@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 struct DefaultTopics {
-    
+    /*
     static func createDefaultTopics() {
         let topics = TopicRepository.shared.topics()
         
@@ -23,4 +23,5 @@ struct DefaultTopics {
             }
         }
     }
+     */
 }

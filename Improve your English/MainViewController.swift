@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DefaultTopics.createDefaultTopics()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

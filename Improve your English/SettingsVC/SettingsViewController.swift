@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         let doneAction = UIAlertAction(title: "Done", style: .default) { action in
             if let text = alert.textFields?.first?.text {
-                let _ = TopicRepository.shared.createTopic(topicTitle: text)
+                let _ = TopicRepository.shared.addTopic(topicTitle: text)
                 self.reloadData()
             }
         }
