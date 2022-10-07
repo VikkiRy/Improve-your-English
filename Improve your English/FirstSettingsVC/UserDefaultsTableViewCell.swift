@@ -11,7 +11,6 @@ class UserDefaultsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var topicTitleLabel: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

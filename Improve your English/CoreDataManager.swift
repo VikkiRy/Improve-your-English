@@ -10,6 +10,7 @@ import CoreData
 
 class CoreDataManager {
     static let shared = CoreDataManager()
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Improve_your_English")
         container.loadPersistentStores { description, error in
@@ -20,11 +21,9 @@ class CoreDataManager {
         return container
     }()
     
-    lazy var context: NSManagedObjectContext = {
-        return persistentContainer.viewContext
-    }()
+    lazy var context: NSManagedObjectContext = persistentContainer.viewContext
     
-    private init(){}
+    private init() {}
     
     func save() {
         if context.hasChanges {

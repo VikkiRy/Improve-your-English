@@ -32,11 +32,13 @@ class TopicRepository {
     
     func topics() -> [Topic] {
         var topics: [Topic] = []
+        
         do {
             topics = try CoreDataManager.shared.context.fetch(Topic.fetchRequest())
         } catch {
             print(error)
         }
+        
         return topics
     }
     
@@ -44,13 +46,14 @@ class TopicRepository {
         if let words = topic.words {
             return words.allObjects as? [Word]
         }
+        
         return nil
     }
     
     func addTopic(topicTitle: String, isUserTopic: Bool = true) -> Topic {
         let newTpoic = Topic(context: dataManager.context)
         newTpoic.title = topicTitle
-        newTpoic.isUserTopic = true
+        newTpoic.isUserTopic = isUserTopic
         
         dataManager.save()
         

@@ -45,7 +45,6 @@ class SettingsViewController: UIViewController {
         alert.addAction(cancelAction)
         alert.addAction(doneAction)
         self.present(alert, animated: true)
-        
     }
     
     private func updateUI() {

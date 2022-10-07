@@ -24,14 +24,10 @@ class WordsViewController: UIViewController {
     }
     
     @IBAction func addWordButtonPressed(_ sender: UIBarButtonItem) {
-        if topic.isUserTopic == false {
-            let alert = UIAlertController(title: nil, message: "Sorry, you can add words only to your own topics", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default)
-            
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
-        } else {
-            let alert = UIAlertController(title: nil, message: "Enter new word", preferredStyle: .alert)
+        let alert: UIAlertController
+        
+        if topic.isUserTopic {
+            alert = UIAlertController(title: nil, message: "Enter new word", preferredStyle: .alert)
             
             alert.addTextField()
             
@@ -45,8 +41,15 @@ class WordsViewController: UIViewController {
             
             alert.addAction(cancelAction)
             alert.addAction(doneAction)
-            self.present(alert, animated: true)
+        } else {
+            alert = UIAlertController(title: nil, message: "Sorry, you can add words only to your own topics", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            
+            alert.addAction(okAction)
         }
+
+        self.present(alert, animated: true)
     }
     
     private func updateUI() {
@@ -66,7 +69,6 @@ extension WordsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topicWords.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as! WordTableViewCell

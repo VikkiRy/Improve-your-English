@@ -16,7 +16,6 @@ class UserDefaultsViewController: UIViewController {
     
     let topics = TopicRepository.shared.topics()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,6 +27,7 @@ class UserDefaultsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
+        UserDefaults.standard.set(true, forKey: UserSettingKeys.isShowMainVC.rawValue)
     }
     
     private func updateUI() {
