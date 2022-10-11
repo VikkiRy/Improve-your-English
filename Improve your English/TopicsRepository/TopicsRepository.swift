@@ -19,13 +19,15 @@ class TopicRepository {
     private func addDefaultTopics() {
         let topics = topics()
         
-        if topics.isEmpty {
-            defaultTopics.forEach { topic in
-                let newTopic = addTopic(topicTitle: topic.key, isUserTopic: false)
+        guard topics.isEmpty else {
+            return
+        }
+        
+        defaultTopics.forEach { topic in
+            let newTopic = addTopic(topicTitle: topic.key, isUserTopic: false)
                 
-                topic.value.forEach { word in
-                    addWord(wordTitle: word, for: newTopic)
-                }
+            topic.value.forEach { word in
+                addWord(wordTitle: word, for: newTopic)
             }
         }
     }

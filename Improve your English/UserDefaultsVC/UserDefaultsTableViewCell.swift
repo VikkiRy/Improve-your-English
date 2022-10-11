@@ -10,6 +10,7 @@ import UIKit
 class UserDefaultsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var topicTitleLabel: UILabel!
+    @IBOutlet weak var checkmarkImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

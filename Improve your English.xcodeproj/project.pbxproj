@@ -103,7 +103,7 @@
 				619B561528DB496400C22044 /* AppDelegate.swift */,
 				619B561728DB496400C22044 /* SceneDelegate.swift */,
 				619B561B28DB496400C22044 /* Main.storyboard */,
-				61C6E17A28EEE5FA00C1EFEB /* FirstSettingsVC */,
+				61C6E17A28EEE5FA00C1EFEB /* UserDefaultsVC */,
 				61B0633228EACE3A004BC096 /* WordsVC */,
 				61B0633128EACE29004BC096 /* SettingsVC */,
 				61C6E17B28EEEB6600C1EFEB /* TopicsRepository */,
@@ -140,14 +140,14 @@
 			path = WordsVC;
 			sourceTree = "<group>";
 		};
-		61C6E17A28EEE5FA00C1EFEB /* FirstSettingsVC */ = {
+		61C6E17A28EEE5FA00C1EFEB /* UserDefaultsVC */ = {
 			isa = PBXGroup;
 			children = (
 				61C6E17428EEE42300C1EFEB /* UserDefaultsViewController.swift */,
 				61C6E17628EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift */,
 				61C6E17728EEE51D00C1EFEB /* UserDefaultsTableViewCell.xib */,
 			);
-			path = FirstSettingsVC;
+			path = UserDefaultsVC;
 			sourceTree = "<group>";
 		};
 		61C6E17B28EEEB6600C1EFEB /* TopicsRepository */ = {

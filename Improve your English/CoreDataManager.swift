@@ -34,6 +34,7 @@ class CoreDataManager {
             }
         }
     }
+    
     /*
     func fetchData(request: NSFetchRequest<NSFetchRequestResult>) -> [Any] {
         do {
