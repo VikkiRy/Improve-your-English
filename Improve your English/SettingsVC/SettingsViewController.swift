@@ -30,8 +30,9 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func addTopicButtonPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: nil, message: "Enter topic name", preferredStyle: .alert)
-        
+        let message = "Enter topic name"
+
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addTextField()
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)

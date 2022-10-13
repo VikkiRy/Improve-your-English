@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class UserDefaultsViewController: UIViewController {
     
@@ -15,7 +16,6 @@ class UserDefaultsViewController: UIViewController {
     @IBOutlet weak var doneButton: UIButton!
     
     let topics = TopicRepository.shared.topics()
-    var selectedTopicsTitles: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,27 @@ class UserDefaultsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        UserDefaults.standard.set(true, forKey: UserSettingKeys.isShowMainVC.rawValue)
-        UserDefaults.standard.set(selectedTopicsTitles, forKey: UserSettingKeys.selectedTopic.rawValue)
-        UserDefaults.standard.set(Int(stepper.value), forKey: UserSettingKeys.numberOfWords.rawValue)
+        let selectedTopics = topics.filter { topic in
+            topic.isSelected
+        }
+        
+        guard !selectedTopics.isEmpty else {
+            let message = "Please, select at least 1 topic to study"
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+            
+            return
+        }
+        
+        CoreDataManager.shared.save()
+                
+        UserDefaults.standard.setValuesForKeys([
+            UserSettingKeys.isShowMainVC.rawValue: true,
+            UserSettingKeys.numberOfWords.rawValue: Int(stepper.value)
+        ])
     }
     
     private func updateUI() {
@@ -59,22 +77,24 @@ extension UserDefaultsViewController: UITableViewDataSource {
 
 extension UserDefaultsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? UserDefaultsTableViewCell,
-              let topicTitle = cell.topicTitleLabel.text else {
+        guard let cell = tableView.cellForRow(at: indexPath) as? UserDefaultsTableViewCell else {
             return
         }
         
-        let image = cell.checkmarkImageView.image
-        
-        switch image  {
-        case .none:
+        changeSelectedState(forTopicAt: indexPath.row)
+        changeImage(for: cell, at: indexPath.row)
+    }
+    
+    private func changeSelectedState(forTopicAt index: Int) {
+        topics[index].isSelected = !topics[index].isSelected
+    }
+    
+    private func changeImage(for cell: UserDefaultsTableViewCell, at index: Int) {
+        switch topics[index].isSelected {
+        case true:
             cell.checkmarkImageView.image = .checkmark
-            selectedTopicsTitles.append(topicTitle)
-        default:
+        case false:
             cell.checkmarkImageView.image = .none
-            selectedTopicsTitles.removeAll { text in
-                text == topicTitle
-            }
         }
     }
 }

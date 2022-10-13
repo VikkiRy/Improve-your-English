@@ -9,6 +9,5 @@ import Foundation
 
 enum UserSettingKeys: String {
     case isShowMainVC = "isShowMainVC"
-    case selectedTopic = "selectedTopic"
     case numberOfWords = "numberOfWords"
 }

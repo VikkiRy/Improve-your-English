@@ -2,7 +2,7 @@
 //  Topic+CoreDataProperties.swift
 //  Improve your English
 //
-//  Created by Viktoria Misiulia on 04/10/2022.
+//  Created by Viktoria Misiulia on 13/10/2022.
 //
 //
 
@@ -16,8 +16,9 @@ extension Topic {
         return NSFetchRequest<Topic>(entityName: "Topic")
     }
 
-    @NSManaged public var title: String?
     @NSManaged public var isUserTopic: Bool
+    @NSManaged public var title: String?
+    @NSManaged public var isSelected: Bool
     @NSManaged public var words: NSSet?
 
 }
