@@ -24,7 +24,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //UserDefaults.standard.set(false, forKey: UserSettingKeys.isShowMainVC.rawValue)
         setCurrentDate()
     }
     

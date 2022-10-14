@@ -30,48 +30,26 @@ class WordsViewController: UIViewController {
     }
     
     @IBAction func addWordButtonPressed(_ sender: UIBarButtonItem) {
-        let alert = UIAlertController(title: nil, message: "Sorry, you can add words only to your own topics", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        let alertEng = UIAlertController(title: nil, message: "Enter new egnlish word", preferredStyle: .alert)
-        let doneEngAction = UIAlertAction(title: "Done", style: .default) { action in
-            if let wordEng = alertEng.textFields?.first?.text {
-                UserDefaults.standard.set(wordEng, forKey: UserSettingKeys.wordEngTitle.rawValue)
-            }
-        }
-        
-        
-        alertEng.addTextField()
-        alertEng.addAction(cancelAction)
-        alertEng.addAction(doneEngAction)
-        
-        let alertRus = UIAlertController(title: nil, message: "Enter new word translation", preferredStyle: .alert)
-        let doneRusAction = UIAlertAction(title: "Done", style: .default) { action in
-            if let wordEng = alertEng.textFields?.first?.text {
-                UserDefaults.standard.set(wordEng, forKey: UserSettingKeys.wordRusTitle.rawValue)
-            }
-        }
-        alertRus.addTextField()
-        alertRus.addAction(cancelAction)
-        alertRus.addAction(doneRusAction)
-
-        
-        if topic.isUserTopic {
-            self.present(alertEng, animated: true)
-            let wordEng = UserDefaults.standard.value(forKey: UserSettingKeys.wordEngTitle.rawValue) as! String
-            
-            self.present(alertRus, animated: true)
-            
-            
-            let wordRus = UserDefaults.standard.value(forKey: UserSettingKeys.wordRusTitle.rawValue) as! String
-            
-            WordsRepository.shared.addWord(engTitle: wordEng, rusTitle: wordRus, for: self.topic)
-            self.reloadData()
-        } else {
+        switch topic.isUserTopic {
+        case true:
+           performSegue(withIdentifier: "addWord", sender: self)
+        case false:
+            let message = "Sorry, you can add words only to your own topics"
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default)
             
             alert.addAction(okAction)
             self.present(alert, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addWord" {
+            if let addWordVC = segue.destination as? AddWordViewController {
+                addWordVC.topic = topic
+            }
+        } else {
+            return
         }
     }
     
@@ -88,7 +66,11 @@ class WordsViewController: UIViewController {
         }
         
         topicWords = words.allObjects as? [Word]
-        tableView.reloadData()
+        print("==========")
+        print(topicWords)
+        if !topicWords.isEmpty {
+            tableView.reloadData()
+        }
     }
 }
 

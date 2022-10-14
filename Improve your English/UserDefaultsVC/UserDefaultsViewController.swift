@@ -15,7 +15,7 @@ class UserDefaultsViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var doneButton: UIButton!
     
-    let topics = TopicRepository.shared.topics()
+    let dataModel = UserDefaultsDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +28,10 @@ class UserDefaultsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        let selectedTopics = topics.filter { topic in
-            topic.isSelected
-        }
+        let topics = dataModel.selectedTopics()
         
-        guard !selectedTopics.isEmpty else {
-            let message = "Please, select at least 1 topic to study"
+        guard !topics.isEmpty else {
+            let message = "Please, select at least 1 topic for learning"
             let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
             
@@ -43,12 +41,7 @@ class UserDefaultsViewController: UIViewController {
             return
         }
         
-        CoreDataManager.shared.save()
-                
-        UserDefaults.standard.setValuesForKeys([
-            UserSettingKeys.isShowMainVC.rawValue: true,
-            UserSettingKeys.numberOfWords.rawValue: Int(stepper.value)
-        ])
+        dataModel.saveUserSettings(wordsCount: Int(stepper.value))
     }
     
     private func updateUI() {
@@ -62,14 +55,13 @@ class UserDefaultsViewController: UIViewController {
 
 extension UserDefaultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+        return dataModel.topicsCount
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userDefaults", for: indexPath) as! UserDefaultsTableViewCell
         
-        cell.topicTitleLabel.text = topics[indexPath.row].title
+        cell.topicTitleLabel.text = dataModel.topicTitle(at: indexPath.row)
         
         return cell
     }
@@ -81,20 +73,8 @@ extension UserDefaultsViewController: UITableViewDelegate {
             return
         }
         
-        changeSelectedState(forTopicAt: indexPath.row)
-        changeImage(for: cell, at: indexPath.row)
-    }
-    
-    private func changeSelectedState(forTopicAt index: Int) {
-        topics[index].isSelected = !topics[index].isSelected
-    }
-    
-    private func changeImage(for cell: UserDefaultsTableViewCell, at index: Int) {
-        switch topics[index].isSelected {
-        case true:
-            cell.checkmarkImageView.image = .checkmark
-        case false:
-            cell.checkmarkImageView.image = .none
-        }
+        dataModel.changeTopicSelectedState(at: indexPath.row)
+        
+        cell.checkmarkImageView.image = dataModel.image(for: cell, at: indexPath.row)
     }
 }

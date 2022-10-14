@@ -149,7 +149,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="5" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-7h-8tE">
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="5" maximumValue="25" translatesAutoresizingMaskIntoConstraints="NO" id="mCx-7h-8tE">
                                         <rect key="frame" x="236.66666666666671" y="74" width="118.33333333333334" height="32"/>
                                         <connections>
                                             <action selector="stepperPressed:" destination="afW-OZ-rjw" eventType="valueChanged" id="IzQ-4E-qpf"/>
@@ -549,7 +549,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-nM-Mqa">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -572,11 +572,98 @@
                     <connections>
                         <outlet property="addWordButton" destination="fki-4j-QJQ" id="e9W-Xg-eG0"/>
                         <outlet property="tableView" destination="KDL-nM-Mqa" id="YVP-vD-NWB"/>
+                        <segue destination="bhK-RR-Amd" kind="modal" identifier="addWord" modalPresentationStyle="pageSheet" id="qF3-kK-PDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-A5-Ibr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1930" y="1889"/>
+        </scene>
+        <!--Add Word View Controller-->
+        <scene sceneID="i87-EV-dpj">
+            <objects>
+                <viewController id="bhK-RR-Amd" customClass="AddWordViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n1f-Q6-se8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egnlish word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cW-JE-Nct">
+                                <rect key="frame" x="20" y="63.999999999999993" width="335" height="31.666666666666664"/>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Scz-Ux-LO1">
+                                <rect key="frame" x="20" y="135.66666666666666" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hxS-E8-5Sv">
+                                <rect key="frame" x="20" y="311.33333333333331" width="335" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6V-0a-JEE">
+                                <rect key="frame" x="117.66666666666669" y="435.33333333333331" width="140" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="Bdd-LL-LNt"/>
+                                    <constraint firstAttribute="height" constant="51" id="yrp-N0-hIl"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="checkmark.circle" catalog="system" imagePlacement="trailing" imagePadding="12">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Done">
+                                            <attributes>
+                                                <font key="NSFont" size="24" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="bhK-RR-Amd" eventType="touchUpInside" id="xAm-Xl-Eeu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word translation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ame-c5-j1G">
+                                <rect key="frame" x="20" y="239.66666666666666" width="335" height="31.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3pU-2Y-JCh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3pU-2Y-JCh" firstAttribute="trailing" secondItem="Scz-Ux-LO1" secondAttribute="trailing" constant="20" id="0CT-PF-JWb"/>
+                            <constraint firstItem="3pU-2Y-JCh" firstAttribute="trailing" secondItem="hxS-E8-5Sv" secondAttribute="trailing" constant="20" id="34v-dC-ZTV"/>
+                            <constraint firstItem="0cW-JE-Nct" firstAttribute="centerX" secondItem="n1f-Q6-se8" secondAttribute="centerX" id="4GK-nS-tFz"/>
+                            <constraint firstItem="Scz-Ux-LO1" firstAttribute="centerX" secondItem="n1f-Q6-se8" secondAttribute="centerX" id="6Ra-Uf-hgw"/>
+                            <constraint firstItem="hxS-E8-5Sv" firstAttribute="centerX" secondItem="n1f-Q6-se8" secondAttribute="centerX" id="6vH-N3-3to"/>
+                            <constraint firstItem="hxS-E8-5Sv" firstAttribute="leading" secondItem="3pU-2Y-JCh" secondAttribute="leading" constant="20" id="ATw-NA-95d"/>
+                            <constraint firstItem="3pU-2Y-JCh" firstAttribute="trailing" secondItem="ame-c5-j1G" secondAttribute="trailing" constant="20" id="B6a-SN-Wwk"/>
+                            <constraint firstItem="F6V-0a-JEE" firstAttribute="top" secondItem="hxS-E8-5Sv" secondAttribute="bottom" constant="90" id="H6Q-tr-3nG"/>
+                            <constraint firstItem="3pU-2Y-JCh" firstAttribute="trailing" secondItem="0cW-JE-Nct" secondAttribute="trailing" constant="20" id="QZf-IR-1gm"/>
+                            <constraint firstItem="hxS-E8-5Sv" firstAttribute="top" secondItem="ame-c5-j1G" secondAttribute="bottom" constant="40" id="Teq-mN-OKl"/>
+                            <constraint firstItem="0cW-JE-Nct" firstAttribute="top" secondItem="3pU-2Y-JCh" secondAttribute="top" constant="20" id="abG-C7-lje"/>
+                            <constraint firstItem="ame-c5-j1G" firstAttribute="centerX" secondItem="n1f-Q6-se8" secondAttribute="centerX" id="bsM-ck-fAH"/>
+                            <constraint firstItem="ame-c5-j1G" firstAttribute="top" secondItem="Scz-Ux-LO1" secondAttribute="bottom" constant="70" id="c4K-Jb-Wym"/>
+                            <constraint firstItem="ame-c5-j1G" firstAttribute="leading" secondItem="3pU-2Y-JCh" secondAttribute="leading" constant="20" id="fOO-XD-qJs"/>
+                            <constraint firstItem="Scz-Ux-LO1" firstAttribute="leading" secondItem="3pU-2Y-JCh" secondAttribute="leading" constant="20" id="lV6-oR-ZlZ"/>
+                            <constraint firstItem="F6V-0a-JEE" firstAttribute="centerX" secondItem="n1f-Q6-se8" secondAttribute="centerX" id="td7-SH-bpC"/>
+                            <constraint firstItem="0cW-JE-Nct" firstAttribute="leading" secondItem="3pU-2Y-JCh" secondAttribute="leading" constant="20" id="yah-lt-2WJ"/>
+                            <constraint firstItem="Scz-Ux-LO1" firstAttribute="top" secondItem="0cW-JE-Nct" secondAttribute="bottom" constant="40" id="ygX-sb-TG6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="I69-Qx-fTd"/>
+                    <connections>
+                        <outlet property="doneButton" destination="F6V-0a-JEE" id="Kil-fd-7BV"/>
+                        <outlet property="wordEngTextfield" destination="Scz-Ux-LO1" id="DsT-da-X2Z"/>
+                        <outlet property="wordRusTextfield" destination="hxS-E8-5Sv" id="z3K-C4-koS"/>
+                        <segue destination="fby-yK-SuC" kind="presentation" identifier="baskToWordsVC" modalPresentationStyle="fullScreen" id="V4m-a8-426"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oB-ub-LE1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1935.2" y="2553.6945812807885"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Jfh-mS-ctQ">
@@ -727,9 +814,13 @@
             <point key="canvasLocation" x="-1929" y="406"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="V4m-a8-426"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="208.66667175292969" height="208.66667175292969"/>
         <image name="chart.line.uptrend.xyaxis.circle" catalog="system" width="128" height="121"/>
+        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>

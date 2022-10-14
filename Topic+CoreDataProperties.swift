@@ -17,7 +17,7 @@ extension Topic {
     }
 
     @NSManaged public var isUserTopic: Bool
-    @NSManaged public var title: String?
+    @NSManaged public var title: String
     @NSManaged public var isSelected: Bool
     @NSManaged public var words: NSSet?
 
