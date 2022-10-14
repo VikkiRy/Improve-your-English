@@ -7,11 +7,13 @@
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Word" inverseName="topic" inverseEntity="Word"/>
     </entity>
     <entity name="Word" representedClassName="Word" syncable="YES">
-        <attribute name="title" attributeType="String" minValueString="1"/>
+        <attribute name="engTitle" optional="YES" attributeType="String" minValueString="1"/>
+        <attribute name="isLearning" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="rusTitle" optional="YES" attributeType="String"/>
         <relationship name="topic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="words" inverseEntity="Topic"/>
     </entity>
     <elements>
         <element name="Topic" positionX="-45" positionY="0" width="128" height="89"/>
-        <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="59"/>
+        <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="89"/>
     </elements>
 </model>

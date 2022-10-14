@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TopicRepository {
+final class TopicRepository {
     static let shared = TopicRepository()
     
     private let dataManager = CoreDataManager.shared
@@ -23,11 +23,13 @@ class TopicRepository {
             return
         }
         
+        let defaultTopics = [sports, foods, hobbys]
+        
         defaultTopics.forEach { topic in
-            let newTopic = addTopic(topicTitle: topic.key, isUserTopic: false)
+            let newTopic = addTopic(topicTitle: topic.title, isUserTopic: false)
                 
-            topic.value.forEach { word in
-                addWord(wordTitle: word, for: newTopic)
+            topic.words.forEach { word in
+                WordsRepository.shared.addWord(engTitle: word.wordENG, rusTitle: word.wordRUS, for: newTopic)
             }
         }
     }
@@ -43,15 +45,9 @@ class TopicRepository {
         
         return topics
     }
-    
-    func words(for topic: Topic) -> [Word]? {
-        if let words = topic.words {
-            return words.allObjects as? [Word]
-        }
-        
-        return nil
-    }
-    
+}
+
+extension TopicRepository {
     func addTopic(topicTitle: String, isUserTopic: Bool = true) -> Topic {
         let newTpoic = Topic(context: dataManager.context)
         newTpoic.title = topicTitle
@@ -62,11 +58,13 @@ class TopicRepository {
         return newTpoic
     }
     
-    func addWord(wordTitle: String, for topic: Topic) {
-        let newWord = Word(context: dataManager.context)
-        newWord.title = wordTitle
-        newWord.topic = topic
+    func topicsForLearning() -> [Topic] {
+        let topics = topics()
         
-        dataManager.save()
+        let topicsForLearning = topics.filter { topic in
+            topic.isSelected
+        }
+        
+        return topicsForLearning
     }
 }

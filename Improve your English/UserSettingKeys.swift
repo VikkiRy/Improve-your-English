@@ -10,4 +10,6 @@ import Foundation
 enum UserSettingKeys: String {
     case isShowMainVC = "isShowMainVC"
     case numberOfWords = "numberOfWords"
+    case wordEngTitle = "wordEngTitle"
+    case wordRusTitle = "wordRusTitle"
 }

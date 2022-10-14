@@ -292,6 +292,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="Dis-Bb-ILM" eventType="touchUpInside" id="YhS-Gq-772"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="NVc-gj-Suo">
                                 <rect key="frame" x="0.0" y="88" width="375" height="200"/>
@@ -317,6 +320,9 @@
                                         </fragment>
                                     </attributedString>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="Dis-Bb-ILM" eventType="touchUpInside" id="S3N-wK-t1E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LlB-cQ-Vh9"/>
@@ -345,6 +351,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OeI-GH-TAK"/>
+                    <connections>
+                        <outlet property="backButton" destination="AUW-so-2vy" id="1WE-rm-G6x"/>
+                        <outlet property="nextButton" destination="pVX-0l-qZf" id="TcI-9F-6ew"/>
+                        <outlet property="wordEngLabel" destination="PNj-vn-aDB" id="oTZ-br-Lk0"/>
+                        <outlet property="wordRusLabel" destination="K2s-5t-abO" id="KFh-Kb-yXs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3pR-D9-4Kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+final class CoreDataManager {
     static let shared = CoreDataManager()
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -34,16 +34,4 @@ class CoreDataManager {
             }
         }
     }
-    
-    /*
-    func fetchData(request: NSFetchRequest<NSFetchRequestResult>) -> [Any] {
-        do {
-            let result = try context.fetch(request)
-            return result
-        } catch {
-            print(error)
-        }
-        return []
-    }
-     */
 }

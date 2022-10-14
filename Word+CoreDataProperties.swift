@@ -2,7 +2,7 @@
 //  Word+CoreDataProperties.swift
 //  Improve your English
 //
-//  Created by Viktoria Misiulia on 04/10/2022.
+//  Created by Viktoria Misiulia on 14/10/2022.
 //
 //
 
@@ -16,7 +16,9 @@ extension Word {
         return NSFetchRequest<Word>(entityName: "Word")
     }
 
-    @NSManaged public var title: String?
+    @NSManaged public var engTitle: String?
+    @NSManaged public var isLearning: Bool
+    @NSManaged public var rusTitle: String?
     @NSManaged public var topic: Topic?
 
 }
