@@ -60,7 +60,7 @@ class SettingsViewController: UIViewController {
         if segue.identifier == "wordsVC" {
             if let wordsVC = segue.destination as? WordsViewController {
                 if let topic = selectedTopic {
-                    wordsVC.topic = topic
+                    wordsVC.dataModel = WordsDataModel(topic: topic)
                 }
             }
         }

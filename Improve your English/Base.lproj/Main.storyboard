@@ -549,7 +549,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-nM-Mqa">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -566,13 +566,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fki-4j-QJQ">
                             <connections>
                                 <action selector="addWordButtonPressed:" destination="fby-yK-SuC" id="WVS-Jx-8jd"/>
+                                <segue destination="bhK-RR-Amd" kind="presentation" identifier="addWord" id="s5e-eW-fGo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addWordButton" destination="fki-4j-QJQ" id="e9W-Xg-eG0"/>
                         <outlet property="tableView" destination="KDL-nM-Mqa" id="YVP-vD-NWB"/>
-                        <segue destination="bhK-RR-Amd" kind="modal" identifier="addWord" modalPresentationStyle="pageSheet" id="qF3-kK-PDg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-A5-Ibr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -658,12 +658,11 @@
                         <outlet property="doneButton" destination="F6V-0a-JEE" id="Kil-fd-7BV"/>
                         <outlet property="wordEngTextfield" destination="Scz-Ux-LO1" id="DsT-da-X2Z"/>
                         <outlet property="wordRusTextfield" destination="hxS-E8-5Sv" id="z3K-C4-koS"/>
-                        <segue destination="fby-yK-SuC" kind="presentation" identifier="baskToWordsVC" modalPresentationStyle="fullScreen" id="V4m-a8-426"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oB-ub-LE1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1935.2" y="2553.6945812807885"/>
+            <point key="canvasLocation" x="-1930" y="2662"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="Jfh-mS-ctQ">
@@ -814,9 +813,6 @@
             <point key="canvasLocation" x="-1929" y="406"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="V4m-a8-426"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="Logo" width="208.66667175292969" height="208.66667175292969"/>
         <image name="chart.line.uptrend.xyaxis.circle" catalog="system" width="128" height="121"/>

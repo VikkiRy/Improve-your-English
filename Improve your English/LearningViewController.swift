@@ -72,10 +72,6 @@ class LearningViewController: UIViewController {
         } else {
             backButton.isEnabled = true
         }
-        
-        words.forEach { word in
-            print(word)
-        }
     }
     
     private func changeNextButtonState() {
@@ -83,10 +79,6 @@ class LearningViewController: UIViewController {
             nextButton.isEnabled = false
         } else {
             nextButton.isEnabled = true
-        }
-        
-        words.forEach { word in
-            print(word)
         }
     }
 }
