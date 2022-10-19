@@ -9,24 +9,23 @@ import Foundation
 
 struct WordsDataModel {
     let topic: Topic
-    var topicWords: [Word] {
-        var result: [Word] = []
-        
-        if let topicWords = topic.words,
-           let words = topicWords.allObjects as? [Word] {
-            result = words.sorted(by: { firstWord, secondWord in
-                firstWord.engTitle!.lowercased() < secondWord.engTitle!.lowercased()
-            })
-        }
-        
-        return result
-    }
+    var topicWords: [Word] = []
     
     init(topic: Topic) {
         self.topic = topic
+        updateTopicWords()
     }
     
     func isShouldPerformSegue() -> Bool {
         topic.isUserTopic
+    }
+    
+    mutating func updateTopicWords() {
+        if let allWords = topic.words,
+           let words = allWords.allObjects as? [Word] {
+            topicWords = words.sorted(by: { firstWord, secondWord in
+                firstWord.engTitle!.lowercased() < secondWord.engTitle!.lowercased()
+            })
+        }
     }
 }

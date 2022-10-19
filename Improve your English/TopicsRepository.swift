@@ -16,24 +16,6 @@ final class TopicRepository {
         addDefaultTopics()
     }
     
-    private func addDefaultTopics() {
-        let topics = topics()
-        
-        guard topics.isEmpty else {
-            return
-        }
-        
-        let defaultTopics = [sports, foods, hobbys]
-        
-        defaultTopics.forEach { topic in
-            let newTopic = addTopic(topicTitle: topic.title, isUserTopic: false)
-                
-            topic.words.forEach { word in
-                WordsRepository.shared.addWord(engTitle: word.wordENG, rusTitle: word.wordRUS, for: newTopic)
-            }
-        }
-    }
-    
     func topics() -> [Topic] {
         var topics: [Topic] = []
         
@@ -45,9 +27,7 @@ final class TopicRepository {
         
         return topics
     }
-}
-
-extension TopicRepository {
+    
     func addTopic(topicTitle: String, isUserTopic: Bool = true) -> Topic {
         let newTpoic = Topic(context: dataManager.context)
         newTpoic.title = topicTitle
@@ -66,5 +46,25 @@ extension TopicRepository {
         }
         
         return topicsForLearning
+    }
+}
+
+extension TopicRepository {
+    private func addDefaultTopics() {
+        let topics = topics()
+        
+        guard topics.isEmpty else {
+            return
+        }
+        
+        let defaultTopics = [sports, foods, hobbys]
+        
+        defaultTopics.forEach { topic in
+            let newTopic = addTopic(topicTitle: topic.title, isUserTopic: false)
+                
+            topic.words.forEach { word in
+                WordsRepository.shared.addWord(engTitle: word.wordENG, rusTitle: word.wordRUS, for: newTopic)
+            }
+        }
     }
 }

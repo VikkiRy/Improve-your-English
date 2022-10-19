@@ -15,14 +15,13 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var addTopicButton: UIButton!
     
-    var topics: [Topic]!
-    var selectedTopic: Topic?
+    var dataModel = SettingsDataModel()
+    var selectedRow: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         updateUI()
-        reloadData()
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
@@ -30,22 +29,34 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func addTopicButtonPressed(_ sender: UIButton) {
-        let message = "Enter topic name"
+        showAlert()
+    }
+    
+    private func showAlert() {
+        let message = "Enter topic title"
 
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addTextField()
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        let doneAction = UIAlertAction(title: "Done", style: .default) { action in
-            if let text = alert.textFields?.first?.text {
-                let _ = TopicRepository.shared.addTopic(topicTitle: text)
-                self.reloadData()
-            }
+        let doneAction = UIAlertAction(title: "Done", style: .default) { _ in
+            self.doneActionCompletion(at: alert)
         }
         
         alert.addAction(cancelAction)
         alert.addAction(doneAction)
+        
         self.present(alert, animated: true)
+    }
+    
+    private func doneActionCompletion(at alert: UIAlertController) {
+        guard let text = alert.textFields?.first?.text,
+              !text.isEmpty else {
+            return
+        }
+        
+        dataModel.appendTopic(topicTitle: text)
+        tableView.reloadData()
     }
     
     private func updateUI() {
@@ -59,28 +70,23 @@ class SettingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsVC" {
             if let wordsVC = segue.destination as? WordsViewController {
-                if let topic = selectedTopic {
-                    wordsVC.dataModel = WordsDataModel(topic: topic)
+                if let index = selectedRow {
+                    wordsVC.dataModel = WordsDataModel(topic: dataModel.topics[index])
                 }
             }
         }
-    }
-    
-    private func reloadData() {
-        topics = TopicRepository.shared.topics()
-        tableView.reloadData()
     }
 }
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return topics.count
+        return dataModel.topics.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! TopicTableViewCell
         
-        cell.topicTitleLabel.text = topics[indexPath.row].title
+        cell.topicTitleLabel.text = dataModel.topics[indexPath.row].title
         
         return cell
     }
@@ -88,7 +94,7 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedTopic = topics[indexPath.row]
+        selectedRow = indexPath.row
         return indexPath
     }
     

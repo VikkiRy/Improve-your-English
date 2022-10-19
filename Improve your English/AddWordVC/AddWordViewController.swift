@@ -19,9 +19,14 @@ class AddWordViewController: UIViewController {
     }
    
     @IBAction func doneButtonPressed(_ sender: Any) {
-        dataModel.saveWord(wordEng: wordEngTextfield.text!, wordRus: wordRusTextfield.text!)
+        guard let wordEng = getText(form: wordEngTextfield),
+              let wordRus = getText(form: wordEngTextfield) else {
+            showAlert()
+            return
+        }
         
-        //todo don't dismiss vc after alert did show
+        dataModel.saveWord(wordEng: wordEng, wordRus: wordRus)
+        
         self.dismiss(animated: true) {
             NotificationCenter.default.post(name: Notification.Name("modalViewDismissed"), object: self)
         }
@@ -33,5 +38,14 @@ class AddWordViewController: UIViewController {
         }
         
         return text
+    }
+    
+    private func showAlert() {
+        let message = "Sorry, you must add the word and its translation"
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
     }
 }

@@ -28,9 +28,9 @@ class UserDefaultsViewController: UIViewController {
     }
     
     @IBAction func doneButtonPressed(_ sender: UIButton) {
-        let topics = dataModel.selectedTopics()
+        let selectedTopics = dataModel.selectedTopics()
         
-        guard !topics.isEmpty else {
+        guard !selectedTopics.isEmpty else {
             let message = "Please, select at least 1 topic for learning"
             let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default)
@@ -41,7 +41,16 @@ class UserDefaultsViewController: UIViewController {
             return
         }
         
-        dataModel.saveUserSettings(wordsCount: Int(stepper.value))
+        saveUserSettings(wordsCount: Int(stepper.value))
+    }
+    
+    private func saveUserSettings(wordsCount: Int) {
+        CoreDataManager.shared.save()
+        
+        UserDefaults.standard.setValuesForKeys([
+            UserSettingKeys.isShowMainVC.rawValue: true,
+            UserSettingKeys.numberOfWords.rawValue: wordsCount
+        ])
     }
     
     private func updateUI() {
@@ -55,13 +64,13 @@ class UserDefaultsViewController: UIViewController {
 
 extension UserDefaultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel.topicsCount
+        return dataModel.topics.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userDefaults", for: indexPath) as! UserDefaultsTableViewCell
         
-        cell.topicTitleLabel.text = dataModel.topicTitle(at: indexPath.row)
+        cell.topicTitleLabel.text = dataModel.topics[indexPath.row].title
         
         return cell
     }
@@ -75,6 +84,7 @@ extension UserDefaultsViewController: UITableViewDelegate {
         
         dataModel.changeTopicSelectedState(at: indexPath.row)
         
-        cell.checkmarkImageView.image = dataModel.image(for: cell, at: indexPath.row)
+        let image = dataModel.topics[indexPath.row].isSelected ? UIImage.checkmark : nil
+        cell.checkmarkImageView.image = image
     }
 }
