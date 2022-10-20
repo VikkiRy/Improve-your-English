@@ -16,9 +16,9 @@ extension Word {
         return NSFetchRequest<Word>(entityName: "Word")
     }
 
-    @NSManaged public var engTitle: String?
+    @NSManaged public var engTitle: String
     @NSManaged public var isLearning: Bool
-    @NSManaged public var rusTitle: String?
+    @NSManaged public var rusTitle: String
     @NSManaged public var topic: Topic?
 
 }
