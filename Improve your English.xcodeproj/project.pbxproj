@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6100095A2900BAF1009AF50E /* LearningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610009592900BAF1009AF50E /* LearningDataModel.swift */; };
+		6100095E29016007009AF50E /* LearningWord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6100095C29016007009AF50E /* LearningWord+CoreDataClass.swift */; };
+		6100095F29016007009AF50E /* LearningWord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6100095D29016007009AF50E /* LearningWord+CoreDataProperties.swift */; };
 		612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */; };
 		612C878E28EACB82004DBE5F /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C878D28EACB82004DBE5F /* WordTableViewCell.swift */; };
 		61476D4828EF6F7F0070AD57 /* UserSettingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610009592900BAF1009AF50E /* LearningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDataModel.swift; sourceTree = "<group>"; };
+		6100095C29016007009AF50E /* LearningWord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningWord+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6100095D29016007009AF50E /* LearningWord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningWord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		612C878D28EACB82004DBE5F /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
 		61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingKeys.swift; sourceTree = "<group>"; };
@@ -89,9 +95,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6100095B2900BAF6009AF50E /* LaerningVC */ = {
+			isa = PBXGroup;
+			children = (
+				616CC49428F95E2500566ABC /* LearningViewController.swift */,
+				610009592900BAF1009AF50E /* LearningDataModel.swift */,
+			);
+			path = LaerningVC;
+			sourceTree = "<group>";
+		};
 		619B560928DB496400C22044 = {
 			isa = PBXGroup;
 			children = (
+				6100095C29016007009AF50E /* LearningWord+CoreDataClass.swift */,
+				6100095D29016007009AF50E /* LearningWord+CoreDataProperties.swift */,
 				616CC4A228F9677200566ABC /* Word+CoreDataClass.swift */,
 				616CC4A328F9677200566ABC /* Word+CoreDataProperties.swift */,
 				616CC48628F80E9200566ABC /* Topic+CoreDataClass.swift */,
@@ -120,7 +137,7 @@
 				61B0633228EACE3A004BC096 /* WordsVC */,
 				61CF640928FDED3E00B29611 /* AddWordVC */,
 				619B561928DB496400C22044 /* MainViewController.swift */,
-				616CC49428F95E2500566ABC /* LearningViewController.swift */,
+				6100095B2900BAF6009AF50E /* LaerningVC */,
 				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
 				61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */,
 				616CC48E28F84A6C00566ABC /* WordsRepository.swift */,
@@ -253,12 +270,15 @@
 			files = (
 				61476D4828EF6F7F0070AD57 /* UserSettingKeys.swift in Sources */,
 				619B561A28DB496400C22044 /* MainViewController.swift in Sources */,
+				6100095E29016007009AF50E /* LearningWord+CoreDataClass.swift in Sources */,
+				6100095F29016007009AF50E /* LearningWord+CoreDataProperties.swift in Sources */,
 				61F47C7928E5ECEB00F81DA6 /* WordsViewController.swift in Sources */,
 				619B561628DB496400C22044 /* AppDelegate.swift in Sources */,
 				61CF640828FDECF500B29611 /* AddWordDataModel.swift in Sources */,
 				616CC4AA28F99D8100566ABC /* AddWordViewController.swift in Sources */,
 				61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */,
 				616CC48828F80E9200566ABC /* Topic+CoreDataClass.swift in Sources */,
+				6100095A2900BAF1009AF50E /* LearningDataModel.swift in Sources */,
 				616CC48F28F84A6C00566ABC /* WordsRepository.swift in Sources */,
 				61C6E17528EEE42300C1EFEB /* UserDefaultsViewController.swift in Sources */,
 				616CC49528F95E2500566ABC /* LearningViewController.swift in Sources */,
