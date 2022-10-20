@@ -678,15 +678,15 @@
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZ2-qP-G0r" userLabel="Words Stack View">
                                         <rect key="frame" x="10" y="0.0" width="335" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of words:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Tk-Wom">
-                                                <rect key="frame" x="0.0" y="9.3333333333333446" width="185" height="31.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily words goal:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Tk-Wom">
+                                                <rect key="frame" x="0.0" y="9.3333333333333446" width="199.33333333333334" height="31.666666666666671"/>
                                                 <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
                                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqm-xW-m4W">
-                                                <rect key="frame" x="199" y="9.3333333333333446" width="28" height="31.666666666666671"/>
+                                                <rect key="frame" x="206.33333333333334" y="9.3333333333333446" width="28" height="31.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

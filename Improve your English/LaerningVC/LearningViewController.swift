@@ -14,69 +14,61 @@ class LearningViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
-    
-    var words: [Word]!
-    var learningWordPosition: Int! {
-        willSet {
-            if words.count < newValue {
-                print("вне нижнего диапазона")
-                //todo сделать не достапной кнопку назад
-            } else if newValue > words.count {
-                print("Превышен диапазон")
-                //todo уведомление о успешности и возврат в mainVC
-            }
-        }
-        didSet {
-            if words.count - 1 >= learningWordPosition {
-                updateUI()
-            }
-            
-            changeBackButtonState()
-            changeNextButtonState()
-        }
-    }
+    var dataModel = LearningDataModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        learningWordPosition = 0
-        nextButton.configuration?.baseBackgroundColor = .systemGreen
+        updateUI()
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        let word = words[learningWordPosition]
-        WordsRepository.shared.changeLearningState(for: word)
-        
-        learningWordPosition += 1
+        let nextWordIndex = dataModel.learningWordPosition + 1
+        if nextWordIndex == dataModel.data.count {
+            dataModel.changeLearningState()
+            self.navigationController!.popViewController(animated: true)
+        } else {
+            dataModel.learningWordPosition = nextWordIndex
+            updateUI()
+        }
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        let word = words[learningWordPosition]
-        WordsRepository.shared.changeLearningState(for: word)
-        
-        learningWordPosition -= 1
+        dataModel.learningWordPosition -= 1
+        updateUI()
     }
-    
     
     private func updateUI() {
-        let word = words[learningWordPosition]
+        let word = dataModel.currentWord
         wordEngLabel.text = word.engTitle
         wordRusLabel.text = word.rusTitle
+        
+        updateNextButton()
+        updateBackButton()
     }
     
-    private func changeBackButtonState() {
-        if learningWordPosition == 0 {
+    private func updateBackButton() {
+        switch dataModel.learningWordPosition {
+        case 0:
             backButton.isEnabled = false
-        } else {
+        default:
             backButton.isEnabled = true
         }
     }
     
-    private func changeNextButtonState() {
-        if learningWordPosition == words.count - 1 {
-            nextButton.isEnabled = false
-        } else {
-            nextButton.isEnabled = true
+    private func updateNextButton() {
+        var configuration = nextButton.configuration!
+        configuration.baseBackgroundColor = .systemGreen
+        
+        switch dataModel.learningWordPosition {
+        case dataModel.data.count - 1:
+            configuration.title = "Done"
+            configuration.image = UIImage.init(systemName: "checkmark.circle")
+        default:
+            configuration.title = "Next"
+            configuration.image = UIImage.init(systemName: "chevron.right")
         }
+        
+        nextButton.configuration = configuration
     }
 }

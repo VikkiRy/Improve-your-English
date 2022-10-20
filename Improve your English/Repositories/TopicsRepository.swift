@@ -38,18 +38,26 @@ final class TopicRepository {
         return newTpoic
     }
     
+    func selectedTopics() -> [Topic] {
+        let topics = topics()
+        
+        let selectedTopics = topics.filter { topic in
+            topic.isSelected
+        }
+        
+        return selectedTopics
+    }
+    
     func topicsForLearning() -> [Topic] {
         let topics = topics()
         
         let topicsForLearning = topics.filter { topic in
-            topic.isSelected
+            !topic.isSelected
         }
         
         return topicsForLearning
     }
-}
 
-extension TopicRepository {
     private func addDefaultTopics() {
         let topics = topics()
         

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="LearningData" representedClassName="LearningData" syncable="YES">
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="isLearned" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <relationship name="word" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="learningData" inverseEntity="Word"/>
+    </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES">
         <attribute name="isSelected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isUserTopic" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -7,12 +12,13 @@
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Word" inverseName="topic" inverseEntity="Word"/>
     </entity>
     <entity name="Word" representedClassName="Word" syncable="YES">
-        <attribute name="engTitle" optional="YES" attributeType="String" minValueString="1"/>
-        <attribute name="isLearning" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="rusTitle" optional="YES" attributeType="String"/>
+        <attribute name="engTitle" attributeType="String" minValueString="1"/>
+        <attribute name="rusTitle" attributeType="String"/>
+        <relationship name="learningData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LearningData" inverseName="word" inverseEntity="LearningData"/>
         <relationship name="topic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="words" inverseEntity="Topic"/>
     </entity>
     <elements>
+        <element name="LearningData" positionX="302.3125" positionY="-2.9453125" width="128" height="74"/>
         <element name="Topic" positionX="-45" positionY="0" width="128" height="89"/>
         <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="89"/>
     </elements>
