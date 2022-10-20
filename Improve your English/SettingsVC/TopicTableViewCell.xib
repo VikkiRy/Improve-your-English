@@ -17,23 +17,36 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzC-MP-NVl">
-                        <rect key="frame" x="20" y="6.5" width="64" height="31.5"/>
+                        <rect key="frame" x="31" y="6.5" width="64" height="31.5"/>
                         <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TaC-gJ-lWg">
+                        <rect key="frame" x="0.0" y="8" width="26" height="27.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="bkq-f2-iWt"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="wzC-MP-NVl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="EzX-GQ-cyU"/>
+                    <constraint firstItem="TaC-gJ-lWg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VzE-H6-eys"/>
+                    <constraint firstItem="TaC-gJ-lWg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bfT-lN-EGs"/>
+                    <constraint firstItem="TaC-gJ-lWg" firstAttribute="height" secondItem="wzC-MP-NVl" secondAttribute="height" multiplier="0.825397" id="era-na-kcd"/>
+                    <constraint firstItem="wzC-MP-NVl" firstAttribute="leading" secondItem="TaC-gJ-lWg" secondAttribute="trailing" constant="5" id="oW0-VG-JpO"/>
                     <constraint firstItem="wzC-MP-NVl" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pW8-Js-1jz"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wzC-MP-NVl" secondAttribute="trailing" constant="50" id="v7l-1k-uAC"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="checkMarkImageView" destination="TaC-gJ-lWg" id="9Vo-nQ-Cef"/>
                 <outlet property="topicTitleLabel" destination="wzC-MP-NVl" id="uCM-cc-cRF"/>
             </connections>
-            <point key="canvasLocation" x="139" y="86"/>
+            <point key="canvasLocation" x="137.68115942028987" y="85.714285714285708"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="checkmark.seal" catalog="system" width="128" height="128"/>
+    </resources>
 </document>

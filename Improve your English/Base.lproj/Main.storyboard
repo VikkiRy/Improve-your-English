@@ -275,7 +275,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUW-so-2vy">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUW-so-2vy">
                                 <rect key="frame" x="90" y="619" width="195" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Aa9-8V-hMf"/>
@@ -549,7 +549,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-nM-Mqa">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="589"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -664,7 +664,7 @@
             </objects>
             <point key="canvasLocation" x="-1930" y="2662"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="Jfh-mS-ctQ">
             <objects>
                 <viewController id="afW-OZ-rjw" customClass="SettingsViewController" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
@@ -672,87 +672,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Wk-q0-bAM">
+                                <rect key="frame" x="10" y="140" width="355" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZ2-qP-G0r" userLabel="Words Stack View">
+                                        <rect key="frame" x="10" y="0.0" width="335" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of words:" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Tk-Wom">
+                                                <rect key="frame" x="0.0" y="9.3333333333333446" width="185" height="31.666666666666671"/>
+                                                <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
+                                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqm-xW-m4W">
+                                                <rect key="frame" x="199" y="9.3333333333333446" width="28" height="31.666666666666671"/>
+                                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ci3-Ux-sL9">
+                                                <rect key="frame" x="241" y="9" width="94" height="32"/>
+                                                <connections>
+                                                    <action selector="stepperPressed:" destination="afW-OZ-rjw" eventType="valueChanged" id="6pR-fo-tFc"/>
+                                                </connections>
+                                            </stepper>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="cZ2-qP-G0r" secondAttribute="trailing" constant="10" id="Afy-Yo-5tJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="cZ2-qP-G0r" secondAttribute="bottom" id="IOk-WF-RnW"/>
+                                    <constraint firstItem="cZ2-qP-G0r" firstAttribute="leading" secondItem="0Wk-q0-bAM" secondAttribute="leading" constant="10" id="MhQ-Xh-jQP"/>
+                                    <constraint firstAttribute="height" constant="50" id="NbV-0t-eBo"/>
+                                    <constraint firstItem="cZ2-qP-G0r" firstAttribute="top" secondItem="0Wk-q0-bAM" secondAttribute="top" id="ThY-DH-WcD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDJ-NJ-aMH" userLabel="Topics View">
+                                <rect key="frame" x="10" y="210" width="355" height="230"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PnN-uM-6rg" userLabel="Topics Stack View">
+                                        <rect key="frame" x="10" y="5" width="335" height="220"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topics:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq0-1s-gTX">
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="31.666666666666668"/>
+                                                <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="80y-Iv-dIP">
+                                                <rect key="frame" x="0.0" y="37.666666666666657" width="335" height="32"/>
+                                                <segments>
+                                                    <segment title="All"/>
+                                                    <segment title="Selected"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="setmentDidChanged:" destination="afW-OZ-rjw" eventType="valueChanged" id="HtV-3C-Z8k"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-i5-eHc">
+                                                <rect key="frame" x="0.0" y="74.6666666666667" width="335" height="145.33333333333337"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </tableView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="4gj-k4-F43"/>
+                                    <constraint firstItem="PnN-uM-6rg" firstAttribute="leading" secondItem="FDJ-NJ-aMH" secondAttribute="leading" constant="10" id="7aG-ya-sDg"/>
+                                    <constraint firstAttribute="bottom" secondItem="PnN-uM-6rg" secondAttribute="bottom" constant="5" id="MOU-2B-bO4"/>
+                                    <constraint firstAttribute="trailing" secondItem="PnN-uM-6rg" secondAttribute="trailing" constant="10" id="PXW-7q-pl4"/>
+                                    <constraint firstAttribute="width" constant="350" id="R8A-CQ-Xvc"/>
+                                    <constraint firstItem="PnN-uM-6rg" firstAttribute="top" secondItem="FDJ-NJ-aMH" secondAttribute="top" constant="5" id="rGu-Vb-JSH"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oC-bX-DrI">
-                                <rect key="frame" x="118.66666666666667" y="390.66666666666669" width="137.66666666666663" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Add custom topic"/>
+                                <rect key="frame" x="118.66666666666667" y="460" width="137.66666666666663" height="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Add custom topic"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add custom topic"/>
                                 <connections>
                                     <action selector="addTopicButtonPressed:" destination="afW-OZ-rjw" eventType="touchUpInside" id="vP0-T8-xHr"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cZ2-qP-G0r" userLabel="Words Stack View">
-                                <rect key="frame" x="10" y="88" width="355" height="32"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count of words:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-Tk-Wom">
-                                        <rect key="frame" x="0.0" y="0.33333333333333037" width="185" height="31.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqm-xW-m4W">
-                                        <rect key="frame" x="209" y="0.33333333333333037" width="28" height="31.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" maximumValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="Ci3-Ux-sL9">
-                                        <rect key="frame" x="261" y="0.0" width="94" height="32"/>
-                                        <connections>
-                                            <action selector="stepperPressed:" destination="afW-OZ-rjw" eventType="valueChanged" id="6pR-fo-tFc"/>
-                                        </connections>
-                                    </stepper>
-                                </subviews>
-                                <color key="backgroundColor" red="0.74259251356124878" green="0.97907239198684692" blue="0.032968409359455109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="hbm-Mr-Mbz"/>
-                                </constraints>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="anX-si-jnp" userLabel="Topics Stack View">
-                                <rect key="frame" x="10" y="130" width="355" height="250.66666666666663"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topics:" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq0-1s-gTX">
-                                        <rect key="frame" x="0.0" y="109.33333333333334" width="84" height="31.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-i5-eHc">
-                                        <rect key="frame" x="84" y="0.0" width="271" height="250.66666666666666"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </tableView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="3cL-i5-eHc" secondAttribute="bottom" id="M5E-3E-vAt"/>
-                                    <constraint firstItem="3cL-i5-eHc" firstAttribute="top" secondItem="anX-si-jnp" secondAttribute="top" id="nQl-EZ-zbe"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X65-uR-fbV"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="anX-si-jnp" secondAttribute="trailing" constant="10" id="3Nt-eG-bMK"/>
-                            <constraint firstItem="0oC-bX-DrI" firstAttribute="top" secondItem="anX-si-jnp" secondAttribute="bottom" constant="10" id="3UV-c0-DAb"/>
-                            <constraint firstItem="anX-si-jnp" firstAttribute="top" secondItem="cZ2-qP-G0r" secondAttribute="bottom" constant="10" id="6lR-fi-D6r"/>
-                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="cZ2-qP-G0r" secondAttribute="trailing" constant="10" id="9NB-k0-Qek"/>
+                            <constraint firstItem="FDJ-NJ-aMH" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="10" id="BUR-FF-BC4"/>
+                            <constraint firstItem="0oC-bX-DrI" firstAttribute="top" secondItem="FDJ-NJ-aMH" secondAttribute="bottom" constant="20" id="E6f-g5-m2h"/>
+                            <constraint firstItem="FDJ-NJ-aMH" firstAttribute="top" secondItem="0Wk-q0-bAM" secondAttribute="bottom" constant="20" id="FCh-nO-13b"/>
                             <constraint firstItem="0oC-bX-DrI" firstAttribute="centerX" secondItem="5h4-7T-NPE" secondAttribute="centerX" id="FTi-jr-yT8"/>
-                            <constraint firstItem="anX-si-jnp" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="10" id="Oef-BV-eCN"/>
-                            <constraint firstItem="cZ2-qP-G0r" firstAttribute="top" secondItem="X65-uR-fbV" secondAttribute="top" id="bAx-9Q-Mma"/>
-                            <constraint firstItem="0oC-bX-DrI" firstAttribute="centerY" secondItem="5h4-7T-NPE" secondAttribute="centerY" id="bFd-jO-FO8"/>
-                            <constraint firstItem="cZ2-qP-G0r" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="10" id="ckk-7w-e6G"/>
+                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="FDJ-NJ-aMH" secondAttribute="trailing" constant="10" id="RrS-vj-8Zd"/>
+                            <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="0Wk-q0-bAM" secondAttribute="trailing" constant="10" id="nb3-qH-zyB"/>
+                            <constraint firstItem="0Wk-q0-bAM" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="10" id="qFy-kR-H37"/>
+                            <constraint firstItem="0Wk-q0-bAM" firstAttribute="top" secondItem="X65-uR-fbV" secondAttribute="top" id="uur-Km-7iu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9IR-ny-eow"/>
+                    <navigationItem key="navigationItem" title="Settings" id="9IR-ny-eow"/>
                     <connections>
                         <outlet property="addTopicButton" destination="0oC-bX-DrI" id="p2g-Uh-oYO"/>
                         <outlet property="stepper" destination="mCx-7h-8tE" id="GMp-Iv-Ngv"/>
                         <outlet property="tableView" destination="3cL-i5-eHc" id="FKI-dt-qA5"/>
+                        <outlet property="topicsSegmentedControl" destination="80y-Iv-dIP" id="6S6-IR-PSw"/>
+                        <outlet property="topicsView" destination="FDJ-NJ-aMH" id="lPq-o2-Xda"/>
                         <outlet property="wordsCountLabel" destination="Nqm-xW-m4W" id="Fcu-00-LoZ"/>
+                        <outlet property="wordsView" destination="0Wk-q0-bAM" id="fUV-S4-YfJ"/>
                         <segue destination="fby-yK-SuC" kind="show" identifier="wordsVC" id="fNf-H1-YvY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4W-Jh-kOc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1930" y="1162"/>
+            <point key="canvasLocation" x="-1930.4000000000001" y="1161.576354679803"/>
         </scene>
         <!--Learn-->
         <scene sceneID="Jum-ks-0zb">
@@ -799,8 +832,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Vgz-Dk-dqr" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="Osi-0b-lRg"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="54Q-0A-20h">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="54Q-0A-20h">
+                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -829,6 +862,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

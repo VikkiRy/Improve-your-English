@@ -60,10 +60,8 @@ class LearningViewController: UIViewController {
     
     private func updateUI() {
         let word = words[learningWordPosition]
-        if let engTitle = word.engTitle, let rusTitle = word.rusTitle {
-            wordEngLabel.text = engTitle
-            wordRusLabel.text = rusTitle
-        }
+        wordEngLabel.text = word.engTitle
+        wordRusLabel.text = word.rusTitle
     }
     
     private func changeBackButtonState() {

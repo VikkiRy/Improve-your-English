@@ -24,7 +24,7 @@ struct WordsDataModel {
         if let allWords = topic.words,
            let words = allWords.allObjects as? [Word] {
             topicWords = words.sorted(by: { firstWord, secondWord in
-                firstWord.engTitle!.lowercased() < secondWord.engTitle!.lowercased()
+                firstWord.engTitle.lowercased() < secondWord.engTitle.lowercased()
             })
         }
     }

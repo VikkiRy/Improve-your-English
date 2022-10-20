@@ -10,9 +10,12 @@ import CoreData
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var wordsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordsCountLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var topicsView: UIView!
+    @IBOutlet weak var topicsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var addTopicButton: UIButton!
     
     var dataModel = SettingsDataModel()
@@ -26,6 +29,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func stepperPressed(_ sender: UIStepper) {
         wordsCountLabel.text = String(Int(sender.value))
+    }
+    
+    @IBAction func setmentDidChanged(_ sender: UISegmentedControl) {
+        tableView.reloadData()
     }
     
     @IBAction func addTopicButtonPressed(_ sender: UIButton) {
@@ -65,6 +72,13 @@ class SettingsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        updateViewsConrers()
+    }
+    
+    private func updateViewsConrers() {
+        topicsView.layer.cornerRadius = 10
+        wordsView.layer.cornerRadius = 10
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,13 +94,34 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataModel.topics.count
+        switch topicsSegmentedControl.selectedSegmentIndex {
+        case 0:
+            return dataModel.topics.count
+        default:
+            return dataModel.selectedTopics.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! TopicTableViewCell
         
-        cell.topicTitleLabel.text = dataModel.topics[indexPath.row].title
+        let topic: Topic
+        
+        switch topicsSegmentedControl.selectedSegmentIndex {
+        case 0:
+            topic = dataModel.topics[indexPath.row]
+        default:
+            topic = dataModel.selectedTopics[indexPath.row]
+        }
+        
+        cell.topicTitleLabel.text = topic.title
+        
+        switch topic.isSelected {
+        case true:
+            cell.checkMarkImageView.image = UIImage(systemName: "checkmark.seal")
+        case false:
+            cell.checkMarkImageView.image = nil
+        }
         
         return cell
     }

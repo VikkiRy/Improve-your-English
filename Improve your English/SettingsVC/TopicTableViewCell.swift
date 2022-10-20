@@ -9,6 +9,8 @@ import UIKit
 
 class TopicTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var checkMarkImageView: UIImageView!
     @IBOutlet weak var topicTitleLabel: UILabel!
     
     override func awakeFromNib() {
