@@ -611,13 +611,13 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="fki-4j-QJQ">
                             <connections>
                                 <action selector="addWordButtonPressed:" destination="fby-yK-SuC" id="L8j-gK-EiQ"/>
-                                <segue destination="bhK-RR-Amd" kind="presentation" identifier="addWord" id="s5e-eW-fGo"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addWordButton" destination="fki-4j-QJQ" id="e9W-Xg-eG0"/>
                         <outlet property="tableView" destination="KDL-nM-Mqa" id="YVP-vD-NWB"/>
+                        <segue destination="bhK-RR-Amd" kind="presentation" identifier="addWord" id="iNc-MJ-3ev"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-A5-Ibr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -633,7 +633,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Egnlish word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cW-JE-Nct">
-                                <rect key="frame" x="20" y="63.999999999999993" width="335" height="31.666666666666664"/>
+                                <rect key="frame" x="20" y="64" width="335" height="31.666666666666664"/>
                                 <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
