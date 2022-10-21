@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var topicsView: UIView!
     @IBOutlet weak var topicsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var addTopicButton: UIButton!
+    @IBOutlet weak var wordsSteckVuew: UIStackView!
     
     var dataModel = SettingsDataModel()
     var selectedRow: Int? = nil
@@ -27,8 +28,10 @@ class SettingsViewController: UIViewController {
         updateUI()
     }
     
-    @IBAction func stepperPressed(_ sender: UIStepper) {
-        wordsCountLabel.text = String(Int(sender.value))
+    @IBAction func stepperPressed(_ sender: UIStepper!) {
+        let stepperValue = Int(sender.value)
+        
+        wordsCountLabel.text = String(stepperValue)
     }
     
     @IBAction func setmentDidChanged(_ sender: UISegmentedControl) {
@@ -73,12 +76,24 @@ class SettingsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        updateInitialValues()
         updateViewsConrers()
     }
     
     private func updateViewsConrers() {
         topicsView.layer.cornerRadius = 10
         wordsView.layer.cornerRadius = 10
+    }
+    
+    private func updateInitialValues() {
+        let stepperValue = UserDefaults.standard.double(forKey: UserSettingKeys.numberOfWords.rawValue)
+        
+        wordsCountLabel.text = String(Int(stepperValue))
+        stepper.value = stepperValue
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(stepper.value, forKey: UserSettingKeys.numberOfWords.rawValue)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

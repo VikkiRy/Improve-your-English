@@ -8,6 +8,8 @@
 import UIKit
 
 class TrainingViewController: UIViewController {
+    
+    var data: [LearningData]!
 
     override func viewDidLoad() {
         super.viewDidLoad()

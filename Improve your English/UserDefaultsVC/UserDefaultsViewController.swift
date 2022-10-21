@@ -14,12 +14,14 @@ class UserDefaultsViewController: UIViewController {
     @IBOutlet weak var wordCountLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var topTextView: UIView!
+    @IBOutlet weak var bottomTextView: UIView!
     
     let dataModel = UserDefaultsDataModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         updateUI()
     }
     
@@ -32,10 +34,10 @@ class UserDefaultsViewController: UIViewController {
         
         guard !selectedTopics.isEmpty else {
             let message = "Please, select at least 1 topic for learning"
-            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default)
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
+            let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
             
-            alert.addAction(okAction)
+            alert.addAction(gotItAction)
             self.present(alert, animated: true)
             
             return
@@ -59,6 +61,14 @@ class UserDefaultsViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        updateCornersRadius()
+    }
+    
+    private func updateCornersRadius() {
+        topTextView.layer.cornerRadius = 15
+        bottomTextView.layer.cornerRadius = 15
+        tableView.layer.cornerRadius = 15
     }
 }
 
@@ -86,5 +96,6 @@ extension UserDefaultsViewController: UITableViewDelegate {
         
         let image = dataModel.topics[indexPath.row].isSelected ? UIImage.checkmark : nil
         cell.checkmarkImageView.image = image
+        cell.checkmarkImageView.tintColor = .systemGreen
     }
 }

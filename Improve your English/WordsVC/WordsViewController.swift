@@ -58,7 +58,7 @@ class WordsViewController: UIViewController {
     private func showAlert() {
         let message = "Sorry, you can add words only to your own topics"
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
         
         alert.addAction(okAction)
         self.present(alert, animated: true)

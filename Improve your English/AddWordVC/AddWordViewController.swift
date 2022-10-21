@@ -43,7 +43,7 @@ class AddWordViewController: UIViewController {
     private func showAlert() {
         let message = "Sorry, you must add the word and its translation"
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default)
+        let okAction = UIAlertAction(title: "OK", style: .cancel)
         
         alert.addAction(okAction)
         self.present(alert, animated: true)
