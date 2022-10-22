@@ -464,7 +464,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDs-aE-Ucr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wordRus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDs-aE-Ucr">
                                 <rect key="frame" x="20" y="122.99999999999999" width="335" height="61.333333333333329"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="50"/>
                                 <nil key="textColor"/>
@@ -495,6 +495,9 @@
                                                     </attributedString>
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="as7-Ka-vSr"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-Xj-aKH">
                                                 <rect key="frame" x="175" y="0.0" width="160" height="60"/>
@@ -515,6 +518,9 @@
                                                     </attributedString>
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="ff1-bN-4J3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -544,6 +550,9 @@
                                                     </attributedString>
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="rNT-mi-w9t"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-GK-U6n">
                                                 <rect key="frame" x="175" y="0.0" width="160" height="60"/>
@@ -564,6 +573,9 @@
                                                     </attributedString>
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="FAY-P1-ohb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -591,6 +603,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TtD-13-WI7"/>
+                    <connections>
+                        <outlet property="wordRusLabel" destination="hDs-aE-Ucr" id="Sx9-yj-dky"/>
+                        <outletCollection property="translationButtons" destination="ADq-q9-xWn" collectionClass="NSMutableArray" id="Bw3-cB-1N9"/>
+                        <outletCollection property="translationButtons" destination="gqV-Xj-aKH" collectionClass="NSMutableArray" id="PDF-8k-HMC"/>
+                        <outletCollection property="translationButtons" destination="cLy-w6-eIy" collectionClass="NSMutableArray" id="HBn-cq-5ge"/>
+                        <outletCollection property="translationButtons" destination="r1f-GK-U6n" collectionClass="NSMutableArray" id="wZ3-tb-vMU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5M-jm-qOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

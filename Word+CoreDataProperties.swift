@@ -2,7 +2,7 @@
 //  Word+CoreDataProperties.swift
 //  Improve your English
 //
-//  Created by Viktoria Misiulia on 20/10/2022.
+//  Created by Viktoria Misiulia on 22/10/2022.
 //
 //
 
@@ -18,25 +18,26 @@ extension Word {
 
     @NSManaged public var engTitle: String
     @NSManaged public var rusTitle: String
-    @NSManaged public var learningWords: NSSet?
+    @NSManaged public var isTrainingCompleted: Bool
+    @NSManaged public var learningData: NSSet?
     @NSManaged public var topic: Topic
 
 }
 
-// MARK: Generated accessors for toLearningWords
+// MARK: Generated accessors for learningData
 extension Word {
 
-    @objc(addToLearningWordsObject:)
-    @NSManaged public func addToToLearningWords(_ value: LearningData)
+    @objc(addLearningDataObject:)
+    @NSManaged public func addToLearningData(_ value: LearningData)
 
-    @objc(removeToLearningWordsObject:)
-    @NSManaged public func removeFromToLearningWords(_ value: LearningData)
+    @objc(removeLearningDataObject:)
+    @NSManaged public func removeFromLearningData(_ value: LearningData)
 
-    @objc(addToLearningWords:)
-    @NSManaged public func addToToLearningWords(_ values: NSSet)
+    @objc(addLearningData:)
+    @NSManaged public func addToLearningData(_ values: NSSet)
 
-    @objc(removeToLearningWords:)
-    @NSManaged public func removeFromToLearningWords(_ values: NSSet)
+    @objc(removeLearningData:)
+    @NSManaged public func removeFromLearningData(_ values: NSSet)
 
 }
 

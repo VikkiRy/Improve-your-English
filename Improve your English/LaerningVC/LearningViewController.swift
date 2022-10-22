@@ -26,7 +26,7 @@ class LearningViewController: UIViewController {
         let nextWordIndex = dataModel.learningWordPosition + 1
         if nextWordIndex == dataModel.data.count {
             dataModel.changeLearningState()
-            self.navigationController!.popViewController(animated: true)
+            self.navigationController?.popViewController(animated: true)
         } else {
             dataModel.learningWordPosition = nextWordIndex
             updateUI()

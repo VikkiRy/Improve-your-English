@@ -13,6 +13,7 @@
     </entity>
     <entity name="Word" representedClassName="Word" syncable="YES">
         <attribute name="engTitle" attributeType="String" minValueString="1"/>
+        <attribute name="isTrainingCompleted" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="rusTitle" attributeType="String"/>
         <relationship name="learningData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LearningData" inverseName="word" inverseEntity="LearningData"/>
         <relationship name="topic" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="words" inverseEntity="Topic"/>
@@ -20,6 +21,6 @@
     <elements>
         <element name="LearningData" positionX="302.3125" positionY="-2.9453125" width="128" height="74"/>
         <element name="Topic" positionX="-45" positionY="0" width="128" height="89"/>
-        <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="89"/>
+        <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="104"/>
     </elements>
 </model>

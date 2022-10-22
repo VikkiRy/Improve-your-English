@@ -22,23 +22,25 @@ class MainViewController: UIViewController {
     
     @IBAction func trainingButtonPressed(_ sender: Any) {
         let data = LearningDataRepository.shared.currentDayTrainingData()
-        if data.isEmpty {
-            let alert = UIAlertController(title: "Not available yet", message: "You need to learn new words", preferredStyle: .alert)
-            let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
-            
-            alert.addAction(gotItAction)
-            self.present(alert, animated: true)
-        } else {
+        
+        switch data.isEmpty {
+        case true:
+            self.present(alert(), animated: true)
+        case false:
             performSegue(withIdentifier: "training", sender: self)
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "training" {
-            if let trainingVC = segue.destination as? TrainingViewController {
-                trainingVC.data = LearningDataRepository.shared.currentDayTrainingData()
-            }
-        }
+    private func alert() -> UIAlertController {
+        let alertTitle = "Not available yet"
+        let message = "You need to learn new words"
+        
+        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        
+        let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
+        alert.addAction(gotItAction)
+        
+        return alert
     }
     
     private func updateCornersRadius() {

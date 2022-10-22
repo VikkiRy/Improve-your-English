@@ -46,14 +46,20 @@ final class WordsRepository {
         }
     }
     
-    private func words(from topics: [Topic]) -> [Word] {
+    private func words(from topics: [Topic], isTrainingCompleted: Bool = false) -> [Word] {
         var words: [Word] = []
         
-        topics.forEach { topic in
-            if let topicWords = topic.words {
-                let allWords = topicWords.allObjects as! [Word]
-                words.append(contentsOf: allWords)
-            }
+        for topic in topics {
+            
+            guard let topicWords = topic.words,
+                  let allWords = topicWords.allObjects as? [Word],
+                  !allWords.isEmpty else { continue }
+            
+            let learningWords = allWords.filter({ word in
+                !word.isTrainingCompleted
+            })
+            
+            words.append(contentsOf: learningWords)
         }
         
         return words

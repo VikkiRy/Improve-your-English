@@ -43,6 +43,7 @@
 		61D1C0E92901A53A0008B4FB /* LearningDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D1C0E82901A53A0008B4FB /* LearningDataRepository.swift */; };
 		61D1C0EB290201C50008B4FB /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D1C0EA290201C50008B4FB /* DateExtension.swift */; };
 		61D1C0EE290210510008B4FB /* MainVCDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D1C0ED290210510008B4FB /* MainVCDataModel.swift */; };
+		61D720132904868F00FA9B9F /* TrainingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D720122904868F00FA9B9F /* TrainingDataModel.swift */; };
 		61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E794F428E47FB20022B9ED /* DefaultValue.swift */; };
 		61F47C6F28E5CBFD00F81DA6 /* TopicsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */; };
 		61F47C7928E5ECEB00F81DA6 /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */; };
@@ -87,6 +88,7 @@
 		61D1C0E82901A53A0008B4FB /* LearningDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDataRepository.swift; sourceTree = "<group>"; };
 		61D1C0EA290201C50008B4FB /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		61D1C0ED290210510008B4FB /* MainVCDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCDataModel.swift; sourceTree = "<group>"; };
+		61D720122904868F00FA9B9F /* TrainingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDataModel.swift; sourceTree = "<group>"; };
 		61E794F428E47FB20022B9ED /* DefaultValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValue.swift; sourceTree = "<group>"; };
 		61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsRepository.swift; sourceTree = "<group>"; };
 		61F47C7828E5ECEB00F81DA6 /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
@@ -146,12 +148,12 @@
 				61B0633228EACE3A004BC096 /* WordsVC */,
 				61CF640928FDED3E00B29611 /* AddWordVC */,
 				6100095B2900BAF6009AF50E /* LaerningVC */,
-				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
+				61D720142904869700FA9B9F /* TrainingVC */,
 				61D1C0EC290201F70008B4FB /* Repositories */,
+				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
 				613851282902D6C10077B32E /* StatisticsViewController.swift */,
 				61B0633328EAE639004BC096 /* CoreDataManager.swift */,
 				61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */,
-				617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */,
 				61D1C0EA290201C50008B4FB /* DateExtension.swift */,
 				619B562128DB496600C22044 /* Assets.xcassets */,
 				619B562328DB496600C22044 /* LaunchScreen.storyboard */,
@@ -220,6 +222,15 @@
 				61D1C0ED290210510008B4FB /* MainVCDataModel.swift */,
 			);
 			path = MainVC;
+			sourceTree = "<group>";
+		};
+		61D720142904869700FA9B9F /* TrainingVC */ = {
+			isa = PBXGroup;
+			children = (
+				617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */,
+				61D720122904868F00FA9B9F /* TrainingDataModel.swift */,
+			);
+			path = TrainingVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +314,7 @@
 				61F47C7928E5ECEB00F81DA6 /* WordsViewController.swift in Sources */,
 				619B561628DB496400C22044 /* AppDelegate.swift in Sources */,
 				61CF640828FDECF500B29611 /* AddWordDataModel.swift in Sources */,
+				61D720132904868F00FA9B9F /* TrainingDataModel.swift in Sources */,
 				616CC4AA28F99D8100566ABC /* AddWordViewController.swift in Sources */,
 				61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */,
 				616CC48828F80E9200566ABC /* Topic+CoreDataClass.swift in Sources */,
