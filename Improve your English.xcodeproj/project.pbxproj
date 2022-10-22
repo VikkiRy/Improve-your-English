@@ -10,6 +10,7 @@
 		6100095A2900BAF1009AF50E /* LearningDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610009592900BAF1009AF50E /* LearningDataModel.swift */; };
 		612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */; };
 		612C878E28EACB82004DBE5F /* WordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C878D28EACB82004DBE5F /* WordTableViewCell.swift */; };
+		613851292902D6C10077B32E /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613851282902D6C10077B32E /* StatisticsViewController.swift */; };
 		61476D4828EF6F7F0070AD57 /* UserSettingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */; };
 		616CC48828F80E9200566ABC /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616CC48628F80E9200566ABC /* Topic+CoreDataClass.swift */; };
 		616CC48928F80E9200566ABC /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616CC48728F80E9200566ABC /* Topic+CoreDataProperties.swift */; };
@@ -51,6 +52,7 @@
 		610009592900BAF1009AF50E /* LearningDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDataModel.swift; sourceTree = "<group>"; };
 		612C2E9A28E44DE300D3757B /* TopicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		612C878D28EACB82004DBE5F /* WordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordTableViewCell.swift; sourceTree = "<group>"; };
+		613851282902D6C10077B32E /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsViewController.swift; path = "Improve your English/StatisticsViewController.swift"; sourceTree = SOURCE_ROOT; };
 		61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingKeys.swift; sourceTree = "<group>"; };
 		616CC48628F80E9200566ABC /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
 		616CC48728F80E9200566ABC /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				6100095B2900BAF6009AF50E /* LaerningVC */,
 				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
 				61D1C0EC290201F70008B4FB /* Repositories */,
+				613851282902D6C10077B32E /* StatisticsViewController.swift */,
 				61B0633328EAE639004BC096 /* CoreDataManager.swift */,
 				61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */,
 				617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */,
@@ -320,6 +323,7 @@
 				61CF640F28FF4A8B00B29611 /* SettingsDataModel.swift in Sources */,
 				61D1C0EE290210510008B4FB /* MainVCDataModel.swift in Sources */,
 				616CC4A528F9677200566ABC /* Word+CoreDataProperties.swift in Sources */,
+				613851292902D6C10077B32E /* StatisticsViewController.swift in Sources */,
 				61D1C0E92901A53A0008B4FB /* LearningDataRepository.swift in Sources */,
 				61A1B38D28F9F1AD00E7A534 /* UserDefaultsDataModel.swift in Sources */,
 				612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */,
