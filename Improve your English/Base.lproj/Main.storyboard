@@ -102,6 +102,7 @@
                         <outlet property="learningButton" destination="qqC-ey-jfm" id="31F-a8-AFg"/>
                         <outlet property="trainingButton" destination="cgb-6k-pHw" id="nWC-76-V8f"/>
                         <segue destination="qDd-Ri-Ham" kind="show" identifier="training" id="dV2-AY-Q1H"/>
+                        <segue destination="O9G-ye-8jY" kind="show" identifier="trainingWithTextFiel" id="fTY-ha-7UW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -476,11 +477,11 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="nCO-MC-3fz">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ADq-q9-xWn">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewX-rz-FeQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="160" id="KS5-EK-wOQ"/>
-                                                    <constraint firstAttribute="height" constant="60" id="dII-do-HQX"/>
+                                                    <constraint firstAttribute="width" constant="160" id="2Qw-xi-6OB"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Rbo-Jo-LE8"/>
                                                 </constraints>
                                                 <color key="tintColor" systemColor="systemGray5Color"/>
                                                 <state key="normal" title="Button"/>
@@ -489,21 +490,21 @@
                                                         <fragment content="Translation1">
                                                             <attributes>
                                                                 <font key="NSFont" size="24" name="AmericanTypewriter"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="as7-Ka-vSr"/>
+                                                    <action selector="buttonPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="Gep-0D-wqN"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqV-Xj-aKH">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXy-3P-QFY">
                                                 <rect key="frame" x="175" y="0.0" width="160" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="160" id="aHz-zY-zNd"/>
-                                                    <constraint firstAttribute="height" constant="60" id="tWV-Wr-Eg1"/>
+                                                    <constraint firstAttribute="width" constant="160" id="cAC-et-0So"/>
+                                                    <constraint firstAttribute="height" constant="60" id="k1U-Ej-jsA"/>
                                                 </constraints>
                                                 <color key="tintColor" systemColor="systemGray5Color"/>
                                                 <state key="normal" title="Button"/>
@@ -519,14 +520,10 @@
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="ff1-bN-4J3"/>
+                                                    <action selector="buttonPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="tYX-3H-fdp"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="ADq-q9-xWn" firstAttribute="height" secondItem="gqV-Xj-aKH" secondAttribute="height" id="dmr-gI-vpi"/>
-                                            <constraint firstItem="ADq-q9-xWn" firstAttribute="width" secondItem="gqV-Xj-aKH" secondAttribute="width" id="oYu-BL-sDc"/>
-                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="byW-MZ-dra">
                                         <rect key="frame" x="0.0" y="69.999999999999972" width="335" height="60"/>
@@ -551,7 +548,7 @@
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="rNT-mi-w9t"/>
+                                                    <action selector="buttonPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="btZ-Hd-JIy"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1f-GK-U6n">
@@ -574,18 +571,12 @@
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                 </buttonConfiguration>
                                                 <connections>
-                                                    <action selector="translationButtonsPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="FAY-P1-ohb"/>
+                                                    <action selector="buttonPressed:" destination="qDd-Ri-Ham" eventType="touchUpInside" id="h4g-tK-8Ae"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="gqV-Xj-aKH" firstAttribute="width" secondItem="r1f-GK-U6n" secondAttribute="width" id="6ng-rO-kte"/>
-                                    <constraint firstItem="gqV-Xj-aKH" firstAttribute="height" secondItem="r1f-GK-U6n" secondAttribute="height" id="FzM-lW-o0x"/>
-                                    <constraint firstItem="ADq-q9-xWn" firstAttribute="height" secondItem="cLy-w6-eIy" secondAttribute="height" id="HR2-fS-3Dx"/>
-                                    <constraint firstItem="ADq-q9-xWn" firstAttribute="width" secondItem="cLy-w6-eIy" secondAttribute="width" id="v8P-0x-dbB"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xpf-Ua-ui9"/>
@@ -605,10 +596,10 @@
                     <navigationItem key="navigationItem" id="TtD-13-WI7"/>
                     <connections>
                         <outlet property="wordRusLabel" destination="hDs-aE-Ucr" id="Sx9-yj-dky"/>
-                        <outletCollection property="translationButtons" destination="ADq-q9-xWn" collectionClass="NSMutableArray" id="Bw3-cB-1N9"/>
-                        <outletCollection property="translationButtons" destination="gqV-Xj-aKH" collectionClass="NSMutableArray" id="PDF-8k-HMC"/>
                         <outletCollection property="translationButtons" destination="cLy-w6-eIy" collectionClass="NSMutableArray" id="HBn-cq-5ge"/>
                         <outletCollection property="translationButtons" destination="r1f-GK-U6n" collectionClass="NSMutableArray" id="wZ3-tb-vMU"/>
+                        <outletCollection property="translationButtons" destination="xXy-3P-QFY" collectionClass="NSMutableArray" id="tAa-R4-Ujo"/>
+                        <outletCollection property="translationButtons" destination="ewX-rz-FeQ" collectionClass="NSMutableArray" id="1ov-io-Zva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z5M-jm-qOI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -624,13 +615,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9D-lD-LI7">
-                                <rect key="frame" x="20" y="79" width="335" height="61.666666666666657"/>
+                                <rect key="frame" x="20" y="123.00000000000001" width="335" height="61.666666666666671"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to enter word" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ate-DS-Qhd">
-                                <rect key="frame" x="20" y="175.66666666666666" width="335" height="38"/>
+                                <rect key="frame" x="20" y="219.66666666666666" width="335" height="37.999999999999972"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -648,6 +639,7 @@
                             <constraint firstItem="o9D-lD-LI7" firstAttribute="centerX" secondItem="iNT-LE-XkG" secondAttribute="centerX" id="sCj-oT-fc8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="T0X-qh-nFw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTy-Gz-mJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

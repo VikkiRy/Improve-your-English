@@ -10,12 +10,24 @@ import Foundation
 struct TrainingDataModel {
     let trainingData: [LearningData] = LearningDataRepository.shared.currentDayTrainingData()
     var index: Int = 0
+    var guessedWord: Word {
+        trainingData[index].word
+    }
     
-    func randomData() -> [LearningData] {
-        var data = trainingData
-        data.remove(at: index)
-        data.shuffle()
+    func randomTitles() -> [String] {
+        var titles: [String] = []
         
-        return data.dropLast(data.count - 3)
+        trainingData.forEach { data in
+            titles.append(data.word.engTitle)
+        }
+        
+        titles.remove(at: index)
+        titles.shuffle()
+        
+        return titles.dropLast(titles.count - 3)
+    }
+    
+    func changeTrainingWordState() {
+        trainingData[index].word.isTrainingCompleted = true
     }
 }

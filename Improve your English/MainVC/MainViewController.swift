@@ -27,7 +27,11 @@ class MainViewController: UIViewController {
         case true:
             self.present(alert(), animated: true)
         case false:
-            performSegue(withIdentifier: "training", sender: self)
+            if data.count < 4 {
+                performSegue(withIdentifier: "trainingWithTextFiel", sender: self)
+            } else {
+                performSegue(withIdentifier: "training", sender: self)
+            }
         }
     }
     
