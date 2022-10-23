@@ -46,7 +46,6 @@ class TrainingViewController: UIViewController {
         translationButtons.shuffle()
         
         if dataModel.index < dataModel.trainingData.count {
-            
             setWrongButtonsConfiguration()
             
             let guessedWord = dataModel.guessedWord
@@ -54,7 +53,7 @@ class TrainingViewController: UIViewController {
             
             setButtonConfiguration(for: guessedWord)
         } else {
-            //return to mainVC
+            self.navigationController?.removeFromParent()
         }
     }
     

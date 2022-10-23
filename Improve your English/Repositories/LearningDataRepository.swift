@@ -26,10 +26,10 @@ final class LearningDataRepository {
     
     func currentDayTrainingData() -> [LearningData] {
         let currentDate = Date().currentDay as NSDate
-            
-        let request = LearningData.fetchRequest()
-        request.predicate = NSPredicate(format: "createdAt == %@", currentDate)
-        request.predicate = NSPredicate(format: "isLearned == true")
+        let predicates = [NSPredicate(format: "createdAt == %@", currentDate),
+                          NSPredicate(format: "isLearned == true")]
+        
+        let request = CoreDataManager.shared.addPredicates(for: LearningData.fetchRequest(), predicates)
         
         var data: [LearningData] = []
         

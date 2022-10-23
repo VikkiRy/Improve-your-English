@@ -20,6 +20,21 @@ final class WordsRepository {
         
         CoreDataManager.shared.save()
     }
+    
+    func words() -> [Word] {
+        var words: [Word] = []
+        
+        let predicate = NSPredicate(format: "isTrainingCompleted == %@", false)
+        let request = CoreDataManager.shared.addPredicates(for: Word.fetchRequest(), [predicate])
+        
+        do {
+            words = try CoreDataManager.shared.context.fetch(request)
+        } catch {
+            print(error)
+        }
+        
+        return words
+    }
 
     func wordsForLearning() -> [Word] {
         let selectedTopics = TopicRepository.shared.selectedTopics()

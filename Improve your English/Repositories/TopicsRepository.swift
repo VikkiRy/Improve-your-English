@@ -9,7 +9,6 @@ import Foundation
 
 final class TopicRepository {
     static let shared = TopicRepository()
-    
     private let dataManager = CoreDataManager.shared
     
     private init() {

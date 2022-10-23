@@ -13,11 +13,23 @@ class MainViewController: UIViewController {
     @IBOutlet weak var learningButton: UIButton!
     @IBOutlet weak var trainingButton: UIButton!
     
+    let dataModel = MainVCDataModel()
+    let isWordsExist = WordsRepository.shared.words().isEmpty
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        UserDefaults.standard.set(false, forKey: UserSettingKeys.isShowMainVC.rawValue)
-        updateCornersRadius()
+        if isWordsExist {
+            //UserDefaults.standard.set(false, forKey: UserSettingKeys.isShowMainVC.rawValue)
+            updateCornersRadius()
+        } else {
+            let alert = alert(title: "Congratulations!", message: "To continue, you can add new topics in the settings", actionTitle: "OK")
+            self.present(alert, animated: true)
+        }
     }
     
     @IBAction func trainingButtonPressed(_ sender: Any) {
@@ -25,24 +37,22 @@ class MainViewController: UIViewController {
         
         switch data.isEmpty {
         case true:
-            self.present(alert(), animated: true)
+            let alert = alert(title: "Not available yet", message: "You need to learn new words", actionTitle: "Got it")
+            self.present(alert, animated: true)
         case false:
             if data.count < 4 {
-                performSegue(withIdentifier: "trainingWithTextFiel", sender: self)
+                performSegue(withIdentifier: "trainingWithTextField", sender: self)
             } else {
                 performSegue(withIdentifier: "training", sender: self)
             }
         }
     }
     
-    private func alert() -> UIAlertController {
-        let alertTitle = "Not available yet"
-        let message = "You need to learn new words"
+    private func alert(title: String?, message: String, actionTitle: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
-        
-        let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
-        alert.addAction(gotItAction)
+        let action = UIAlertAction(title: actionTitle, style: .cancel)
+        alert.addAction(action)
         
         return alert
     }

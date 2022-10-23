@@ -34,4 +34,12 @@ final class CoreDataManager {
             }
         }
     }
+    
+    func addPredicates<Entity>(for request: NSFetchRequest<Entity>, _ predicate: [NSPredicate]) -> NSFetchRequest<Entity> {
+        predicate.forEach { predicate in
+            request.predicate = predicate
+        }
+        
+        return request
+    }
 }
