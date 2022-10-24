@@ -36,7 +36,7 @@ final class WordsRepository {
         return words
     }
 
-    func learningWords() -> [Word] {
+    func learningWords(_ wordsCount: Int) -> [Word] {
         var topicsWords = selectedTopicsWords()
         
         guard !topicsWords.isEmpty else { return [] }
@@ -51,7 +51,7 @@ final class WordsRepository {
             }
         }
         
-        let requiredWordsCount = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int
+        let requiredWordsCount = wordsCount
         
         if topicsWords.count == requiredWordsCount || topicsWords.count < requiredWordsCount {
             return topicsWords
@@ -82,9 +82,8 @@ final class WordsRepository {
     
     private func randomWords(from words: [Word], wordsCount: Int) -> [Word] {
         var randomWords: [Word] = []
-        let requiredWordsCount = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int
         
-        (1...requiredWordsCount).forEach { _ in
+        (1...wordsCount).forEach { _ in
             var randomWord = words.randomElement()!
             
             while randomWords.contains(randomWord) {

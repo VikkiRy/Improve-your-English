@@ -45,8 +45,8 @@ final class LearningDataRepository {
         return fetchedData.map { $0.word }
     }
     
-    func addCurrentDayData() {
-        let words = WordsRepository.shared.learningWords()
+    func addCurrentDayData(_ wordsCount: Int = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int) {
+        let words = WordsRepository.shared.learningWords(wordsCount)
         
         guard !words.isEmpty else {
             let unselectedTopics = TopicRepository.shared.unselectedTopics()
@@ -80,7 +80,7 @@ final class LearningDataRepository {
         } catch {
             print(error)
         }
-        //todo подгружается 1 лишнее слово
+
         let data = fetchData.filter { !$0.word.isTrainingCompleted }
 
         return Array(Set(data))

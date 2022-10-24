@@ -10,6 +10,9 @@ import Foundation
 struct SettingsDataModel {
     var topics: [Topic] = []
     var selectedTopics: [Topic] = []
+    var wordsCount: Double {
+        UserDefaults.standard.double(forKey: UserSettingKeys.numberOfWords.rawValue)
+    }
     
     init() {
         topics = allTopics()
@@ -39,5 +42,25 @@ struct SettingsDataModel {
         self.topics = TopicRepository.shared.topics().sorted(by: { firstTopic, secondTopic in
             firstTopic.title.lowercased() < secondTopic.title.lowercased()
         })
+    }
+    
+    func updateUserSettings(wordsCount: Double) {
+        guard wordsCount != self.wordsCount else { return }
+            
+        if wordsCount > self.wordsCount {
+            let difference = Int(abs(self.wordsCount - wordsCount))
+            
+            LearningDataRepository.shared.addCurrentDayData(difference)
+        } else {
+            var learningData = LearningDataRepository.shared.fetchCurrentDayLearningData()
+            
+            while learningData.count != Int(wordsCount) {
+                learningData.remove(at: 0)
+                CoreDataManager.shared.context.delete(learningData[0])
+            }
+        }
+        
+        CoreDataManager.shared.save()
+        UserDefaults.standard.set(wordsCount, forKey: UserSettingKeys.numberOfWords.rawValue)
     }
 }

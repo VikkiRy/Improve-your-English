@@ -86,14 +86,14 @@ class SettingsViewController: UIViewController {
     }
     
     private func updateInitialValues() {
-        let stepperValue = UserDefaults.standard.double(forKey: UserSettingKeys.numberOfWords.rawValue)
+        let stepperValue = dataModel.wordsCount
         
         wordsCountLabel.text = String(Int(stepperValue))
         stepper.value = stepperValue
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UserDefaults.standard.set(stepper.value, forKey: UserSettingKeys.numberOfWords.rawValue)
+        dataModel.updateUserSettings(wordsCount: stepper.value)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

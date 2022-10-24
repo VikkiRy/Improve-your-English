@@ -10,7 +10,6 @@ import CoreData
 
 class WordsViewController: UIViewController {
     
-    //todo fix bug если с wordsVC перейти по таб бару, а потом вернуться обратно - возвращается не на главный экран настроек, а в wordsVC
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addWordButton: UIBarButtonItem!
     
