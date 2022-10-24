@@ -11,7 +11,7 @@ struct MainVCDataModel {
     let isWordsExist = WordsRepository.shared.words().isEmpty
     
     var learningData: [LearningData] {
-        LearningDataRepository.shared.currentDayLearningData()
+        LearningDataRepository.shared.fetchCurrentDayLearningData()
     }
     var trainingData: [LearningData] {
         LearningDataRepository.shared.currentDayTrainingData()

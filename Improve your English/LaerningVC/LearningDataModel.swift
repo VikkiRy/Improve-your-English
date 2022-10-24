@@ -8,11 +8,15 @@
 import Foundation
 
 struct LearningDataModel {
-    var data: [LearningData] = LearningDataRepository.shared.currentDayLearningData()
+    var data: [LearningData]
     var learningWordPosition: Int = 0
     
     var currentWord: Word {
         data[learningWordPosition].word
+    }
+    
+    init(learningData: [LearningData]) {
+        data = learningData
     }
     
     func changeWordsLearningState() {

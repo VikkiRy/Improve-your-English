@@ -13,23 +13,12 @@ final class LearningDataRepository {
     
     private init() { }
     
-    func currentDayLearningData() -> [LearningData] {
-        var learningData = fetchCurrentDayLearningData()
-        
-        if learningData.isEmpty {
-            addCurrentDayData()
-            learningData = fetchCurrentDayLearningData()
-        }
-        
-        return learningData
-    }
-    
-    private func fetchCurrentDayLearningData() -> [LearningData] {
+    func fetchCurrentDayLearningData() -> [LearningData] {
         let currentDate = Date().currentDay as NSDate
-        let request = CoreDataManager.shared.addPredicates(for: LearningData.fetchRequest(), [
-            NSPredicate(format: "createdAt == %@", currentDate),
-            NSPredicate(format: "isLearned == false")
-        ])
+        
+        let request = LearningData.fetchRequest()
+        let predicate = NSPredicate(format: "isLearned == %d AND createdAt >= %@", false, currentDate as CVarArg)
+        request.predicate = predicate
         
         do {
             return try CoreDataManager.shared.context.fetch(request)
@@ -40,7 +29,7 @@ final class LearningDataRepository {
         return []
     }
     
-    private func addCurrentDayData() {
+    func addCurrentDayData() {
         let words = WordsRepository.shared.learningWords()
         
         guard !words.isEmpty else {

@@ -17,21 +17,27 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        UserDefaults.standard.set(false, forKey: UserSettingKeys.isShowMainVC.rawValue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if dataModel.isWordsExist {
-            updateButtonsCornersRadius()
-        } else {
+        if !dataModel.isWordsExist {
             let alert = UIAlertController.oneActionAlert(title: "Congratulations!", message: "To continue, you can add new topics in the settings", actionTitle: "OK", preferredStyle: .alert)
             self.present(alert, animated: true)
         }
+        
+        updateButtonsCornersRadius()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
+        case "learning":
+            if let learningVC = segue.destination as? LearningViewController {
+                learningVC.dataModel = LearningDataModel(learningData: dataModel.learningData)
+            }
         case "training":
             if let trainingVC = segue.destination as? TrainingViewController {
                 trainingVC.dataModel = TrainingDataModel(trainigData: dataModel.trainingData)
@@ -46,13 +52,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func learningButtonPressed(_ sender: UIButton) {
-        switch dataModel.learningData.isEmpty {
-        case true:
-           //todo обработать ошибки из currentDayLearningData()
-            break
-        case false:
-            performSegue(withIdentifier: "learning", sender: self)
+        if dataModel.learningData.isEmpty {
+            //todo обработать ошибки
+            LearningDataRepository.shared.addCurrentDayData()
         }
+        
+        performSegue(withIdentifier: "learning", sender: self)
     }
     
     @IBAction func trainingButtonPressed(_ sender: UIButton) {

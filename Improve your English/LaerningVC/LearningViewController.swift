@@ -14,7 +14,7 @@ class LearningViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
-    var dataModel = LearningDataModel()
+    var dataModel: LearningDataModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
