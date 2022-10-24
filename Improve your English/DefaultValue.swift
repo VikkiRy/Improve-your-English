@@ -17,7 +17,6 @@ struct DefaultWords {
     let wordRUS: String
 }
 
-
 let fishing = DefaultWords(wordENG: "fishing", wordRUS: "рыбалка")
 let hunting = DefaultWords(wordENG: "hunting", wordRUS: "охота")
 let blogging = DefaultWords(wordENG: "blogging", wordRUS: "блогинг")

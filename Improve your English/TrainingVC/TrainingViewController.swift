@@ -13,7 +13,7 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var wordRusLabel: UILabel!
     @IBOutlet var translationButtons: [UIButton]!
     
-    var dataModel = TrainingDataModel()
+    var dataModel: TrainingDataModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class TrainingViewController: UIViewController {
             
             setButtonConfiguration(for: guessedWord)
         } else {
-            self.navigationController?.removeFromParent()
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

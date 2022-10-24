@@ -42,7 +42,7 @@
                                             </attributedString>
                                         </state>
                                         <connections>
-                                            <segue destination="Dis-Bb-ILM" kind="show" identifier="learning" id="Yrh-ua-dK5"/>
+                                            <action selector="learningButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oQH-pq-JmV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cgb-6k-pHw">
@@ -102,7 +102,8 @@
                         <outlet property="learningButton" destination="qqC-ey-jfm" id="31F-a8-AFg"/>
                         <outlet property="trainingButton" destination="cgb-6k-pHw" id="nWC-76-V8f"/>
                         <segue destination="qDd-Ri-Ham" kind="show" identifier="training" id="dV2-AY-Q1H"/>
-                        <segue destination="O9G-ye-8jY" kind="show" identifier="trainingWithTextFiel" id="fTY-ha-7UW"/>
+                        <segue destination="O9G-ye-8jY" kind="show" identifier="trainingWithTextField" id="fTY-ha-7UW"/>
+                        <segue destination="Dis-Bb-ILM" kind="show" identifier="learning" id="b44-hS-xHS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -606,10 +607,10 @@
             </objects>
             <point key="canvasLocation" x="-98" y="1889"/>
         </scene>
-        <!--View Controller-->
+        <!--Training View Controller With Text Field-->
         <scene sceneID="PN7-Zf-HAP">
             <objects>
-                <viewController id="O9G-ye-8jY" sceneMemberID="viewController">
+                <viewController id="O9G-ye-8jY" customClass="TrainingViewControllerWithTextField" customModule="Improve_your_English" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iNT-LE-XkG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -620,7 +621,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to enter word" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ate-DS-Qhd">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to enter english word" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ate-DS-Qhd">
                                 <rect key="frame" x="20" y="219.66666666666666" width="335" height="37.999999999999972"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="24"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -640,10 +641,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T0X-qh-nFw"/>
+                    <connections>
+                        <outlet property="textField" destination="ate-DS-Qhd" id="hsc-0S-dEI"/>
+                        <outlet property="wordLabel" destination="o9D-lD-LI7" id="Us8-VX-cxY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTy-Gz-mJo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="724" y="1889"/>
+            <point key="canvasLocation" x="724" y="1888.6699507389164"/>
         </scene>
         <!--Words View Controller-->
         <scene sceneID="OFI-zN-P9v">

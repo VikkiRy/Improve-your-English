@@ -16,15 +16,13 @@ final class TopicRepository {
     }
     
     func topics() -> [Topic] {
-        var topics: [Topic] = []
-        
         do {
-            topics = try CoreDataManager.shared.context.fetch(Topic.fetchRequest())
+            return try CoreDataManager.shared.context.fetch(Topic.fetchRequest())
         } catch {
             print(error)
         }
         
-        return topics
+        return []
     }
     
     func addTopic(topicTitle: String, isUserTopic: Bool = true) -> Topic {
@@ -39,22 +37,16 @@ final class TopicRepository {
     
     func selectedTopics() -> [Topic] {
         let topics = topics()
-        
-        let selectedTopics = topics.filter { topic in
-            topic.isSelected
-        }
+        let selectedTopics = topics.filter { $0.isSelected }
         
         return selectedTopics
     }
     
-    func topicsForLearning() -> [Topic] {
+    func unselectedTopics() -> [Topic] {
         let topics = topics()
+        let unselectedTopics = topics.filter { $0.isSelected }
         
-        let topicsForLearning = topics.filter { topic in
-            !topic.isSelected
-        }
-        
-        return topicsForLearning
+        return unselectedTopics
     }
 
     private func addDefaultTopics() {

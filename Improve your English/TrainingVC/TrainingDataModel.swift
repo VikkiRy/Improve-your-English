@@ -8,10 +8,14 @@
 import Foundation
 
 struct TrainingDataModel {
-    let trainingData: [LearningData] = LearningDataRepository.shared.currentDayTrainingData()
+    var trainingData: [LearningData] = LearningDataRepository.shared.currentDayTrainingData()
     var index: Int = 0
     var guessedWord: Word {
         trainingData[index].word
+    }
+    
+    init(trainigData: [LearningData]) {
+        self.trainingData = trainigData
     }
     
     func randomTitles() -> [String] {
@@ -29,5 +33,9 @@ struct TrainingDataModel {
     
     func changeTrainingWordState() {
         trainingData[index].word.isTrainingCompleted = true
+    }
+    
+    func isCorrectWord(userWord: String) -> Bool {
+        return userWord.lowercased() == trainingData[index].word.engTitle.lowercased()
     }
 }

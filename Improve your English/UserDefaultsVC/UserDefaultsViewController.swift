@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 class UserDefaultsViewController: UIViewController {
     
@@ -33,39 +32,34 @@ class UserDefaultsViewController: UIViewController {
         let selectedTopics = dataModel.selectedTopics()
         
         guard !selectedTopics.isEmpty else {
-            let message = "Please, select at least 1 topic for learning"
-            let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
-            let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
+            let alert = UIAlertController.oneActionAlert(
+                title: nil,
+                message: "Please, select at least 1 topic for learning",
+                actionTitle: "Got it",
+                preferredStyle: .actionSheet)
             
-            alert.addAction(gotItAction)
             self.present(alert, animated: true)
-            
             return
         }
         
-        saveUserSettings(wordsCount: Int(stepper.value))
-    }
-    
-    private func saveUserSettings(wordsCount: Int) {
-        CoreDataManager.shared.save()
-        
-        UserDefaults.standard.setValuesForKeys([
-            UserSettingKeys.isShowMainVC.rawValue: true,
-            UserSettingKeys.numberOfWords.rawValue: wordsCount
-        ])
+        dataModel.saveUserSettings(wordsCount: Int(stepper.value))
     }
     
     private func updateUI() {
-        let nib = UINib(nibName: "UserDefaultsTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "userDefaults")
+        сellRegister()
         
         tableView.dataSource = self
         tableView.delegate = self
         
-        updateCornersRadius()
+        updateTextViewsCornersRadius()
     }
     
-    private func updateCornersRadius() {
+    private func сellRegister() {
+        let nib = UINib(nibName: "UserDefaultsTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "userDefaults")
+    }
+    
+    private func updateTextViewsCornersRadius() {
         topTextView.layer.cornerRadius = 15
         bottomTextView.layer.cornerRadius = 15
         tableView.layer.cornerRadius = 15

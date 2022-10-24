@@ -25,7 +25,7 @@ class LearningViewController: UIViewController {
     @IBAction func nextButtonPressed(_ sender: Any) {
         let nextWordIndex = dataModel.learningWordPosition + 1
         if nextWordIndex == dataModel.data.count {
-            dataModel.changeLearningState()
+            dataModel.changeWordsLearningState()
             self.navigationController?.popViewController(animated: true)
         } else {
             dataModel.learningWordPosition = nextWordIndex

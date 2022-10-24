@@ -36,21 +36,10 @@ final class WordsRepository {
         return words
     }
 
-    func wordsForLearning() -> [Word] {
-        let selectedTopics = TopicRepository.shared.selectedTopics()
-        let topicsWords = words(from: selectedTopics)
+    func learningWords() -> [Word] {
+        let topicsWords = selectedTopicsWords()
         
-        guard !topicsWords.isEmpty else {
-            let topicsForLearning = TopicRepository.shared.topicsForLearning()
-            
-            if topicsForLearning.isEmpty {
-                print("Поздравляем. Для подолжения вы модете добавить слова")
-            } else {
-                print("выбрать еще тему")
-            }
-            
-            return []
-        }
+        guard !topicsWords.isEmpty else { return [] }
         
         let requiredWordsCount = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int
         
@@ -61,10 +50,11 @@ final class WordsRepository {
         }
     }
     
-    private func words(from topics: [Topic], isTrainingCompleted: Bool = false) -> [Word] {
+    private func selectedTopicsWords() -> [Word] {
         var words: [Word] = []
+        let selectedTopics = TopicRepository.shared.selectedTopics()
         
-        for topic in topics {
+        for topic in selectedTopics {
             
             guard let topicWords = topic.words,
                   let allWords = topicWords.allObjects as? [Word],
@@ -82,8 +72,9 @@ final class WordsRepository {
     
     private func randomWords(from words: [Word], wordsCount: Int) -> [Word] {
         var randomWords: [Word] = []
+        let requiredWordsCount = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int
         
-        (1...wordsCount).forEach { _ in
+        (1...requiredWordsCount).forEach { _ in
             var randomWord = words.randomElement()!
             
             while randomWords.contains(randomWord) {

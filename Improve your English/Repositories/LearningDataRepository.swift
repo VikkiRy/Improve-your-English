@@ -13,40 +13,23 @@ final class LearningDataRepository {
     
     private init() { }
     
-    func currentDayData() -> [LearningData] {
-        var data = fetchCurrentDayData()
+    func currentDayLearningData() -> [LearningData] {
+        var learningData = fetchCurrentDayLearningData()
         
-        if data.isEmpty {
+        if learningData.isEmpty {
             addCurrentDayData()
-            data = fetchCurrentDayData()
+            learningData = fetchCurrentDayLearningData()
         }
         
-        return data
+        return learningData
     }
     
-    func currentDayTrainingData() -> [LearningData] {
+    private func fetchCurrentDayLearningData() -> [LearningData] {
         let currentDate = Date().currentDay as NSDate
-        let predicates = [NSPredicate(format: "createdAt == %@", currentDate),
-                          NSPredicate(format: "isLearned == true")]
-        
-        let request = CoreDataManager.shared.addPredicates(for: LearningData.fetchRequest(), predicates)
-        
-        var data: [LearningData] = []
-        
-        do {
-            data = try CoreDataManager.shared.context.fetch(request)
-        } catch {
-            print(error)
-        }
-        
-        return data
-    }
-    
-    private func fetchCurrentDayData() -> [LearningData] {
-        let currentDate = Date().currentDay as NSDate
-            
-        let request = LearningData.fetchRequest()
-        request.predicate = NSPredicate(format: "createdAt == %@", currentDate)
+        let request = CoreDataManager.shared.addPredicates(for: LearningData.fetchRequest(), [
+            NSPredicate(format: "createdAt == %@", currentDate),
+            NSPredicate(format: "isLearned == false")
+        ])
         
         do {
             return try CoreDataManager.shared.context.fetch(request)
@@ -56,9 +39,21 @@ final class LearningDataRepository {
         
         return []
     }
- 
+    
     private func addCurrentDayData() {
-        let words = WordsRepository.shared.wordsForLearning()
+        let words = WordsRepository.shared.learningWords()
+        
+        guard !words.isEmpty else {
+            let unselectedTopics = TopicRepository.shared.unselectedTopics()
+            //todo
+            if unselectedTopics.isEmpty {
+                print("To continue, you can add new topics in the settings")
+            } else {
+                print("Вы должны выбрать новую тему")
+            }
+            
+            return
+        }
         
         words.forEach { word in
             let newLearningData = LearningData(context: CoreDataManager.shared.context)
@@ -67,6 +62,23 @@ final class LearningDataRepository {
         }
 
         CoreDataManager.shared.save()
+    }
+    
+    func currentDayTrainingData() -> [LearningData] {
+        let predicates = [NSPredicate(format: "isLearned == true")]
+        let request = CoreDataManager.shared.addPredicates(for: LearningData.fetchRequest(), predicates)
+        
+        var fetchData: [LearningData] = []
+        
+        do {
+            fetchData = try CoreDataManager.shared.context.fetch(request)
+        } catch {
+            print(error)
+        }
+        //todo подгружается 1 лишнее слово
+        let data = fetchData.filter { !$0.word.isTrainingCompleted }
+
+        return Array(Set(data))
     }
 }
 

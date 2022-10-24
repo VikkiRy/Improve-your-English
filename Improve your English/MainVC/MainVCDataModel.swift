@@ -8,5 +8,12 @@
 import Foundation
 
 struct MainVCDataModel {
-    let trainingData = LearningDataRepository.shared.currentDayTrainingData()
+    let isWordsExist = WordsRepository.shared.words().isEmpty
+    
+    var learningData: [LearningData] {
+        LearningDataRepository.shared.currentDayLearningData()
+    }
+    var trainingData: [LearningData] {
+        LearningDataRepository.shared.currentDayTrainingData()
+    }
 }

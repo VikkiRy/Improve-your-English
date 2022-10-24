@@ -8,14 +8,14 @@
 import Foundation
 
 struct LearningDataModel {
-    var data: [LearningData] = LearningDataRepository.shared.currentDayData()
+    var data: [LearningData] = LearningDataRepository.shared.currentDayLearningData()
     var learningWordPosition: Int = 0
     
     var currentWord: Word {
         data[learningWordPosition].word
     }
     
-    func changeLearningState() {
+    func changeWordsLearningState() {
         data.forEach { $0.isLearned = true }
         CoreDataManager.shared.save()
     }

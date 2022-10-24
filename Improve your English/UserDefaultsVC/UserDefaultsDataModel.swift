@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import UIKit
 
 struct UserDefaultsDataModel {
     let topics: [Topic]
@@ -21,5 +20,14 @@ struct UserDefaultsDataModel {
     
     func selectedTopics() -> [Topic] {
         topics.filter { $0.isSelected }
+    }
+    
+    func saveUserSettings(wordsCount: Int) {
+        CoreDataManager.shared.save()
+        
+        UserDefaults.standard.setValuesForKeys([
+            UserSettingKeys.isShowMainVC.rawValue: true,
+            UserSettingKeys.numberOfWords.rawValue: wordsCount
+        ])
     }
 }

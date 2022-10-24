@@ -14,7 +14,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var trainingButton: UIButton!
     
     let dataModel = MainVCDataModel()
-    let isWordsExist = WordsRepository.shared.words().isEmpty
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,24 +22,47 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if isWordsExist {
-            //UserDefaults.standard.set(false, forKey: UserSettingKeys.isShowMainVC.rawValue)
-            updateCornersRadius()
+        if dataModel.isWordsExist {
+            updateButtonsCornersRadius()
         } else {
-            let alert = alert(title: "Congratulations!", message: "To continue, you can add new topics in the settings", actionTitle: "OK")
+            let alert = UIAlertController.oneActionAlert(title: "Congratulations!", message: "To continue, you can add new topics in the settings", actionTitle: "OK", preferredStyle: .alert)
             self.present(alert, animated: true)
         }
     }
     
-    @IBAction func trainingButtonPressed(_ sender: Any) {
-        let data = LearningDataRepository.shared.currentDayTrainingData()
-        
-        switch data.isEmpty {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "training":
+            if let trainingVC = segue.destination as? TrainingViewController {
+                trainingVC.dataModel = TrainingDataModel(trainigData: dataModel.trainingData)
+            }
+        case "trainingWithTextField":
+            if let trainingVC = segue.destination as? TrainingViewControllerWithTextField {
+                trainingVC.dataModel = TrainingDataModel(trainigData: dataModel.trainingData)
+            }
+        default:
+            return
+        }
+    }
+    
+    @IBAction func learningButtonPressed(_ sender: UIButton) {
+        switch dataModel.learningData.isEmpty {
         case true:
-            let alert = alert(title: "Not available yet", message: "You need to learn new words", actionTitle: "Got it")
+           //todo обработать ошибки из currentDayLearningData()
+            break
+        case false:
+            performSegue(withIdentifier: "learning", sender: self)
+        }
+    }
+    
+    @IBAction func trainingButtonPressed(_ sender: UIButton) {
+        switch dataModel.trainingData.isEmpty {
+        case true:
+            let alert = UIAlertController.oneActionAlert(title: "Not available yet", message: "You need to learn new words", actionTitle: "Got it", preferredStyle: .alert)
+            
             self.present(alert, animated: true)
         case false:
-            if data.count < 4 {
+            if dataModel.trainingData.count < 4 {
                 performSegue(withIdentifier: "trainingWithTextField", sender: self)
             } else {
                 performSegue(withIdentifier: "training", sender: self)
@@ -48,16 +70,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    private func alert(title: String?, message: String, actionTitle: String) -> UIAlertController {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: actionTitle, style: .cancel)
-        alert.addAction(action)
-        
-        return alert
-    }
-    
-    private func updateCornersRadius() {
+    private func updateButtonsCornersRadius() {
         learningButton.layer.cornerRadius = 15
         trainingButton.layer.cornerRadius = 15
     }
