@@ -29,6 +29,22 @@ final class LearningDataRepository {
         return []
     }
     
+    func learningWords() -> [Word] {
+        let request = LearningData.fetchRequest()
+        let predicate = NSPredicate(format: "isLearned == %d", true)
+        request.predicate = predicate
+        
+        var fetchedData: [LearningData] = []
+        
+        do {
+            fetchedData = try CoreDataManager.shared.context.fetch(request)
+        } catch {
+            print(error)
+        }
+        
+        return fetchedData.map { $0.word }
+    }
+    
     func addCurrentDayData() {
         let words = WordsRepository.shared.learningWords()
         

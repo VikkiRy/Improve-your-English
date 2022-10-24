@@ -37,9 +37,19 @@ final class WordsRepository {
     }
 
     func learningWords() -> [Word] {
-        let topicsWords = selectedTopicsWords()
+        var topicsWords = selectedTopicsWords()
         
         guard !topicsWords.isEmpty else { return [] }
+        
+        let learningWords = LearningDataRepository.shared.learningWords()
+        
+        learningWords.forEach { word in
+            if topicsWords.contains(word) {
+                topicsWords.removeAll { topicWord in
+                    topicWord == word
+                }
+            }
+        }
         
         let requiredWordsCount = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int
         
