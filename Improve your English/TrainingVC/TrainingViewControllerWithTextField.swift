@@ -23,7 +23,7 @@ class TrainingViewControllerWithTextField: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        CoreDataManager.shared.save()
+        dataModel.saveResults()
     }
     
     private func updateUI() {
@@ -53,6 +53,7 @@ extension TrainingViewControllerWithTextField: UITextFieldDelegate {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: actionTitle, style: .cancel) { [self] _ in
             if isCorrectWord {
+                dataModel.countOfFinishedTrainingWord += 1
                 dataModel.changeTrainingWordState()
             }
             

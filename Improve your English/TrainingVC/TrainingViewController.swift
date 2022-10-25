@@ -25,6 +25,7 @@ class TrainingViewController: UIViewController {
         sender.configuration = changeButtonConfig(for: sender)
         
         if sender.tag == 1 {
+            dataModel.countOfFinishedTrainingWord += 1
             dataModel.changeTrainingWordState()
         }
         
@@ -38,7 +39,7 @@ class TrainingViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        CoreDataManager.shared.save()
+        dataModel.saveResults()
     }
     
     private func updateUI() {

@@ -10,6 +10,7 @@ import Foundation
 struct TrainingDataModel {
     var trainingData: [LearningData] = LearningDataRepository.shared.currentDayTrainingData()
     var index: Int = 0
+    var countOfFinishedTrainingWord: Int = 0
     var guessedWord: Word {
         trainingData[index].word
     }
@@ -37,5 +38,13 @@ struct TrainingDataModel {
     
     func isCorrectWord(userWord: String) -> Bool {
         return userWord.lowercased() == trainingData[index].word.engTitle.lowercased()
+    }
+    
+    func saveResults() {
+        if countOfFinishedTrainingWord > 0 {
+            StatisticRepository.shared.addData(wordsCount: countOfFinishedTrainingWord)
+        }
+        
+        CoreDataManager.shared.save()
     }
 }

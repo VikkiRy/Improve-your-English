@@ -5,6 +5,10 @@
         <attribute name="isLearned" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <relationship name="word" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="learningData" inverseEntity="Word"/>
     </entity>
+    <entity name="Statistic" representedClassName="Statistic" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="wordsCount" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="Topic" representedClassName="Topic" syncable="YES">
         <attribute name="isSelected" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="isUserTopic" attributeType="Boolean" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -22,5 +26,6 @@
         <element name="LearningData" positionX="302.3125" positionY="-2.9453125" width="128" height="74"/>
         <element name="Topic" positionX="-45" positionY="0" width="128" height="89"/>
         <element name="Word" positionX="130.75" positionY="-3.44140625" width="128" height="104"/>
+        <element name="Statistic" positionX="135" positionY="54" width="128" height="59"/>
     </elements>
 </model>

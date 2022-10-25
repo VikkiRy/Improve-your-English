@@ -31,6 +31,7 @@
 		619B562228DB496600C22044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 619B562128DB496600C22044 /* Assets.xcassets */; };
 		619B562528DB496600C22044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 619B562328DB496600C22044 /* LaunchScreen.storyboard */; };
 		61A1B38D28F9F1AD00E7A534 /* UserDefaultsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A1B38C28F9F1AD00E7A534 /* UserDefaultsDataModel.swift */; };
+		61A76B4A29074A700040372A /* StatisticRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A76B4929074A700040372A /* StatisticRepository.swift */; };
 		61AAB12F29017B9B00CEC57F /* LearningData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AAB12D29017B9B00CEC57F /* LearningData+CoreDataClass.swift */; };
 		61AAB13029017B9B00CEC57F /* LearningData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AAB12E29017B9B00CEC57F /* LearningData+CoreDataProperties.swift */; };
 		61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633328EAE639004BC096 /* CoreDataManager.swift */; };
@@ -78,6 +79,7 @@
 		619B562428DB496600C22044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		619B562628DB496600C22044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61A1B38C28F9F1AD00E7A534 /* UserDefaultsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataModel.swift; sourceTree = "<group>"; };
+		61A76B4929074A700040372A /* StatisticRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticRepository.swift; sourceTree = "<group>"; };
 		61AAB12D29017B9B00CEC57F /* LearningData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		61AAB12E29017B9B00CEC57F /* LearningData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61B0633328EAE639004BC096 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			children = (
 				61F47C6E28E5CBFD00F81DA6 /* TopicsRepository.swift */,
 				616CC48E28F84A6C00566ABC /* WordsRepository.swift */,
+				61A76B4929074A700040372A /* StatisticRepository.swift */,
 				61D1C0E82901A53A0008B4FB /* LearningDataRepository.swift */,
 			);
 			path = Repositories;
@@ -332,6 +335,7 @@
 				616CC4AA28F99D8100566ABC /* AddWordViewController.swift in Sources */,
 				61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */,
 				616CC48828F80E9200566ABC /* Topic+CoreDataClass.swift in Sources */,
+				61A76B4A29074A700040372A /* StatisticRepository.swift in Sources */,
 				6100095A2900BAF1009AF50E /* LearningDataModel.swift in Sources */,
 				616CC48F28F84A6C00566ABC /* WordsRepository.swift in Sources */,
 				61D1C0EB290201C50008B4FB /* DateExtension.swift in Sources */,

@@ -276,7 +276,7 @@
                                     <segment title="All time"/>
                                 </segments>
                                 <connections>
-                                    <action selector="syepperPressed:" destination="mSK-CT-Itx" eventType="valueChanged" id="nsN-XQ-uf8"/>
+                                    <action selector="segmentedControlPressed:" destination="mSK-CT-Itx" eventType="valueChanged" id="InR-oQ-H9o"/>
                                 </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDp-10-tV2">
@@ -343,7 +343,7 @@
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.line.uptrend.xyaxis.circle" catalog="system" id="MSz-YE-0yl"/>
                     <connections>
                         <outlet property="countOfWordsLabel" destination="zu2-Zs-7kC" id="UzF-nw-5UV"/>
-                        <outlet property="periodSegmentedControl" destination="c9f-6H-PyY" id="cfX-YI-TaO"/>
+                        <outlet property="periodSegmentedControl" destination="c9f-6H-PyY" id="Iqy-hp-gTZ"/>
                         <outlet property="topLabelView" destination="vjq-b9-NwS" id="u1s-Ay-cXR"/>
                     </connections>
                 </viewController>
