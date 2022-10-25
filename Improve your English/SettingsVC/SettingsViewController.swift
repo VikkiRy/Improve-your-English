@@ -25,7 +25,13 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(changeSelectedTopics(with:)), name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
         updateUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        dataModel.updateUserSettings(wordsCount: stepper.value)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper!) {
@@ -92,10 +98,6 @@ class SettingsViewController: UIViewController {
         stepper.value = stepperValue
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        dataModel.updateUserSettings(wordsCount: stepper.value)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsVC" {
             if let wordsVC = segue.destination as? WordsViewController {
@@ -105,38 +107,32 @@ class SettingsViewController: UIViewController {
             }
         }
     }
+    
+    @objc private func changeSelectedTopics(with notify: NSNotification) {
+        dataModel.changeTopicSelectedState(at: notify.object as! Int)
+        tableView.reloadData()
+    }
 }
 
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch topicsSegmentedControl.selectedSegmentIndex {
-        case 0:
-            return dataModel.topics.count
-        default:
-            return dataModel.selectedTopics.count
-        }
+        let selectedSegmentIndex = topicsSegmentedControl.selectedSegmentIndex
+        return dataModel.getTopicCount(forSegmentAt: selectedSegmentIndex)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! TopicTableViewCell
         
-        let topic: Topic
-        
-        switch topicsSegmentedControl.selectedSegmentIndex {
-        case 0:
-            topic = dataModel.topics[indexPath.row]
-        default:
-            topic = dataModel.selectedTopics[indexPath.row]
-        }
+        let selectedSegmentIndex = topicsSegmentedControl.selectedSegmentIndex
+        let topic = dataModel.getTopic(forSegmentAt: selectedSegmentIndex, topicAt: indexPath.row)
         
         cell.topicTitleLabel.text = topic.title
         
-        switch topic.isSelected {
-        case true:
-            cell.checkMarkImageView.image = UIImage(systemName: "checkmark.seal")
-        case false:
-            cell.checkMarkImageView.image = nil
-        }
+        cell.checkmarkButton.tag = indexPath.row
+        cell.checkmarkButton.setImage(UIImage.checkmark, for: .selected)
+        cell.checkmarkButton.setImage(.remove, for: .normal)
+        
+        cell.checkmarkButton.isSelected = topic.isSelected
         
         return cell
     }

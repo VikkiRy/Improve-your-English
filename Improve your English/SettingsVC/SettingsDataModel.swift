@@ -19,6 +19,20 @@ struct SettingsDataModel {
         selectedTopics = userSelectedTopics()
     }
     
+    mutating func appendTopic(topicTitle: String) {
+        let _ = TopicRepository.shared.addTopic(topicTitle: topicTitle)
+        self.topics = TopicRepository.shared.topics().sorted(by: { firstTopic, secondTopic in
+            firstTopic.title.lowercased() < secondTopic.title.lowercased()
+        })
+    }
+    
+    mutating func changeTopicSelectedState(at index: Int) {
+        topics[index].isSelected = !topics[index].isSelected
+        CoreDataManager.shared.save()
+        
+        selectedTopics = userSelectedTopics()
+    }
+    
     private func allTopics() -> [Topic] {
         let topics = TopicRepository.shared.topics()
         
@@ -35,13 +49,6 @@ struct SettingsDataModel {
         return topics.sorted { firstTopic, secondTopic in
             firstTopic.title.lowercased() < secondTopic.title.lowercased()
         }
-    }
-    
-    mutating func appendTopic(topicTitle: String) {
-        let _ = TopicRepository.shared.addTopic(topicTitle: topicTitle)
-        self.topics = TopicRepository.shared.topics().sorted(by: { firstTopic, secondTopic in
-            firstTopic.title.lowercased() < secondTopic.title.lowercased()
-        })
     }
     
     func updateUserSettings(wordsCount: Double) {
@@ -62,5 +69,23 @@ struct SettingsDataModel {
         
         CoreDataManager.shared.save()
         UserDefaults.standard.set(wordsCount, forKey: UserSettingKeys.numberOfWords.rawValue)
+    }
+    
+    func getTopic(forSegmentAt index: Int, topicAt indexPathRow: Int) -> Topic {
+        switch index {
+        case 0:
+            return topics[indexPathRow]
+        default:
+            return selectedTopics[indexPathRow]
+        }
+    }
+    
+    func getTopicCount(forSegmentAt index: Int) -> Int {
+        switch index {
+        case 0:
+            return topics.count
+        default:
+            return selectedTopics.count
+        }
     }
 }

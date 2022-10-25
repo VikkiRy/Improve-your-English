@@ -9,9 +9,11 @@ import UIKit
 
 class TopicTableViewCell: UITableViewCell {
 
+    var dataModel = SettingsDataModel()
     
     @IBOutlet weak var checkMarkImageView: UIImageView!
     @IBOutlet weak var topicTitleLabel: UILabel!
+    @IBOutlet weak var checkmarkButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +21,9 @@ class TopicTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    @IBAction func checkMarkButtonPressed(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Notification.Name("selectedTopicsChanged"), object: sender.tag)
     }
 }
