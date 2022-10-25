@@ -13,8 +13,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["timeToLearn"])
+        localNotificationRequest()
+        
         return true
     }
+   
+    private func localNotificationRequest() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { [weak self] permission, _ in
+            guard permission == true else { return }
+            self?.timeNotification()
+        }
+    }
+    
+    private func timeNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Hello!"
+        content.body = "Time to learn and repeat words"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: (60*60*24), repeats: true)
+        
+        let timeRequest = UNNotificationRequest(identifier: "timeToLearn", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(timeRequest)
+    }
+    
     
     // MARK: UISceneSession Lifecycle
 
