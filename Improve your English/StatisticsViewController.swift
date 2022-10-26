@@ -11,8 +11,12 @@ import CloudKit
 class StatisticsViewController: UIViewController {
 
     @IBOutlet weak var topLabelView: UIView!
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var countOfWordsLabel: UILabel!
     @IBOutlet weak var periodSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var topLabelViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var countOfWordsLabelBottomConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,22 @@ class StatisticsViewController: UIViewController {
     private func updateUI() {
         topLabelView.layer.cornerRadius = 15
         updateLabel()
+        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
+            updateFont()
+            updateConstraints()
+        }
+    }
+    
+    private func updateFont() {
+        topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(25))
+        countOfWordsLabel.font = UIFont(name: "American Typewriter", size: CGFloat(60))
+    }
+
+    private func updateConstraints() {
+        topLabelViewHeightConstraint.constant = CGFloat(100)
+        countOfWordsLabelBottomConstraint.constant = CGFloat(40)
+
+        self.view.updateConstraintsIfNeeded()
     }
     
     private func updateLabel() {
@@ -49,7 +69,10 @@ class StatisticsViewController: UIViewController {
         countOfWordsLabel.text = String(wordsCount)
 
         let font: UIFont
-        if wordsCount < 99 {
+        
+        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
+            font = countOfWordsLabel.font.withSize(60)
+        } else if wordsCount < 99 {
             font = countOfWordsLabel.font.withSize(100)
         } else {
             font = countOfWordsLabel.font.withSize(50)

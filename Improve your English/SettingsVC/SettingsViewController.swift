@@ -10,6 +10,7 @@ import CoreData
 
 class SettingsViewController: UIViewController {
 
+    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var wordsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordsCountLabel: UILabel!
@@ -20,6 +21,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var wordsSteckVuew: UIStackView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var addNewTopicsButton: UIButton!
+    @IBOutlet weak var topicsViewHeightConstraint: NSLayoutConstraint!
+    
     
     var dataModel = SettingsDataModel()
     
@@ -52,11 +55,11 @@ class SettingsViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func addCustomTopicButtonPressed(_ sender: UIButton) {
+    @IBAction func addCustomTopicButtonPressed(_ sender: Any) {
         showAlert()
     }
     
-    @IBAction func addNewTopicsButtonPressed(_ sender: UIButton) {
+    @IBAction func addNewTopicsButtonPressed(_ sender: Any) {
         self.view.isUserInteractionEnabled = false
         self.view.alpha = CGFloat(0.3)
         activityIndicatorView.startAnimating()
@@ -121,7 +124,24 @@ class SettingsViewController: UIViewController {
         updateViewsConrers()
         
         addNewTopicsButton.isEnabled = UserDefaults.standard.bool(forKey: UserSettingKeys.addNewTopicsButtonIsEnabled.rawValue)
+        
+        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
+            updateFont()
+            updateConstraints()
+        }
     }
+
+    private func updateFont() {
+        topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(17))
+    }
+    
+    private func updateConstraints() {
+        topicsViewHeightConstraint.constant = CGFloat(170)
+
+        self.view.updateConstraintsIfNeeded()
+    }
+    
+    
     
     private func updateViewsConrers() {
         topicsView.layer.cornerRadius = 10

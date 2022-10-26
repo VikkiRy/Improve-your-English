@@ -12,6 +12,12 @@ class TrainingViewController: UIViewController {
     
     @IBOutlet weak var wordRusLabel: UILabel!
     @IBOutlet var translationButtons: [UIButton]!
+    @IBOutlet weak var translationButton1WidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var translationButton2WidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var translationButton3WidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var translationButton4WidthConstraint: NSLayoutConstraint!
+    
+    
     
     var dataModel: TrainingDataModel!
 
@@ -56,6 +62,28 @@ class TrainingViewController: UIViewController {
         } else {
             self.navigationController?.popViewController(animated: true)
         }
+        
+        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
+            updateConstraints()
+            updateFont()
+        }
+    }
+    
+    private func updateFont() {
+        let font = UIFont(name: "American Typewriter", size: CGFloat(12))
+        
+        translationButtons.forEach { button in
+            button.titleLabel?.font = font
+        }
+    }
+    
+    private func updateConstraints() {
+        translationButton1WidthConstraint.constant = CGFloat(130)
+        translationButton2WidthConstraint.constant = CGFloat(130)
+        translationButton3WidthConstraint.constant = CGFloat(130)
+        translationButton4WidthConstraint.constant = CGFloat(130)
+
+        self.view.updateConstraintsIfNeeded()
     }
     
     private func setButtonConfiguration(for guessedWord: Word) {

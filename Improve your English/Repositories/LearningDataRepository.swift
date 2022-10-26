@@ -8,10 +8,6 @@
 import Foundation
 import CoreData
 
-enum DataError: Error {
-    case shouldAddNewData
-}
-
 final class LearningDataRepository {
     static let shared = LearningDataRepository()
     

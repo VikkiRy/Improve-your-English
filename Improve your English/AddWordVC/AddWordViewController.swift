@@ -11,12 +11,30 @@ class AddWordViewController: UIViewController {
     @IBOutlet weak var wordEngTextfield: UITextField!
     @IBOutlet weak var wordRusTextfield: UITextField!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var wordEngTextfieldTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var wordEngTextfieldBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var wordsRusTextFieldTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttonTopConstraint: NSLayoutConstraint!
     
     var dataModel: AddWordDataModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
+            updateConstraints()
+        }
     }
+
+    private func updateConstraints() {
+        wordEngTextfieldTopConstraint.constant = CGFloat(10)
+        wordEngTextfieldBottomConstraint.constant = CGFloat(20)
+        wordsRusTextFieldTopConstraint.constant = CGFloat(10)
+        buttonTopConstraint.constant = CGFloat(15)
+
+        self.view.updateConstraintsIfNeeded()
+    }
+
    
     @IBAction func doneButtonPressed(_ sender: Any) {
         guard let wordEng = getText(form: wordEngTextfield),

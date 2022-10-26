@@ -21,6 +21,8 @@
 		616CC4A828F997FE00566ABC /* Improve_your_English.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 616CC4A628F997FE00566ABC /* Improve_your_English.xcdatamodeld */; };
 		616CC4AA28F99D8100566ABC /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616CC4A928F99D8100566ABC /* AddWordViewController.swift */; };
 		617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */; };
+		617FEB4F2908FD710039AE70 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FEB4E2908FD710039AE70 /* Errors.swift */; };
+		617FEB512908FD800039AE70 /* PhoneModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617FEB502908FD800039AE70 /* PhoneModels.swift */; };
 		6187A61D28DDEE4E00ED9C93 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */; };
 		6195D81B2906E69F00CBF062 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195D81A2906E69F00CBF062 /* AlertControllerExtension.swift */; };
 		6199EE9C2906B941002E7A2D /* TrainingViewControllerWithTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6199EE9B2906B941002E7A2D /* TrainingViewControllerWithTextField.swift */; };
@@ -68,6 +70,8 @@
 		616CC4A728F997FE00566ABC /* Improve_your_English.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Improve_your_English.xcdatamodel; sourceTree = "<group>"; };
 		616CC4A928F99D8100566ABC /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		617C6C5B28DDA0F90000EEF3 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
+		617FEB4E2908FD710039AE70 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		617FEB502908FD800039AE70 /* PhoneModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModels.swift; sourceTree = "<group>"; };
 		6187A61C28DDEE4E00ED9C93 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6195D81A2906E69F00CBF062 /* AlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
 		6199EE9B2906B941002E7A2D /* TrainingViewControllerWithTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewControllerWithTextField.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				61D1C0EC290201F70008B4FB /* Repositories */,
 				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
 				61A76B4B29089EAD0040372A /* JSONDataModel.swift */,
+				617FEB4E2908FD710039AE70 /* Errors.swift */,
+				617FEB502908FD800039AE70 /* PhoneModels.swift */,
 				61B0633328EAE639004BC096 /* CoreDataManager.swift */,
 				61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */,
 				6195D81C2906E6BE00CBF062 /* Extensions */,
@@ -334,6 +340,7 @@
 				61F47C7928E5ECEB00F81DA6 /* WordsViewController.swift in Sources */,
 				619B561628DB496400C22044 /* AppDelegate.swift in Sources */,
 				61CF640828FDECF500B29611 /* AddWordDataModel.swift in Sources */,
+				617FEB4F2908FD710039AE70 /* Errors.swift in Sources */,
 				61D720132904868F00FA9B9F /* TrainingDataModel.swift in Sources */,
 				616CC4AA28F99D8100566ABC /* AddWordViewController.swift in Sources */,
 				61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */,
@@ -360,6 +367,7 @@
 				61D1C0EE290210510008B4FB /* MainVCDataModel.swift in Sources */,
 				616CC4A528F9677200566ABC /* Word+CoreDataProperties.swift in Sources */,
 				613851292902D6C10077B32E /* StatisticsViewController.swift in Sources */,
+				617FEB512908FD800039AE70 /* PhoneModels.swift in Sources */,
 				61D1C0E92901A53A0008B4FB /* LearningDataRepository.swift in Sources */,
 				61A1B38D28F9F1AD00E7A534 /* UserDefaultsDataModel.swift in Sources */,
 				612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */,

@@ -9,12 +9,25 @@ import UIKit
 
 class UserDefaultsViewController: UIViewController {
     
+    @IBOutlet weak var topText: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordCountLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var topTextView: UIView!
+    @IBOutlet weak var topTextViewHeightTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topTextViewHeightBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topTextViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomTextLabel: UILabel!
     @IBOutlet weak var bottomTextView: UIView!
+    @IBOutlet weak var stackViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var numberLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stepperLeadingConstraint: NSLayoutConstraint!
+    
+    
+    
+    
+    
     
     let dataModel = UserDefaultsDataModel()
     
@@ -52,6 +65,31 @@ class UserDefaultsViewController: UIViewController {
         tableView.delegate = self
         
         updateTextViewsCornersRadius()
+        
+        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
+            updateFont()
+            updateConstraints()
+        }
+    }
+    
+    private func updateConstraints() {
+        topTextViewHeightConstraint.constant = CGFloat(55)
+        topTextViewHeightBottomConstraint.constant = CGFloat(5)
+        topTextViewHeightTopConstraint.constant = CGFloat(5)
+        stackViewHeightConstraint.constant = CGFloat(70)
+        numberLeadingConstraint.constant = CGFloat(2)
+        stepperLeadingConstraint.constant = CGFloat(2)
+        
+        self.view.updateConstraintsIfNeeded()
+    }
+    
+    
+    private func updateFont() {
+        let font = UIFont(name: "American Typewriter", size: CGFloat(18))
+        
+        topText.font = font
+        bottomTextLabel.font = font
+        wordCountLabel.font = UIFont(name: "American Typewriter", size: CGFloat(25))
     }
     
     private func сellRegister() {
