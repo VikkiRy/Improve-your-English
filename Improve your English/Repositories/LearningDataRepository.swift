@@ -8,6 +8,10 @@
 import Foundation
 import CoreData
 
+enum DataError: Error {
+    case shouldAddNewData
+}
+
 final class LearningDataRepository {
     static let shared = LearningDataRepository()
     
@@ -45,19 +49,11 @@ final class LearningDataRepository {
         return fetchedData.map { $0.word }
     }
     
-    func addCurrentDayData(_ wordsCount: Int = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int) {
+    func addCurrentDayData(_ wordsCount: Int = UserDefaults.standard.value(forKey: UserSettingKeys.numberOfWords.rawValue) as! Int) throws {
         let words = WordsRepository.shared.learningWords(wordsCount)
         
         guard !words.isEmpty else {
-            let unselectedTopics = TopicRepository.shared.unselectedTopics()
-            //todo
-            if unselectedTopics.isEmpty {
-                print("To continue, you can add new topics in the settings")
-            } else {
-                print("Вы должны выбрать новую тему")
-            }
-            
-            return
+            throw DataError.shouldAddNewData
         }
         
         words.forEach { word in

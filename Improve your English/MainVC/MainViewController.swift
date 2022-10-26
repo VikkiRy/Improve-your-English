@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var learningButton: UIButton!
     @IBOutlet weak var trainingButton: UIButton!
     
@@ -17,16 +17,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        /*
-        if !dataModel.isWordsExist {
-            let alert = UIAlertController.oneActionAlert(title: "Congratulations!", message: "To continue, you can add new topics in the settings", actionTitle: "OK", preferredStyle: .alert)
-            self.present(alert, animated: true)
-        }
-        */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,12 +39,17 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func learningButtonPressed(_ sender: UIButton) {
-        if dataModel.learningData.isEmpty {
-            //todo обработать ошибки
-            LearningDataRepository.shared.addCurrentDayData()
+        switch dataModel.learningData.isEmpty {
+        case true:
+            do {
+                try LearningDataRepository.shared.addCurrentDayData()
+                performSegue(withIdentifier: "learning", sender: self)
+            } catch {
+                showAlert()
+            }
+        case false:
+            performSegue(withIdentifier: "learning", sender: self)
         }
-        
-        performSegue(withIdentifier: "learning", sender: self)
     }
     
     @IBAction func trainingButtonPressed(_ sender: UIButton) {
@@ -75,6 +70,14 @@ class MainViewController: UIViewController {
     private func updateButtonsCornersRadius() {
         learningButton.layer.cornerRadius = 15
         trainingButton.layer.cornerRadius = 15
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: nil, message: "To continue, you can add new topics in the settings", preferredStyle: .actionSheet)
+        let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
+        alert.addAction(gotItAction)
+        
+        self.present(alert, animated: true)
     }
 }
 

@@ -99,7 +99,11 @@ class SettingsDataModel {
         if wordsCount > self.wordsCount {
             let difference = Int(abs(self.wordsCount - wordsCount))
             
-            LearningDataRepository.shared.addCurrentDayData(difference)
+            do {
+                try LearningDataRepository.shared.addCurrentDayData(difference)
+            } catch {
+                print(error)
+            }
         } else {
             var learningData = LearningDataRepository.shared.fetchCurrentDayLearningData()
             
