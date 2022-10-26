@@ -125,18 +125,28 @@ class SettingsViewController: UIViewController {
         
         addNewTopicsButton.isEnabled = UserDefaults.standard.bool(forKey: UserSettingKeys.addNewTopicsButtonIsEnabled.rawValue)
         
-        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
-            updateFont()
-            updateConstraints()
-        }
+        updateFont()
+        updateConstraints()
     }
 
     private func updateFont() {
-        topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(17))
+        switch UIDevice.current.name {
+        case PhoneModels.iPod7.rawValue:
+            topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(17))
+        default:
+            return
+        }
     }
     
     private func updateConstraints() {
-        topicsViewHeightConstraint.constant = CGFloat(170)
+        switch UIDevice.current.name {
+        case PhoneModels.iPod7.rawValue:
+            topicsViewHeightConstraint.constant = CGFloat(170)
+        case PhoneModels.iPhoneSE.rawValue:
+            topicsViewHeightConstraint.constant = CGFloat(250)
+        default:
+            return
+        }
 
         self.view.updateConstraintsIfNeeded()
     }

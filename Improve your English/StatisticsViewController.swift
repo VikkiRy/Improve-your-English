@@ -31,15 +31,22 @@ class StatisticsViewController: UIViewController {
     private func updateUI() {
         topLabelView.layer.cornerRadius = 15
         updateLabel()
-        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
-            updateFont()
-            updateConstraints()
-        }
+        
+
+        updateFonts()
+        updateConstraints()
     }
     
-    private func updateFont() {
-        topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(25))
-        countOfWordsLabel.font = UIFont(name: "American Typewriter", size: CGFloat(60))
+    private func updateFonts() {
+        switch UIDevice.current.name {
+        case PhoneModels.iPod7.rawValue:
+            topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(25))
+            countOfWordsLabel.font = UIFont(name: "American Typewriter", size: CGFloat(60))
+        case PhoneModels.iPhoneSE.rawValue:
+            countOfWordsLabelBottomConstraint.constant = CGFloat(30)
+        default:
+            return
+        }
     }
 
     private func updateConstraints() {

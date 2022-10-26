@@ -9,4 +9,5 @@ import Foundation
 
 enum PhoneModels: String {
     case iPod7 = "iPod touch (7th generation)"
+    case iPhoneSE = "iPhone SE (3rd generation)"
 }
