@@ -22,7 +22,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var addNewTopicsButton: UIButton!
     @IBOutlet weak var topicsViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var addTopicBottonTopConstraint: NSLayoutConstraint!
     
     var dataModel = SettingsDataModel()
     
@@ -144,7 +143,6 @@ class SettingsViewController: UIViewController {
         switch UIDevice.current.name {
         case PhoneModels.iPod7.rawValue:
             topicsViewHeightConstraint.constant = CGFloat(215)
-            addTopicBottonTopConstraint.constant = CGFloat(5)
         case PhoneModels.iPhoneSE.rawValue:
             topicsViewHeightConstraint.constant = CGFloat(250)
         default:

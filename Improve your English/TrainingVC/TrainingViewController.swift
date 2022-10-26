@@ -70,7 +70,7 @@ class TrainingViewController: UIViewController {
     }
     
     private func updateFont() {
-        let font = UIFont(name: "American Typewriter", size: CGFloat(12))
+        let font = UIFont(name: "American Typewriter", size: CGFloat(18))
         
         translationButtons.forEach { button in
             button.titleLabel?.font = font
