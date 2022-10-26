@@ -20,8 +20,6 @@ class SettingsDataModel {
         UserDefaults.standard.double(forKey: UserSettingKeys.numberOfWords.rawValue)
     }
     
-    let queueForJSONLoad = DispatchQueue(label: "serialQueue")
-    
     init() {
         topics = allTopics()
         selectedTopics = userSelectedTopics()
