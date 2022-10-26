@@ -20,7 +20,7 @@ class AddWordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(UIDevice.current.name)
+        
         updateConstraints()
     }
 
