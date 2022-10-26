@@ -83,7 +83,6 @@ class UserDefaultsViewController: UIViewController {
         self.view.updateConstraintsIfNeeded()
     }
     
-    
     private func updateFont() {
         let font = UIFont(name: "American Typewriter", size: CGFloat(18))
         
