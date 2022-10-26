@@ -144,7 +144,7 @@ class SettingsViewController: UIViewController {
         case PhoneModels.iPod7.rawValue:
             topicsViewHeightConstraint.constant = CGFloat(215)
         case PhoneModels.iPhoneSE.rawValue:
-            topicsViewHeightConstraint.constant = CGFloat(250)
+            topicsViewHeightConstraint.constant = CGFloat(260)
         default:
             return
         }

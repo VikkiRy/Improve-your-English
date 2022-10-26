@@ -92,17 +92,19 @@ class SettingsDataModel {
     func updateUserSettings(wordsNewCount: Double) {
         guard wordsNewCount != self.wordsCount else { return }
         
+        var learningData = LearningDataRepository.shared.fetchCurrentDayLearningData()
+        
         if wordsNewCount > self.wordsCount {
-            let difference = Int(abs(self.wordsCount - wordsNewCount))
-            
-            do {
-                try LearningDataRepository.shared.addCurrentDayData(difference)
-            } catch {
-                print(error)
+            if learningData.count < Int(wordsNewCount) {
+                let difference = Int(abs(Int(wordsNewCount) - learningData.count))
+                
+                do {
+                    try LearningDataRepository.shared.addCurrentDayData(difference)
+                } catch {
+                    print(error)
+                }
             }
         } else {
-            var learningData = LearningDataRepository.shared.fetchCurrentDayLearningData()
-            
             while learningData.count > Int(wordsNewCount) {
                 learningData.remove(at: 0)
                 CoreDataManager.shared.context.delete(learningData[0])
