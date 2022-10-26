@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var addNewTopicsButton: UIButton!
     @IBOutlet weak var topicsViewHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var addTopicBottonTopConstraint: NSLayoutConstraint!
     
     var dataModel = SettingsDataModel()
     
@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
     }
    
     override func viewWillDisappear(_ animated: Bool) {
-        dataModel.updateUserSettings(wordsCount: stepper.value)
+        dataModel.updateUserSettings(wordsNewCount: stepper.value)
         removeObservers()
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -123,10 +123,12 @@ class SettingsViewController: UIViewController {
         updateInitialValues()
         updateViewsConrers()
         
-        addNewTopicsButton.isEnabled = UserDefaults.standard.bool(forKey: UserSettingKeys.addNewTopicsButtonIsEnabled.rawValue)
-        
         updateFont()
         updateConstraints()
+        
+        if UserDefaults.standard.bool(forKey: UserSettingKeys.isNewTopicsButtonPressed.rawValue) == true {
+            addNewTopicsButton.isEnabled = false
+        }
     }
 
     private func updateFont() {
@@ -141,7 +143,8 @@ class SettingsViewController: UIViewController {
     private func updateConstraints() {
         switch UIDevice.current.name {
         case PhoneModels.iPod7.rawValue:
-            topicsViewHeightConstraint.constant = CGFloat(170)
+            topicsViewHeightConstraint.constant = CGFloat(215)
+            addTopicBottonTopConstraint.constant = CGFloat(5)
         case PhoneModels.iPhoneSE.rawValue:
             topicsViewHeightConstraint.constant = CGFloat(250)
         default:
@@ -150,8 +153,6 @@ class SettingsViewController: UIViewController {
 
         self.view.updateConstraintsIfNeeded()
     }
-    
-    
     
     private func updateViewsConrers() {
         topicsView.layer.cornerRadius = 10
@@ -167,15 +168,15 @@ class SettingsViewController: UIViewController {
     
     @objc private func changeSelectedTopics(with notify: NSNotification) {
         dataModel.changeTopicSelectedState(at: notify.object as! Int)
+        
         tableView.reloadData()
     }
     
     @objc private func updateTableView(with notify: NSNotification) {
-        UserDefaults.standard.set(false, forKey: UserSettingKeys.addNewTopicsButtonIsEnabled.rawValue)
+        UserDefaults.standard.set(true, forKey: UserSettingKeys.isNewTopicsButtonPressed.rawValue)
         DispatchQueue.main.async {
             self.addNewTopicsButton.isEnabled = false
             self.tableView.reloadData()
-            self.addNewTopicsButton.isEnabled = false
             self.activityIndicatorView.stopAnimating()
             self.view.alpha = CGFloat(1)
             self.view.isUserInteractionEnabled = true

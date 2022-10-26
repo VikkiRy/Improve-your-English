@@ -12,5 +12,5 @@ enum UserSettingKeys: String {
     case numberOfWords = "numberOfWords"
     case wordEngTitle = "wordEngTitle"
     case wordRusTitle = "wordRusTitle"
-    case addNewTopicsButtonIsEnabled = "addNewTopicsButtonIsEnabled"
+    case isNewTopicsButtonPressed = "isNewTopicsButtonPressed"
 }

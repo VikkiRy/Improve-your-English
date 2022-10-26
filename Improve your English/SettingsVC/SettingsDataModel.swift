@@ -54,10 +54,6 @@ class SettingsDataModel {
         }
         
         CoreDataManager.shared.save()
-        postNotification()
-    }
-    
-    private func postNotification() {
         NotificationCenter.default.post(name: Notification.Name("JSONDateSaved"), object: nil)
     }
     
@@ -93,13 +89,11 @@ class SettingsDataModel {
         selectedTopics = userSelectedTopics()
     }
     
-    func updateUserSettings(wordsCount: Double) {
-        guard wordsCount != self.wordsCount else { return }
+    func updateUserSettings(wordsNewCount: Double) {
+        guard wordsNewCount != self.wordsCount else { return }
         
-        var learningData = LearningDataRepository.shared.fetchCurrentDayLearningData()
-            
-        if Int(wordsCount) > learningData.count {
-            let difference = Int(abs(self.wordsCount - wordsCount))
+        if wordsNewCount > self.wordsCount {
+            let difference = Int(abs(self.wordsCount - wordsNewCount))
             
             do {
                 try LearningDataRepository.shared.addCurrentDayData(difference)
@@ -107,14 +101,16 @@ class SettingsDataModel {
                 print(error)
             }
         } else {
-            while learningData.count > Int(wordsCount) {
+            var learningData = LearningDataRepository.shared.fetchCurrentDayLearningData()
+            
+            while learningData.count > Int(wordsNewCount) {
                 learningData.remove(at: 0)
                 CoreDataManager.shared.context.delete(learningData[0])
             }
         }
         
         CoreDataManager.shared.save()
-        UserDefaults.standard.set(wordsCount, forKey: UserSettingKeys.numberOfWords.rawValue)
+        UserDefaults.standard.set(wordsNewCount, forKey: UserSettingKeys.numberOfWords.rawValue)
     }
     
     func getTopic(forSegmentAt index: Int, topicAt indexPathRow: Int) -> Topic {
