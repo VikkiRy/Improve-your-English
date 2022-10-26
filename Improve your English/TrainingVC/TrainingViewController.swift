@@ -17,8 +17,6 @@ class TrainingViewController: UIViewController {
     @IBOutlet weak var translationButton3WidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var translationButton4WidthConstraint: NSLayoutConstraint!
     
-    
-    
     var dataModel: TrainingDataModel!
 
     override func viewDidLoad() {
