@@ -820,10 +820,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FDJ-NJ-aMH" userLabel="Topics View">
-                                <rect key="frame" x="10" y="210" width="355" height="448"/>
+                                <rect key="frame" x="10" y="210" width="355" height="350"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PnN-uM-6rg" userLabel="Topics Stack View">
-                                        <rect key="frame" x="10" y="5" width="335" height="438"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="PnN-uM-6rg" userLabel="Topics Stack View">
+                                        <rect key="frame" x="10" y="5" width="335" height="340"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topics:" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mq0-1s-gTX">
                                                 <rect key="frame" x="0.0" y="0.0" width="335" height="31.666666666666668"/>
@@ -832,7 +832,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="80y-Iv-dIP">
-                                                <rect key="frame" x="0.0" y="37.666666666666657" width="335" height="32"/>
+                                                <rect key="frame" x="0.0" y="36.666666666666657" width="335" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="31" id="K4I-9K-AVH"/>
                                                 </constraints>
@@ -845,7 +845,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3cL-i5-eHc">
-                                                <rect key="frame" x="0.0" y="74.666666666666714" width="335" height="363.33333333333326"/>
+                                                <rect key="frame" x="0.0" y="72.666666666666686" width="335" height="267.33333333333331"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
                                         </subviews>
@@ -855,13 +855,17 @@
                                 <constraints>
                                     <constraint firstItem="PnN-uM-6rg" firstAttribute="leading" secondItem="FDJ-NJ-aMH" secondAttribute="leading" constant="10" id="7aG-ya-sDg"/>
                                     <constraint firstAttribute="bottom" secondItem="PnN-uM-6rg" secondAttribute="bottom" constant="5" id="MOU-2B-bO4"/>
+                                    <constraint firstAttribute="height" constant="350" id="Nza-UH-tiM"/>
                                     <constraint firstAttribute="trailing" secondItem="PnN-uM-6rg" secondAttribute="trailing" constant="10" id="PXW-7q-pl4"/>
                                     <constraint firstAttribute="width" constant="350" id="R8A-CQ-Xvc"/>
                                     <constraint firstItem="PnN-uM-6rg" firstAttribute="top" secondItem="FDJ-NJ-aMH" secondAttribute="top" constant="5" id="rGu-Vb-JSH"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oC-bX-DrI">
-                                <rect key="frame" x="118.66666666666667" y="678" width="137.66666666666663" height="31"/>
+                                <rect key="frame" x="112.66666666666669" y="580" width="150" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="oKW-6D-Ksy"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Add custom topic"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Add custom topic"/>
@@ -869,16 +873,39 @@
                                     <action selector="addTopicButtonPressed:" destination="afW-OZ-rjw" eventType="touchUpInside" id="vP0-T8-xHr"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cjF-lk-Hkp">
+                                <rect key="frame" x="167.66666666666666" y="386" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ncA-Tw-keH"/>
+                                    <constraint firstAttribute="height" constant="40" id="xws-YQ-IaE"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5d-Jb-Ntm">
+                                <rect key="frame" x="112.66666666666669" y="621" width="150" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="5FN-yS-025"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Add new topics"/>
+                                <connections>
+                                    <action selector="addNewTopicsButtonPressed:" destination="afW-OZ-rjw" eventType="touchUpInside" id="wVv-C7-Qi8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X65-uR-fbV"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
+                            <constraint firstItem="Y5d-Jb-Ntm" firstAttribute="centerX" secondItem="5h4-7T-NPE" secondAttribute="centerX" id="1py-go-QvX"/>
+                            <constraint firstItem="Y5d-Jb-Ntm" firstAttribute="height" secondItem="0oC-bX-DrI" secondAttribute="height" id="6e4-NX-4FU"/>
                             <constraint firstItem="FDJ-NJ-aMH" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="10" id="BUR-FF-BC4"/>
                             <constraint firstItem="0oC-bX-DrI" firstAttribute="top" secondItem="FDJ-NJ-aMH" secondAttribute="bottom" constant="20" id="E6f-g5-m2h"/>
                             <constraint firstItem="FDJ-NJ-aMH" firstAttribute="top" secondItem="0Wk-q0-bAM" secondAttribute="bottom" constant="20" id="FCh-nO-13b"/>
                             <constraint firstItem="0oC-bX-DrI" firstAttribute="centerX" secondItem="5h4-7T-NPE" secondAttribute="centerX" id="FTi-jr-yT8"/>
-                            <constraint firstItem="X65-uR-fbV" firstAttribute="bottom" secondItem="0oC-bX-DrI" secondAttribute="bottom" constant="20" id="GUI-N5-6Kv"/>
                             <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="FDJ-NJ-aMH" secondAttribute="trailing" constant="10" id="RrS-vj-8Zd"/>
+                            <constraint firstItem="cjF-lk-Hkp" firstAttribute="centerX" secondItem="5h4-7T-NPE" secondAttribute="centerX" id="Xzd-sE-PIF"/>
+                            <constraint firstItem="0oC-bX-DrI" firstAttribute="width" secondItem="Y5d-Jb-Ntm" secondAttribute="width" id="ZQS-BL-AIf"/>
+                            <constraint firstItem="Y5d-Jb-Ntm" firstAttribute="top" secondItem="0oC-bX-DrI" secondAttribute="bottom" constant="10" id="ilu-0C-NiQ"/>
+                            <constraint firstItem="cjF-lk-Hkp" firstAttribute="centerY" secondItem="5h4-7T-NPE" secondAttribute="centerY" id="kSs-Ur-NYN"/>
                             <constraint firstItem="X65-uR-fbV" firstAttribute="trailing" secondItem="0Wk-q0-bAM" secondAttribute="trailing" constant="10" id="nb3-qH-zyB"/>
                             <constraint firstItem="0Wk-q0-bAM" firstAttribute="leading" secondItem="X65-uR-fbV" secondAttribute="leading" constant="10" id="qFy-kR-H37"/>
                             <constraint firstItem="0Wk-q0-bAM" firstAttribute="top" secondItem="X65-uR-fbV" secondAttribute="top" id="uur-Km-7iu"/>
@@ -886,6 +913,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="9IR-ny-eow"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="cjF-lk-Hkp" id="g1d-ci-P2v"/>
+                        <outlet property="addNewTopicsButton" destination="Y5d-Jb-Ntm" id="Bst-3S-dIF"/>
                         <outlet property="addTopicButton" destination="0oC-bX-DrI" id="p2g-Uh-oYO"/>
                         <outlet property="stepper" destination="Ci3-Ux-sL9" id="9Tp-Eo-xLM"/>
                         <outlet property="tableView" destination="3cL-i5-eHc" id="FKI-dt-qA5"/>

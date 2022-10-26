@@ -18,6 +18,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var topicsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var addTopicButton: UIButton!
     @IBOutlet weak var wordsSteckVuew: UIStackView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var addNewTopicsButton: UIButton!
     
     var dataModel = SettingsDataModel()
     var selectedRow: Int? = nil
@@ -25,13 +27,14 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(changeSelectedTopics(with:)), name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
+        addObservers()
         updateUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         dataModel.updateUserSettings(wordsCount: stepper.value)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper!) {
@@ -44,8 +47,29 @@ class SettingsViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func addTopicButtonPressed(_ sender: UIButton) {
+    @IBAction func addCustomTopicButtonPressed(_ sender: UIButton) {
         showAlert()
+    }
+    @IBAction func addNewTopicsButtonPressed(_ sender: UIButton) {
+        self.view.isUserInteractionEnabled = false
+        self.view.alpha = CGFloat(0.3)
+        activityIndicatorView.startAnimating()
+        dataModel.loadTopicWords()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "wordsVC" {
+            if let wordsVC = segue.destination as? WordsViewController {
+                if let index = selectedRow {
+                    wordsVC.dataModel = WordsDataModel(topic: dataModel.topics[index])
+                }
+            }
+        }
+    }
+    
+    private func addObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeSelectedTopics(with:)), name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView(with:)), name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
     }
     
     private func showAlert() {
@@ -84,6 +108,8 @@ class SettingsViewController: UIViewController {
         
         updateInitialValues()
         updateViewsConrers()
+        
+        addNewTopicsButton.isEnabled = UserDefaults.standard.bool(forKey: UserSettingKeys.addNewTopicsButtonIsEnabled.rawValue)
     }
     
     private func updateViewsConrers() {
@@ -98,19 +124,21 @@ class SettingsViewController: UIViewController {
         stepper.value = stepperValue
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "wordsVC" {
-            if let wordsVC = segue.destination as? WordsViewController {
-                if let index = selectedRow {
-                    wordsVC.dataModel = WordsDataModel(topic: dataModel.topics[index])
-                }
-            }
-        }
-    }
-    
     @objc private func changeSelectedTopics(with notify: NSNotification) {
         dataModel.changeTopicSelectedState(at: notify.object as! Int)
         tableView.reloadData()
+    }
+    
+    @objc private func updateTableView(with notify: NSNotification) {
+        UserDefaults.standard.set(false, forKey: UserSettingKeys.addNewTopicsButtonIsEnabled.rawValue)
+        DispatchQueue.main.async {
+            self.addNewTopicsButton.isEnabled = false
+            self.tableView.reloadData()
+            self.addNewTopicsButton.isEnabled = false
+            self.activityIndicatorView.stopAnimating()
+            self.view.alpha = CGFloat(1)
+            self.view.isUserInteractionEnabled = true
+        }
     }
 }
 

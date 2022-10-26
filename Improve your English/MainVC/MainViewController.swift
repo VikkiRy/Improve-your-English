@@ -21,13 +21,12 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        /*
         if !dataModel.isWordsExist {
             let alert = UIAlertController.oneActionAlert(title: "Congratulations!", message: "To continue, you can add new topics in the settings", actionTitle: "OK", preferredStyle: .alert)
             self.present(alert, animated: true)
         }
-        
-        updateButtonsCornersRadius()
+        */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
