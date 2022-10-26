@@ -24,11 +24,6 @@ class UserDefaultsViewController: UIViewController {
     @IBOutlet weak var numberLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var stepperLeadingConstraint: NSLayoutConstraint!
     
-    
-    
-    
-    
-    
     let dataModel = UserDefaultsDataModel()
     
     override func viewDidLoad() {
