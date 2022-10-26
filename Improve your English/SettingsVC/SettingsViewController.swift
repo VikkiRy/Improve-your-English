@@ -22,19 +22,24 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var addNewTopicsButton: UIButton!
     
     var dataModel = SettingsDataModel()
-    var selectedRow: Int? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addObservers()
         updateUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        addObservers()
+    }
+   
     override func viewWillDisappear(_ animated: Bool) {
         dataModel.updateUserSettings(wordsCount: stepper.value)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
+        removeObservers()
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: animated)
+        }
     }
     
     @IBAction func stepperPressed(_ sender: UIStepper!) {
@@ -50,6 +55,7 @@ class SettingsViewController: UIViewController {
     @IBAction func addCustomTopicButtonPressed(_ sender: UIButton) {
         showAlert()
     }
+    
     @IBAction func addNewTopicsButtonPressed(_ sender: UIButton) {
         self.view.isUserInteractionEnabled = false
         self.view.alpha = CGFloat(0.3)
@@ -60,16 +66,21 @@ class SettingsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "wordsVC" {
             if let wordsVC = segue.destination as? WordsViewController {
-                if let index = selectedRow {
-                    wordsVC.dataModel = WordsDataModel(topic: dataModel.topics[index])
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    wordsVC.dataModel = WordsDataModel(topic: dataModel.topics[indexPath.row])
                 }
             }
         }
     }
     
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(changeSelectedTopics(with:)), name: NSNotification.Name(rawValue: "selectedTopicsChanged"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeSelectedTopics(with:)), name: NSNotification.Name(rawValue: "selectedTopicsShouldChanged"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateTableView(with:)), name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
+    }
+    
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedTopicsShouldChanged"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
     }
     
     private func showAlert() {
@@ -152,14 +163,14 @@ extension SettingsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! TopicTableViewCell
         
         let selectedSegmentIndex = topicsSegmentedControl.selectedSegmentIndex
+        
         let topic = dataModel.getTopic(forSegmentAt: selectedSegmentIndex, topicAt: indexPath.row)
         
         cell.topicTitleLabel.text = topic.title
         
         cell.checkmarkButton.tag = indexPath.row
-        cell.checkmarkButton.setImage(UIImage.checkmark, for: .selected)
-        cell.checkmarkButton.setImage(.remove, for: .normal)
-        
+        cell.checkmarkButton.setImage(UIImage.init(systemName: "checkmark"), for: .selected)
+        cell.checkmarkButton.setImage(UIImage.init(systemName: "xmark"), for: .normal)
         cell.checkmarkButton.isSelected = topic.isSelected
         
         return cell
@@ -167,11 +178,6 @@ extension SettingsViewController: UITableViewDataSource {
 }
 
 extension SettingsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        selectedRow = indexPath.row
-        return indexPath
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "wordsVC", sender: tableView)
     }
