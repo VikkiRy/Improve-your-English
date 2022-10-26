@@ -50,9 +50,17 @@ class StatisticsViewController: UIViewController {
     }
 
     private func updateConstraints() {
-        topLabelViewHeightConstraint.constant = CGFloat(100)
-        countOfWordsLabelBottomConstraint.constant = CGFloat(40)
-
+        switch UIDevice.current.name {
+        case PhoneModels.iPod7.rawValue, PhoneModels.iPhoneSE.rawValue:
+            topLabelViewHeightConstraint.constant = CGFloat(100)
+            countOfWordsLabelBottomConstraint.constant = CGFloat(40)
+        case PhoneModels.iPhone8.rawValue:
+            topLabelViewHeightConstraint.constant = CGFloat(100)
+            countOfWordsLabelBottomConstraint.constant = CGFloat(50)
+        default:
+            return
+        }
+        
         self.view.updateConstraintsIfNeeded()
     }
     

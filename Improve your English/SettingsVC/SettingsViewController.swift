@@ -145,6 +145,8 @@ class SettingsViewController: UIViewController {
             topicsViewHeightConstraint.constant = CGFloat(215)
         case PhoneModels.iPhoneSE.rawValue:
             topicsViewHeightConstraint.constant = CGFloat(260)
+        case PhoneModels.iPhone8.rawValue:
+            topicsViewHeightConstraint.constant = CGFloat(320)
         default:
             return
         }

@@ -20,21 +20,28 @@ class AddWordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
-            updateConstraints()
-        }
+        //print(UIDevice.current.name)
+        updateConstraints()
     }
 
     private func updateConstraints() {
-        wordEngTextfieldTopConstraint.constant = CGFloat(10)
-        wordEngTextfieldBottomConstraint.constant = CGFloat(20)
-        wordsRusTextFieldTopConstraint.constant = CGFloat(10)
-        buttonTopConstraint.constant = CGFloat(15)
+        switch UIDevice.current.name {
+        case PhoneModels.iPod7.rawValue, PhoneModels.iPhoneSE.rawValue:
+            wordEngTextfieldTopConstraint.constant = CGFloat(10)
+            wordEngTextfieldBottomConstraint.constant = CGFloat(20)
+            wordsRusTextFieldTopConstraint.constant = CGFloat(10)
+            buttonTopConstraint.constant = CGFloat(15)
+        case PhoneModels.iPhone8.rawValue, PhoneModels.iPhone8Plus.rawValue, PhoneModels.iPhone12mini.rawValue:
+            wordEngTextfieldTopConstraint.constant = CGFloat(20)
+            wordEngTextfieldBottomConstraint.constant = CGFloat(20)
+            wordsRusTextFieldTopConstraint.constant = CGFloat(20)
+            buttonTopConstraint.constant = CGFloat(20)
+        default:
+            return
+        }
 
         self.view.updateConstraintsIfNeeded()
     }
-
    
     @IBAction func doneButtonPressed(_ sender: Any) {
         guard let wordEng = getText(form: wordEngTextfield),
