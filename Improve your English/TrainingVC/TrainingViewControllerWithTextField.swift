@@ -38,7 +38,10 @@ class TrainingViewControllerWithTextField: UIViewController {
 extension TrainingViewControllerWithTextField: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let userText = textField.text, !userText.isEmpty else {
-            let alert = UIAlertController.oneActionAlert(title: nil, message: "Please, enter word", actionTitle: "Got it", preferredStyle: .alert)
+            let alert = UIAlertController.oneCancelActionAlert(title: nil,
+                                                               message: "Please, enter word",
+                                                               actionTitle: "Got it",
+                                                               preferredStyle: .alert)
             self.present(alert, animated: true)
             
             return false
@@ -50,7 +53,10 @@ extension TrainingViewControllerWithTextField: UITextFieldDelegate {
         let title = isCorrectWord ? "Correctly!" : "It was a mistake"
         let actionTitle = isCorrectWord ? "Great" : "OK"
         
-        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: title,
+                                      message: nil,
+                                      preferredStyle: .alert)
+        
         let okAction = UIAlertAction(title: actionTitle, style: .cancel) { [self] _ in
             if isCorrectWord {
                 dataModel.countOfFinishedTrainingWord += 1

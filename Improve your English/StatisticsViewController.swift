@@ -10,12 +10,9 @@ import CloudKit
 
 class StatisticsViewController: UIViewController {
 
-    @IBOutlet weak var topLabelView: UIView!
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var countOfWordsLabel: UILabel!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var wordsCountLabel: UILabel!
     @IBOutlet weak var periodSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var topLabelViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var countOfWordsLabelBottomConstraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
@@ -25,74 +22,31 @@ class StatisticsViewController: UIViewController {
     }
     
     @IBAction func segmentedControlPressed(_ sender:  UISegmentedControl) {
-        updateLabel()
+        updateLabelText()
     }
     
     private func updateUI() {
-        topLabelView.layer.cornerRadius = 15
-        updateLabel()
-        
-
-        updateFonts()
-        updateConstraints()
+        updateLabelText()
+        topView.layer.cornerRadius = 15
     }
     
-    private func updateFonts() {
-        switch UIDevice.current.name {
-        case PhoneModels.iPod7.rawValue:
-            topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(25))
-            countOfWordsLabel.font = UIFont(name: "American Typewriter", size: CGFloat(60))
-        case PhoneModels.iPhoneSE.rawValue:
-            countOfWordsLabelBottomConstraint.constant = CGFloat(30)
-        default:
-            return
-        }
-    }
-
-    private func updateConstraints() {
-        switch UIDevice.current.name {
-        case PhoneModels.iPod7.rawValue, PhoneModels.iPhoneSE.rawValue:
-            topLabelViewHeightConstraint.constant = CGFloat(100)
-            countOfWordsLabelBottomConstraint.constant = CGFloat(40)
-        case PhoneModels.iPhone8.rawValue:
-            topLabelViewHeightConstraint.constant = CGFloat(100)
-            countOfWordsLabelBottomConstraint.constant = CGFloat(50)
-        default:
-            return
-        }
-        
-        self.view.updateConstraintsIfNeeded()
-    }
-    
-    private func updateLabel() {
-        var wordsCount = 0
+    private func updateLabelText() {
+        var initialDate = Date()
         
         switch periodSegmentedControl.selectedSegmentIndex {
         case 0:
-            wordsCount = StatisticRepository.shared.wordsCount(from: Date().startOfWeek)
+            initialDate = Date().startOfWeek
         case 1:
-            wordsCount = StatisticRepository.shared.wordsCount(from: Date().startOfMonth)
+            initialDate = Date().startOfMonth
         case 2:
-            wordsCount = StatisticRepository.shared.wordsCount(from: Date().startOfYear)
+            initialDate = Date().startOfYear
         case 3:
-            let startDate = StatisticRepository.shared.minimumDate()
-            wordsCount = StatisticRepository.shared.wordsCount(from: startDate)
+            initialDate = StatisticRepository.shared.minimumDate()
         default:
             return
         }
-
-        countOfWordsLabel.text = String(wordsCount)
-
-        let font: UIFont
         
-        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
-            font = countOfWordsLabel.font.withSize(60)
-        } else if wordsCount < 99 {
-            font = countOfWordsLabel.font.withSize(100)
-        } else {
-            font = countOfWordsLabel.font.withSize(50)
-        }
-        
-        countOfWordsLabel.font = font
+        let wordsCount = StatisticRepository.shared.wordsCount(from: initialDate)
+        wordsCountLabel.text = String(wordsCount)
     }
 }

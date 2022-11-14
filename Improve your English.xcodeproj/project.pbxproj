@@ -35,6 +35,13 @@
 		61A1B38D28F9F1AD00E7A534 /* UserDefaultsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A1B38C28F9F1AD00E7A534 /* UserDefaultsDataModel.swift */; };
 		61A76B4A29074A700040372A /* StatisticRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A76B4929074A700040372A /* StatisticRepository.swift */; };
 		61A76B4C29089EAD0040372A /* JSONDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A76B4B29089EAD0040372A /* JSONDataModel.swift */; };
+		61AA2BD0290AA4D5002110AE /* FontConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BCF290AA4D5002110AE /* FontConstraints.swift */; };
+		61AA2BD2290AA515002110AE /* ViewConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BD1290AA515002110AE /* ViewConstraints.swift */; };
+		61AA2BD4290AA53E002110AE /* ViewCornersRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BD3290AA53E002110AE /* ViewCornersRadius.swift */; };
+		61AA2BD6290AA714002110AE /* ViewControllerID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BD5290AA714002110AE /* ViewControllerID.swift */; };
+		61AA2BD9290AAA85002110AE /* CellID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BD8290AAA85002110AE /* CellID.swift */; };
+		61AA2BDB290AAB69002110AE /* SegueID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BDA290AAB69002110AE /* SegueID.swift */; };
+		61AA2BDE290AABC5002110AE /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AA2BDD290AABC5002110AE /* NotificationName.swift */; };
 		61AAB12F29017B9B00CEC57F /* LearningData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AAB12D29017B9B00CEC57F /* LearningData+CoreDataClass.swift */; };
 		61AAB13029017B9B00CEC57F /* LearningData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61AAB12E29017B9B00CEC57F /* LearningData+CoreDataProperties.swift */; };
 		61B0633428EAE639004BC096 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B0633328EAE639004BC096 /* CoreDataManager.swift */; };
@@ -86,6 +93,13 @@
 		61A1B38C28F9F1AD00E7A534 /* UserDefaultsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsDataModel.swift; sourceTree = "<group>"; };
 		61A76B4929074A700040372A /* StatisticRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticRepository.swift; sourceTree = "<group>"; };
 		61A76B4B29089EAD0040372A /* JSONDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDataModel.swift; sourceTree = "<group>"; };
+		61AA2BCF290AA4D5002110AE /* FontConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontConstraints.swift; sourceTree = "<group>"; };
+		61AA2BD1290AA515002110AE /* ViewConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConstraints.swift; sourceTree = "<group>"; };
+		61AA2BD3290AA53E002110AE /* ViewCornersRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCornersRadius.swift; sourceTree = "<group>"; };
+		61AA2BD5290AA714002110AE /* ViewControllerID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerID.swift; sourceTree = "<group>"; };
+		61AA2BD8290AAA85002110AE /* CellID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellID.swift; sourceTree = "<group>"; };
+		61AA2BDA290AAB69002110AE /* SegueID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueID.swift; sourceTree = "<group>"; };
+		61AA2BDD290AABC5002110AE /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		61AAB12D29017B9B00CEC57F /* LearningData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		61AAB12E29017B9B00CEC57F /* LearningData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LearningData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		61B0633328EAE639004BC096 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -131,6 +145,7 @@
 			children = (
 				61D1C0EA290201C50008B4FB /* DateExtension.swift */,
 				6195D81A2906E69F00CBF062 /* AlertControllerExtension.swift */,
+				61AA2BDD290AABC5002110AE /* NotificationName.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,11 +188,13 @@
 				613851282902D6C10077B32E /* StatisticsViewController.swift */,
 				61D1C0EC290201F70008B4FB /* Repositories */,
 				61B0633328EAE639004BC096 /* CoreDataManager.swift */,
-				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
+				61AA2BDC290AAB9A002110AE /* ID */,
+				61AA2BD7290AA7E5002110AE /* ConstraintsStructs */,
 				61A76B4B29089EAD0040372A /* JSONDataModel.swift */,
 				617FEB4E2908FD710039AE70 /* Errors.swift */,
 				61476D4728EF6F7F0070AD57 /* UserSettingKeys.swift */,
 				617FEB502908FD800039AE70 /* PhoneModels.swift */,
+				61E794F428E47FB20022B9ED /* DefaultValue.swift */,
 				6195D81C2906E6BE00CBF062 /* Extensions */,
 				619B562128DB496600C22044 /* Assets.xcassets */,
 				619B562328DB496600C22044 /* LaunchScreen.storyboard */,
@@ -185,6 +202,26 @@
 				616CC4A628F997FE00566ABC /* Improve_your_English.xcdatamodeld */,
 			);
 			path = "Improve your English";
+			sourceTree = "<group>";
+		};
+		61AA2BD7290AA7E5002110AE /* ConstraintsStructs */ = {
+			isa = PBXGroup;
+			children = (
+				61AA2BCF290AA4D5002110AE /* FontConstraints.swift */,
+				61AA2BD1290AA515002110AE /* ViewConstraints.swift */,
+				61AA2BD3290AA53E002110AE /* ViewCornersRadius.swift */,
+			);
+			path = ConstraintsStructs;
+			sourceTree = "<group>";
+		};
+		61AA2BDC290AAB9A002110AE /* ID */ = {
+			isa = PBXGroup;
+			children = (
+				61AA2BD8290AAA85002110AE /* CellID.swift */,
+				61AA2BDA290AAB69002110AE /* SegueID.swift */,
+				61AA2BD5290AA714002110AE /* ViewControllerID.swift */,
+			);
+			path = ID;
 			sourceTree = "<group>";
 		};
 		61B0633128EACE29004BC096 /* SettingsVC */ = {
@@ -348,10 +385,14 @@
 				61A76B4A29074A700040372A /* StatisticRepository.swift in Sources */,
 				6100095A2900BAF1009AF50E /* LearningDataModel.swift in Sources */,
 				616CC48F28F84A6C00566ABC /* WordsRepository.swift in Sources */,
+				61AA2BD4290AA53E002110AE /* ViewCornersRadius.swift in Sources */,
 				61D1C0EB290201C50008B4FB /* DateExtension.swift in Sources */,
 				61C6E17528EEE42300C1EFEB /* UserDefaultsViewController.swift in Sources */,
+				61AA2BDB290AAB69002110AE /* SegueID.swift in Sources */,
 				616CC49528F95E2500566ABC /* LearningViewController.swift in Sources */,
 				61C6E17828EEE51D00C1EFEB /* UserDefaultsTableViewCell.swift in Sources */,
+				61AA2BD0290AA4D5002110AE /* FontConstraints.swift in Sources */,
+				61AA2BD6290AA714002110AE /* ViewControllerID.swift in Sources */,
 				616CC4A828F997FE00566ABC /* Improve_your_English.xcdatamodeld in Sources */,
 				6195D81B2906E69F00CBF062 /* AlertControllerExtension.swift in Sources */,
 				6199EE9C2906B941002E7A2D /* TrainingViewControllerWithTextField.swift in Sources */,
@@ -359,18 +400,21 @@
 				61E794F528E47FB20022B9ED /* DefaultValue.swift in Sources */,
 				61A76B4C29089EAD0040372A /* JSONDataModel.swift in Sources */,
 				617C6C5C28DDA0F90000EEF3 /* TrainingViewController.swift in Sources */,
+				61AA2BDE290AABC5002110AE /* NotificationName.swift in Sources */,
 				612C878E28EACB82004DBE5F /* WordTableViewCell.swift in Sources */,
 				61CF640D28FDF60E00B29611 /* WordsDataModel.swift in Sources */,
 				619B561828DB496400C22044 /* SceneDelegate.swift in Sources */,
 				6187A61D28DDEE4E00ED9C93 /* SettingsViewController.swift in Sources */,
 				61CF640F28FF4A8B00B29611 /* SettingsDataModel.swift in Sources */,
 				61D1C0EE290210510008B4FB /* MainVCDataModel.swift in Sources */,
+				61AA2BD9290AAA85002110AE /* CellID.swift in Sources */,
 				616CC4A528F9677200566ABC /* Word+CoreDataProperties.swift in Sources */,
 				613851292902D6C10077B32E /* StatisticsViewController.swift in Sources */,
 				617FEB512908FD800039AE70 /* PhoneModels.swift in Sources */,
 				61D1C0E92901A53A0008B4FB /* LearningDataRepository.swift in Sources */,
 				61A1B38D28F9F1AD00E7A534 /* UserDefaultsDataModel.swift in Sources */,
 				612C2E9C28E44DE300D3757B /* TopicTableViewCell.swift in Sources */,
+				61AA2BD2290AA515002110AE /* ViewConstraints.swift in Sources */,
 				61F47C6F28E5CBFD00F81DA6 /* TopicsRepository.swift in Sources */,
 				616CC48928F80E9200566ABC /* Topic+CoreDataProperties.swift in Sources */,
 			);

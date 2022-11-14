@@ -24,6 +24,6 @@ class TopicTableViewCell: UITableViewCell {
     }
     
     @IBAction func checkMarkButtonPressed(_ sender: UIButton) {
-        NotificationCenter.default.post(name: Notification.Name("selectedTopicsShouldChanged"), object: sender.tag)
+        NotificationCenter.default.post(name: NSNotification.Name.selectedTopicsShouldChanged, object: sender.tag)
     }
 }

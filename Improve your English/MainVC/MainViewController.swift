@@ -17,19 +17,24 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        updateButtonsCornersRadius()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         switch segue.identifier {
-        case "learning":
+        case ViewControllerID.learning.rawValue:
             if let learningVC = segue.destination as? LearningViewController {
                 learningVC.dataModel = LearningDataModel(learningData: dataModel.learningData)
             }
-        case "training":
+            
+        case ViewControllerID.training.rawValue:
             if let trainingVC = segue.destination as? TrainingViewController {
                 trainingVC.dataModel = TrainingDataModel(trainigData: dataModel.trainingData)
             }
-        case "trainingWithTextField":
+            
+        case ViewControllerID.trainingWithTextField.rawValue:
             if let trainingVC = segue.destination as? TrainingViewControllerWithTextField {
                 trainingVC.dataModel = TrainingDataModel(trainigData: dataModel.trainingData)
             }
@@ -43,39 +48,46 @@ class MainViewController: UIViewController {
         case true:
             do {
                 try LearningDataRepository.shared.addCurrentDayData()
-                performSegue(withIdentifier: "learning", sender: self)
+                performSegue(withIdentifier: ViewControllerID.learning.rawValue, sender: self)
             } catch {
-                showAlert()
+                showAddNewTopicAlert()
             }
         case false:
-            performSegue(withIdentifier: "learning", sender: self)
+            performSegue(withIdentifier: ViewControllerID.learning.rawValue, sender: self)
         }
     }
     
     @IBAction func trainingButtonPressed(_ sender: UIButton) {
         switch dataModel.trainingData.isEmpty {
         case true:
-            let alert = UIAlertController.oneActionAlert(title: "Not available yet", message: "You need to learn new words", actionTitle: "Got it", preferredStyle: .alert)
-            
-            self.present(alert, animated: true)
+            showLearnNewWordsAlert()
         case false:
-            if dataModel.trainingData.count < 4 {
-                performSegue(withIdentifier: "trainingWithTextField", sender: self)
-            } else {
-                performSegue(withIdentifier: "training", sender: self)
-            }
+            let trainingDataCount = dataModel.trainingData.count
+            let id = trainingDataCount > 4 ? ViewControllerID.training.rawValue : ViewControllerID.trainingWithTextField.rawValue
+            
+            performSegue(withIdentifier: id, sender: self)
         }
     }
-    
+    //todo
     private func updateButtonsCornersRadius() {
         learningButton.layer.cornerRadius = 15
         trainingButton.layer.cornerRadius = 15
     }
     
-    private func showAlert() {
-        let alert = UIAlertController(title: nil, message: "To continue, you can add new topics in the settings", preferredStyle: .actionSheet)
-        let gotItAction = UIAlertAction(title: "Got it", style: .cancel)
-        alert.addAction(gotItAction)
+    private func showAddNewTopicAlert() {
+        let alert = UIAlertController.oneCancelActionAlert(title: nil,
+                                                           message: "To continue, you can add new topics in the settings",
+                                                           actionTitle: "Got it",
+                                                           preferredStyle: .actionSheet)
+        
+        self.present(alert, animated: true)
+    }
+    
+    private func showLearnNewWordsAlert() {
+        let alert = UIAlertController.oneCancelActionAlert(title: "Not available yet",
+                                                     message: "You need to learn new words",
+                                                     actionTitle: "Got it",
+                                                     preferredStyle: .alert)
         
         self.present(alert, animated: true)
     }

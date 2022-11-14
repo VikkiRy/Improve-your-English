@@ -20,14 +20,14 @@ class WordsViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self,
             selector: #selector(modalViewDismissed(_:)),
-            name: Notification.Name("modalViewDismissed"),
+            name: Notification.Name.modalViewDismissed,
             object: nil)
         
         updateUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addWord" {
+        if segue.identifier == ViewControllerID.addWord.rawValue {
             if let addWordVC = segue.destination as? AddWordViewController {
                 addWordVC.dataModel = AddWordDataModel(topic: dataModel.topic)
             }
@@ -35,13 +35,15 @@ class WordsViewController: UIViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name("modalViewDismissed"), object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: Notification.Name.modalViewDismissed,
+                                                  object: nil)
     }
     
     @IBAction func addWordButtonPressed(_ sender: UIBarButtonItem) {
         switch dataModel.isShouldPerformSegue() {
         case true:
-            performSegue(withIdentifier: "addWord", sender: self)
+            performSegue(withIdentifier: ViewControllerID.addWord.rawValue, sender: self)
         case false:
             showAlert()
         }
@@ -55,8 +57,9 @@ class WordsViewController: UIViewController {
     }
     
     private func showAlert() {
-        let message = "Sorry, you can add words only to your own topics"
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: nil,
+                                      message: "Sorry, you can add words only to your own topics",
+                                      preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .cancel)
         
         alert.addAction(okAction)
@@ -65,7 +68,7 @@ class WordsViewController: UIViewController {
     
     private func updateUI() {
         let nibCell = UINib(nibName: "WordTableViewCell", bundle: nil)
-        tableView.register(nibCell, forCellReuseIdentifier: "wordCell")
+        tableView.register(nibCell, forCellReuseIdentifier: CellID.wordCell.rawValue)
         
         tableView.dataSource = self
     }
@@ -77,7 +80,7 @@ extension WordsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "wordCell", for: indexPath) as! WordTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.wordCell.rawValue, for: indexPath) as! WordTableViewCell
         
         cell.wordLabel.text = dataModel.topicWords[indexPath.row].engTitle
         

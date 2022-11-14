@@ -10,18 +10,15 @@ import CoreData
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var wordsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var wordsCountLabel: UILabel!
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var topicsView: UIView!
     @IBOutlet weak var topicsSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var addTopicButton: UIButton!
-    @IBOutlet weak var wordsSteckVuew: UIStackView!
+    @IBOutlet weak var addCustomTopicButton: UIButton!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var addNewTopicsButton: UIButton!
-    @IBOutlet weak var topicsViewHeightConstraint: NSLayoutConstraint!
     
     var dataModel = SettingsDataModel()
     
@@ -66,7 +63,7 @@ class SettingsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "wordsVC" {
+        if segue.identifier == SegueID.wordsVC.rawValue {
             if let wordsVC = segue.destination as? WordsViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     wordsVC.dataModel = WordsDataModel(topic: dataModel.topics[indexPath.row])
@@ -76,13 +73,19 @@ class SettingsViewController: UIViewController {
     }
     
     private func addObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(changeSelectedTopics(with:)), name: NSNotification.Name(rawValue: "selectedTopicsShouldChanged"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView(with:)), name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeSelectedTopics(with:)),
+                                               name: NSNotification.Name.selectedTopicsShouldChanged,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTableView(with:)),
+                                               name: NSNotification.Name(rawValue: "JSONDateSaved"),
+                                               object: nil)
     }
     
     private func removeObservers() {
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedTopicsShouldChanged"), object: nil)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "JSONDateSaved"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.selectedTopicsShouldChanged, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.JSONDateSaved, object: nil)
     }
     
     private func showAlert() {
@@ -122,36 +125,9 @@ class SettingsViewController: UIViewController {
         updateInitialValues()
         updateViewsConrers()
         
-        updateFont()
-        updateConstraints()
-        
         if UserDefaults.standard.bool(forKey: UserSettingKeys.isNewTopicsButtonPressed.rawValue) == true {
             addNewTopicsButton.isEnabled = false
         }
-    }
-
-    private func updateFont() {
-        switch UIDevice.current.name {
-        case PhoneModels.iPod7.rawValue:
-            topLabel.font = UIFont(name: "American Typewriter", size: CGFloat(17))
-        default:
-            return
-        }
-    }
-    
-    private func updateConstraints() {
-        switch UIDevice.current.name {
-        case PhoneModels.iPod7.rawValue:
-            topicsViewHeightConstraint.constant = CGFloat(215)
-        case PhoneModels.iPhoneSE.rawValue:
-            topicsViewHeightConstraint.constant = CGFloat(260)
-        case PhoneModels.iPhone8.rawValue:
-            topicsViewHeightConstraint.constant = CGFloat(320)
-        default:
-            return
-        }
-
-        self.view.updateConstraintsIfNeeded()
     }
     
     private func updateViewsConrers() {
@@ -187,11 +163,12 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let selectedSegmentIndex = topicsSegmentedControl.selectedSegmentIndex
+        
         return dataModel.getTopicCount(forSegmentAt: selectedSegmentIndex)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "topicCell", for: indexPath) as! TopicTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellID.topicCell.rawValue, for: indexPath) as! TopicTableViewCell
         
         let selectedSegmentIndex = topicsSegmentedControl.selectedSegmentIndex
         
@@ -210,6 +187,6 @@ extension SettingsViewController: UITableViewDataSource {
 
 extension SettingsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "wordsVC", sender: tableView)
+        performSegue(withIdentifier: SegueID.wordsVC.rawValue, sender: tableView)
     }
 }

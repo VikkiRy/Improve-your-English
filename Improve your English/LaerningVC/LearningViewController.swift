@@ -13,9 +13,6 @@ class LearningViewController: UIViewController {
     @IBOutlet weak var wordRusLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var nextButtonHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var backButtonHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
     var dataModel: LearningDataModel!
 
@@ -27,6 +24,7 @@ class LearningViewController: UIViewController {
     
     @IBAction func nextButtonPressed(_ sender: Any) {
         let nextWordIndex = dataModel.learningWordPosition + 1
+        
         if nextWordIndex == dataModel.data.count {
             dataModel.changeWordsLearningState()
             self.navigationController?.popViewController(animated: true)
@@ -46,28 +44,9 @@ class LearningViewController: UIViewController {
         wordEngLabel.text = word.engTitle
         wordRusLabel.text = word.rusTitle
         
-        updateNextButton()
-        updateBackButton()
+        backButton.isEnabled = dataModel.learningWordPosition != 0
         
-        if UIDevice.current.name == PhoneModels.iPod7.rawValue {
-            updateConstraints()
-        }
-    }
-
-    private func updateConstraints() {
-        nextButtonHeightConstraint.constant = CGFloat(55)
-        backButtonHeightConstraint.constant = CGFloat(55)
-        imageViewHeightConstraint.constant = CGFloat(100)
-    
-        self.view.updateConstraintsIfNeeded()
-    }
-    private func updateBackButton() {
-        switch dataModel.learningWordPosition {
-        case 0:
-            backButton.isEnabled = false
-        default:
-            backButton.isEnabled = true
-        }
+        updateNextButton()
     }
     
     private func updateNextButton() {

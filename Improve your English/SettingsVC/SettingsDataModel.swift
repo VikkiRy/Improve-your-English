@@ -52,7 +52,7 @@ class SettingsDataModel {
         }
         
         CoreDataManager.shared.save()
-        NotificationCenter.default.post(name: Notification.Name("JSONDateSaved"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name.JSONDateSaved, object: nil)
     }
     
     private func allTopics() -> [Topic] {
